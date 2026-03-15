@@ -1,0 +1,2146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="eng">
+  <head>
+    <meta content="urn:isbn:9781633436541" name="dtb:uid"/>
+    <meta content="4" name="dtb:depth"/>
+    <meta content="0" name="dtb:totalPageCount"/>
+    <meta content="0" name="dtb:maxPageNumber"/>
+  </head>
+  <docTitle>
+    <text>AI智能体与应用</text>
+  </docTitle>
+  <docAuthor>
+    <text>罗贝托·因凡特</text>
+  </docAuthor>
+  <navMap>
+    <navPoint class="chapter" id="navPoint-1" playOrder="1">
+      <navLabel>
+        <text>AI智能体与应用</text>
+      </navLabel>
+      <content src="Text/title.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-2" playOrder="2">
+      <navLabel>
+        <text>版权页</text>
+      </navLabel>
+      <content src="Text/copyright.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-3" playOrder="3">
+      <navLabel>
+        <text>目录</text>
+      </navLabel>
+      <content src="Text/contents.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-4" playOrder="4">
+      <navLabel>
+        <text>献词</text>
+      </navLabel>
+      <content src="Text/dedication.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-5" playOrder="5">
+      <navLabel>
+        <text>前言</text>
+      </navLabel>
+      <content src="Text/preface.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-6" playOrder="6">
+      <navLabel>
+        <text>致谢</text>
+      </navLabel>
+      <content src="Text/acknowledgments.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-7" playOrder="7">
+      <navLabel>
+        <text>关于本书</text>
+      </navLabel>
+      <content src="Text/about-this-book.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-8" playOrder="8">
+      <navLabel>
+        <text>作者简介</text>
+      </navLabel>
+      <content src="Text/about-the-author.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-9" playOrder="9">
+      <navLabel>
+        <text>关于封面插图</text>
+      </navLabel>
+      <content src="Text/about-the-cover-illustration.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-10" playOrder="10">
+      <navLabel>
+        <text>Part 1 Getting started with LLMs</text>
+      </navLabel>
+      <content src="Text/part-1.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-11" playOrder="11">
+      <navLabel>
+        <text>1 Introduction to AI agents and applications</text>
+      </navLabel>
+      <content src="Text/chapter-1.html"/>
+      <navPoint class="chapter" id="navPoint-12" playOrder="12">
+        <navLabel>
+          <text>1.1 Building LLM-based applications and agents</text>
+        </navLabel>
+        <content src="Text/chapter-1.html#p8"/>
+        <navPoint class="chapter" id="navPoint-13" playOrder="13">
+          <navLabel>
+            <text>1.1.1 LLM-based applications: Summarization and Q&amp;A engines</text>
+          </navLabel>
+          <content src="Text/chapter-1.html#p15"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-14" playOrder="14">
+          <navLabel>
+            <text>1.1.2 LLM-based chatbots</text>
+          </navLabel>
+          <content src="Text/chapter-1.html#p29"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-15" playOrder="15">
+          <navLabel>
+            <text>1.1.3 AI agents</text>
+          </navLabel>
+          <content src="Text/chapter-1.html#p37"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-16" playOrder="16">
+        <navLabel>
+          <text>1.2 Introducing LangChain</text>
+        </navLabel>
+        <content src="Text/chapter-1.html#p53"/>
+        <navPoint class="chapter" id="navPoint-17" playOrder="17">
+          <navLabel>
+            <text>1.2.1 LangChain architecture</text>
+          </navLabel>
+          <content src="Text/chapter-1.html#p64"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-18" playOrder="18">
+          <navLabel>
+            <text>1.2.2 LangChain’s core object model</text>
+          </navLabel>
+          <content src="Text/chapter-1.html#p88"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-19" playOrder="19">
+        <navLabel>
+          <text>1.3 Typical LLM use cases</text>
+        </navLabel>
+        <content src="Text/chapter-1.html#p105"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-20" playOrder="20">
+        <navLabel>
+          <text>1.4 How to adapt an LLM to your needs</text>
+        </navLabel>
+        <content src="Text/chapter-1.html#p115"/>
+        <navPoint class="chapter" id="navPoint-21" playOrder="21">
+          <navLabel>
+            <text>1.4.1 Prompt engineering</text>
+          </navLabel>
+          <content src="Text/chapter-1.html#p121"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-22" playOrder="22">
+          <navLabel>
+            <text>1.4.2 RAG</text>
+          </navLabel>
+          <content src="Text/chapter-1.html#p126"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-23" playOrder="23">
+          <navLabel>
+            <text>1.4.3 Fine-tuning</text>
+          </navLabel>
+          <content src="Text/chapter-1.html#p138"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-24" playOrder="24">
+        <navLabel>
+          <text>1.5 Which LLMs to choose</text>
+        </navLabel>
+        <content src="Text/chapter-1.html#p149"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-25" playOrder="25">
+        <navLabel>
+          <text>1.6 What you’ll learn from this book</text>
+        </navLabel>
+        <content src="Text/chapter-1.html#p163"/>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-26" playOrder="26">
+      <navLabel>
+        <text>2 Executing prompts programmatically</text>
+      </navLabel>
+      <content src="Text/chapter-2.html"/>
+      <navPoint class="chapter" id="navPoint-27" playOrder="27">
+        <navLabel>
+          <text>2.1 Running prompts programmatically</text>
+        </navLabel>
+        <content src="Text/chapter-2.html#p9"/>
+        <navPoint class="chapter" id="navPoint-28" playOrder="28">
+          <navLabel>
+            <text>2.1.1 Setting up the environment for this chapter</text>
+          </navLabel>
+          <content src="Text/chapter-2.html#p14"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-29" playOrder="29">
+          <navLabel>
+            <text>2.1.2 Minimal prompt execution</text>
+          </navLabel>
+          <content src="Text/chapter-2.html#p34"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-30" playOrder="30">
+        <navLabel>
+          <text>2.2 Running prompts with LangChain</text>
+        </navLabel>
+        <content src="Text/chapter-2.html#p57"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-31" playOrder="31">
+        <navLabel>
+          <text>2.3 Prompt templates</text>
+        </navLabel>
+        <content src="Text/chapter-2.html#p65"/>
+        <navPoint class="chapter" id="navPoint-32" playOrder="32">
+          <navLabel>
+            <text>2.3.1 Implementing a prompt template with a Python function</text>
+          </navLabel>
+          <content src="Text/chapter-2.html#p67"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-33" playOrder="33">
+          <navLabel>
+            <text>2.3.2 Using LangChain’s PromptTemplate</text>
+          </navLabel>
+          <content src="Text/chapter-2.html#p74"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-34" playOrder="34">
+        <navLabel>
+          <text>2.4 Prompt types</text>
+        </navLabel>
+        <content src="Text/chapter-2.html#p84"/>
+        <navPoint class="chapter" id="navPoint-35" playOrder="35">
+          <navLabel>
+            <text>2.4.1 Text classification</text>
+          </navLabel>
+          <content src="Text/chapter-2.html#p87"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-36" playOrder="36">
+          <navLabel>
+            <text>2.4.2 Sentiment analysis</text>
+          </navLabel>
+          <content src="Text/chapter-2.html#p103"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-37" playOrder="37">
+          <navLabel>
+            <text>2.4.3 Text summarization</text>
+          </navLabel>
+          <content src="Text/chapter-2.html#p123"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-38" playOrder="38">
+          <navLabel>
+            <text>2.4.4 Composing text</text>
+          </navLabel>
+          <content src="Text/chapter-2.html#p131"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-39" playOrder="39">
+          <navLabel>
+            <text>2.4.5 Question answering</text>
+          </navLabel>
+          <content src="Text/chapter-2.html#p163"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-40" playOrder="40">
+          <navLabel>
+            <text>2.4.6 Reasoning</text>
+          </navLabel>
+          <content src="Text/chapter-2.html#p179"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-41" playOrder="41">
+        <navLabel>
+          <text>2.5 Reasoning in detail</text>
+        </navLabel>
+        <content src="Text/chapter-2.html#p195"/>
+        <navPoint class="chapter" id="navPoint-42" playOrder="42">
+          <navLabel>
+            <text>2.5.1 One-shot learning</text>
+          </navLabel>
+          <content src="Text/chapter-2.html#p197"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-43" playOrder="43">
+          <navLabel>
+            <text>2.5.2 Two-shot learning</text>
+          </navLabel>
+          <content src="Text/chapter-2.html#p206"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-44" playOrder="44">
+          <navLabel>
+            <text>2.5.3 Providing steps</text>
+          </navLabel>
+          <content src="Text/chapter-2.html#p217"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-45" playOrder="45">
+          <navLabel>
+            <text>2.5.4 Few-shot learning</text>
+          </navLabel>
+          <content src="Text/chapter-2.html#p249"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-46" playOrder="46">
+          <navLabel>
+            <text>2.5.5 Implementing few-shot learning with LangChain</text>
+          </navLabel>
+          <content src="Text/chapter-2.html#p281"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-47" playOrder="47">
+          <navLabel>
+            <text>2.5.6 Chain of Thought</text>
+          </navLabel>
+          <content src="Text/chapter-2.html#p292"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-48" playOrder="48">
+        <navLabel>
+          <text>2.6 Prompt structure</text>
+        </navLabel>
+        <content src="Text/chapter-2.html#p325"/>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-49" playOrder="49">
+      <navLabel>
+        <text>Part 2 Summarization</text>
+      </navLabel>
+      <content src="Text/part-2.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-50" playOrder="50">
+      <navLabel>
+        <text>3 Summarizing text using LangChain</text>
+      </navLabel>
+      <content src="Text/chapter-3.html"/>
+      <navPoint class="chapter" id="navPoint-51" playOrder="51">
+        <navLabel>
+          <text>3.1 Summarizing a document bigger than the context window</text>
+        </navLabel>
+        <content src="Text/chapter-3.html#p7"/>
+        <navPoint class="chapter" id="navPoint-52" playOrder="52">
+          <navLabel>
+            <text>3.1.1 Chunking the text into Document objects</text>
+          </navLabel>
+          <content src="Text/chapter-3.html#p19"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-53" playOrder="53">
+          <navLabel>
+            <text>3.1.2 Split</text>
+          </navLabel>
+          <content src="Text/chapter-3.html#p24"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-54" playOrder="54">
+          <navLabel>
+            <text>3.1.3 Map</text>
+          </navLabel>
+          <content src="Text/chapter-3.html#p34"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-55" playOrder="55">
+          <navLabel>
+            <text>3.1.4 Reduce</text>
+          </navLabel>
+          <content src="Text/chapter-3.html#p41"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-56" playOrder="56">
+          <navLabel>
+            <text>3.1.5 MapReduce combined chain</text>
+          </navLabel>
+          <content src="Text/chapter-3.html#p47"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-57" playOrder="57">
+          <navLabel>
+            <text>3.1.6 MapReduce execution</text>
+          </navLabel>
+          <content src="Text/chapter-3.html#p51"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-58" playOrder="58">
+        <navLabel>
+          <text>3.2 Summarizing across documents</text>
+        </navLabel>
+        <content src="Text/chapter-3.html#p58"/>
+        <navPoint class="chapter" id="navPoint-59" playOrder="59">
+          <navLabel>
+            <text>3.2.1 Creating a list of Document objects</text>
+          </navLabel>
+          <content src="Text/chapter-3.html#p65"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-60" playOrder="60">
+          <navLabel>
+            <text>3.2.2 Wikipedia content</text>
+          </navLabel>
+          <content src="Text/chapter-3.html#p67"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-61" playOrder="61">
+          <navLabel>
+            <text>3.2.3 File-based content</text>
+          </navLabel>
+          <content src="Text/chapter-3.html#p72"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-62" playOrder="62">
+          <navLabel>
+            <text>3.2.4 Creating the Document list</text>
+          </navLabel>
+          <content src="Text/chapter-3.html#p81"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-63" playOrder="63">
+          <navLabel>
+            <text>3.2.5 Progressively refining the final summary</text>
+          </navLabel>
+          <content src="Text/chapter-3.html#p91"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-64" playOrder="64">
+        <navLabel>
+          <text>3.3 Summarization flowchart</text>
+        </navLabel>
+        <content src="Text/chapter-3.html#p109"/>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-65" playOrder="65">
+      <navLabel>
+        <text>4 Building a research summarization engine</text>
+      </navLabel>
+      <content src="Text/chapter-4.html"/>
+      <navPoint class="chapter" id="navPoint-66" playOrder="66">
+        <navLabel>
+          <text>4.1 Overview of a research summarization engine</text>
+        </navLabel>
+        <content src="Text/chapter-4.html#p8"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-67" playOrder="67">
+        <navLabel>
+          <text>4.2 Setting up the project</text>
+        </navLabel>
+        <content src="Text/chapter-4.html#p14"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-68" playOrder="68">
+        <navLabel>
+          <text>4.3 Implementing the core functionality</text>
+        </navLabel>
+        <content src="Text/chapter-4.html#p36"/>
+        <navPoint class="chapter" id="navPoint-69" playOrder="69">
+          <navLabel>
+            <text>4.3.1 Implementing web searching</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p38"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-70" playOrder="70">
+          <navLabel>
+            <text>4.3.2 Implementing web scraping</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p47"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-71" playOrder="71">
+          <navLabel>
+            <text>4.3.3 Instantiating the LLM client</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p55"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-72" playOrder="72">
+          <navLabel>
+            <text>4.3.4 JSON to Python object converter</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p61"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-73" playOrder="73">
+        <navLabel>
+          <text>4.4 Enhancing the architecture with query rewriting</text>
+        </navLabel>
+        <content src="Text/chapter-4.html#p65"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-74" playOrder="74">
+        <navLabel>
+          <text>4.5 Prompt engineering</text>
+        </navLabel>
+        <content src="Text/chapter-4.html#p78"/>
+        <navPoint class="chapter" id="navPoint-75" playOrder="75">
+          <navLabel>
+            <text>4.5.1 Crafting web search prompts</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p80"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-76" playOrder="76">
+          <navLabel>
+            <text>4.5.2 Crafting summarization prompts</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p88"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-77" playOrder="77">
+          <navLabel>
+            <text>4.5.3 Research report prompt</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p91"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-78" playOrder="78">
+        <navLabel>
+          <text>4.6 Initial implementation</text>
+        </navLabel>
+        <content src="Text/chapter-4.html#p94"/>
+        <navPoint class="chapter" id="navPoint-79" playOrder="79">
+          <navLabel>
+            <text>4.6.1 Importing functions and prompt templates</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p96"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-80" playOrder="80">
+          <navLabel>
+            <text>4.6.2 Setting constants and input variables</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p99"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-81" playOrder="81">
+          <navLabel>
+            <text>4.6.3 Instantiating the LLM client</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p104"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-82" playOrder="82">
+          <navLabel>
+            <text>4.6.4 Generating the web searches and collecting the results</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p107"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-83" playOrder="83">
+          <navLabel>
+            <text>4.6.5 Scraping the web results</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p133"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-84" playOrder="84">
+          <navLabel>
+            <text>4.6.6 Summarizing the web results</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p139"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-85" playOrder="85">
+          <navLabel>
+            <text>4.6.7 Generating the research report</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p145"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-86" playOrder="86">
+        <navLabel>
+          <text>4.7 Reimplementing the research summary engine in LCEL</text>
+        </navLabel>
+        <content src="Text/chapter-4.html#p163"/>
+        <navPoint class="chapter" id="navPoint-87" playOrder="87">
+          <navLabel>
+            <text>4.7.1 Assistant Instructions chain</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p188"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-88" playOrder="88">
+          <navLabel>
+            <text>4.7.2 Web Searches chain</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p205"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-89" playOrder="89">
+          <navLabel>
+            <text>4.7.3 Search and Summarization chain</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p213"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-90" playOrder="90">
+          <navLabel>
+            <text>4.7.4 Web Research chain</text>
+          </navLabel>
+          <content src="Text/chapter-4.html#p247"/>
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-91" playOrder="91">
+      <navLabel>
+        <text>5 Agentic workflows with LangGraph</text>
+      </navLabel>
+      <content src="Text/chapter-5.html"/>
+      <navPoint class="chapter" id="navPoint-92" playOrder="92">
+        <navLabel>
+          <text>5.1 Understanding agentic workflows and agents</text>
+        </navLabel>
+        <content src="Text/chapter-5.html#p6"/>
+        <navPoint class="chapter" id="navPoint-93" playOrder="93">
+          <navLabel>
+            <text>5.1.1 Workflows</text>
+          </navLabel>
+          <content src="Text/chapter-5.html#p12"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-94" playOrder="94">
+          <navLabel>
+            <text>5.1.2 Agents</text>
+          </navLabel>
+          <content src="Text/chapter-5.html#p16"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-95" playOrder="95">
+          <navLabel>
+            <text>5.1.3 When to use agent-based architectures</text>
+          </navLabel>
+          <content src="Text/chapter-5.html#p18"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-96" playOrder="96">
+          <navLabel>
+            <text>5.1.4 Agent development frameworks</text>
+          </navLabel>
+          <content src="Text/chapter-5.html#p21"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-97" playOrder="97">
+        <navLabel>
+          <text>5.2 LangGraph basics</text>
+        </navLabel>
+        <content src="Text/chapter-5.html#p31"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-98" playOrder="98">
+        <navLabel>
+          <text>5.3 Moving from LangChain chains to LangGraph</text>
+        </navLabel>
+        <content src="Text/chapter-5.html#p35"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-99" playOrder="99">
+        <navLabel>
+          <text>5.4 LangGraph core components</text>
+        </navLabel>
+        <content src="Text/chapter-5.html#p42"/>
+        <navPoint class="chapter" id="navPoint-100" playOrder="100">
+          <navLabel>
+            <text>5.4.1 StateGraph structure</text>
+          </navLabel>
+          <content src="Text/chapter-5.html#p48"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-101" playOrder="101">
+          <navLabel>
+            <text>5.4.2 State management and typing</text>
+          </navLabel>
+          <content src="Text/chapter-5.html#p51"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-102" playOrder="102">
+          <navLabel>
+            <text>5.4.3 Node functions and edge definitions</text>
+          </navLabel>
+          <content src="Text/chapter-5.html#p56"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-103" playOrder="103">
+          <navLabel>
+            <text>5.4.4 Entry points and end conditions</text>
+          </navLabel>
+          <content src="Text/chapter-5.html#p63"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-104" playOrder="104">
+        <navLabel>
+          <text>5.5 Turning the web research assistant into an AI agent</text>
+        </navLabel>
+        <content src="Text/chapter-5.html#p67"/>
+        <navPoint class="chapter" id="navPoint-105" playOrder="105">
+          <navLabel>
+            <text>5.5.1 Original LangChain implementation overview</text>
+          </navLabel>
+          <content src="Text/chapter-5.html#p69"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-106" playOrder="106">
+          <navLabel>
+            <text>5.5.2 Identifying components for conversion</text>
+          </navLabel>
+          <content src="Text/chapter-5.html#p83"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-107" playOrder="107">
+          <navLabel>
+            <text>5.5.3 Step-by-step transformation process</text>
+          </navLabel>
+          <content src="Text/chapter-5.html#p98"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-108" playOrder="108">
+          <navLabel>
+            <text>5.5.4 Code comparison and benefits realized</text>
+          </navLabel>
+          <content src="Text/chapter-5.html#p115"/>
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-109" playOrder="109">
+      <navLabel>
+        <text>Part 3 Q&amp;A chatbots</text>
+      </navLabel>
+      <content src="Text/part-3.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-110" playOrder="110">
+      <navLabel>
+        <text>6 RAG fundamentals with ChromaDB</text>
+      </navLabel>
+      <content src="Text/chapter-6.html"/>
+      <navPoint class="chapter" id="navPoint-111" playOrder="111">
+        <navLabel>
+          <text>6.1 Semantic search</text>
+        </navLabel>
+        <content src="Text/chapter-6.html#p9"/>
+        <navPoint class="chapter" id="navPoint-112" playOrder="112">
+          <navLabel>
+            <text>6.1.1 A basic Q&amp;A chatbot over a single document</text>
+          </navLabel>
+          <content src="Text/chapter-6.html#p14"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-113" playOrder="113">
+          <navLabel>
+            <text>6.1.2 A more complex Q&amp;A chatbot over a knowledge base</text>
+          </navLabel>
+          <content src="Text/chapter-6.html#p64"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-114" playOrder="114">
+          <navLabel>
+            <text>6.1.3 The RAG design pattern</text>
+          </navLabel>
+          <content src="Text/chapter-6.html#p74"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-115" playOrder="115">
+        <navLabel>
+          <text>6.2 Vector stores</text>
+        </navLabel>
+        <content src="Text/chapter-6.html#p99"/>
+        <navPoint class="chapter" id="navPoint-116" playOrder="116">
+          <navLabel>
+            <text>6.2.1 What’s a vector store?</text>
+          </navLabel>
+          <content src="Text/chapter-6.html#p101"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-117" playOrder="117">
+          <navLabel>
+            <text>6.2.2 How do vector stores work?</text>
+          </navLabel>
+          <content src="Text/chapter-6.html#p104"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-118" playOrder="118">
+          <navLabel>
+            <text>6.2.3 Vector libraries vs. vector databases</text>
+          </navLabel>
+          <content src="Text/chapter-6.html#p110"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-119" playOrder="119">
+          <navLabel>
+            <text>6.2.4 Most popular vector stores</text>
+          </navLabel>
+          <content src="Text/chapter-6.html#p120"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-120" playOrder="120">
+          <navLabel>
+            <text>6.2.5 Storing text and performing a semantic search using Chroma</text>
+          </navLabel>
+          <content src="Text/chapter-6.html#p123"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-121" playOrder="121">
+        <navLabel>
+          <text>6.3 Implementing RAG from scratch</text>
+        </navLabel>
+        <content src="Text/chapter-6.html#p169"/>
+        <navPoint class="chapter" id="navPoint-122" playOrder="122">
+          <navLabel>
+            <text>6.3.1 Retrieving content from the vector database</text>
+          </navLabel>
+          <content src="Text/chapter-6.html#p176"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-123" playOrder="123">
+          <navLabel>
+            <text>6.3.2 Invoking the LLM</text>
+          </navLabel>
+          <content src="Text/chapter-6.html#p184"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-124" playOrder="124">
+          <navLabel>
+            <text>6.3.3 Building the chatbot</text>
+          </navLabel>
+          <content src="Text/chapter-6.html#p208"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-125" playOrder="125">
+          <navLabel>
+            <text>6.3.4 Recap of RAG terminology</text>
+          </navLabel>
+          <content src="Text/chapter-6.html#p218"/>
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-126" playOrder="126">
+      <navLabel>
+        <text>7 Q&amp;A chatbots with LangChain and LangSmith</text>
+      </navLabel>
+      <content src="Text/chapter-7.html"/>
+      <navPoint class="chapter" id="navPoint-127" playOrder="127">
+        <navLabel>
+          <text>7.1 LangChain object model for Q&amp;A chatbots</text>
+        </navLabel>
+        <content src="Text/chapter-7.html#p9"/>
+        <navPoint class="chapter" id="navPoint-128" playOrder="128">
+          <navLabel>
+            <text>7.1.1 Content ingestion (indexing) stage</text>
+          </navLabel>
+          <content src="Text/chapter-7.html#p15"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-129" playOrder="129">
+          <navLabel>
+            <text>7.1.2 Q&amp;A (retrieval and generation) stage</text>
+          </navLabel>
+          <content src="Text/chapter-7.html#p32"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-130" playOrder="130">
+        <navLabel>
+          <text>7.2 Vector store content ingestion</text>
+        </navLabel>
+        <content src="Text/chapter-7.html#p48"/>
+        <navPoint class="chapter" id="navPoint-131" playOrder="131">
+          <navLabel>
+            <text>7.2.1 Splitting and storing the documents</text>
+          </navLabel>
+          <content src="Text/chapter-7.html#p58"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-132" playOrder="132">
+          <navLabel>
+            <text>7.2.2 Removing duplication</text>
+          </navLabel>
+          <content src="Text/chapter-7.html#p72"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-133" playOrder="133">
+          <navLabel>
+            <text>7.2.3 Ingesting multiple documents from a folder</text>
+          </navLabel>
+          <content src="Text/chapter-7.html#p79"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-134" playOrder="134">
+        <navLabel>
+          <text>7.3 Q&amp;A across stored documents</text>
+        </navLabel>
+        <content src="Text/chapter-7.html#p96"/>
+        <navPoint class="chapter" id="navPoint-135" playOrder="135">
+          <navLabel>
+            <text>7.3.1 Querying the vector store directly</text>
+          </navLabel>
+          <content src="Text/chapter-7.html#p98"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-136" playOrder="136">
+          <navLabel>
+            <text>7.3.2 Asking a question through a LangChain chain</text>
+          </navLabel>
+          <content src="Text/chapter-7.html#p104"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-137" playOrder="137">
+          <navLabel>
+            <text>7.3.3 Completing the RAG chain setup</text>
+          </navLabel>
+          <content src="Text/chapter-7.html#p111"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-138" playOrder="138">
+          <navLabel>
+            <text>7.3.4 Follow-up question</text>
+          </navLabel>
+          <content src="Text/chapter-7.html#p131"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-139" playOrder="139">
+        <navLabel>
+          <text>7.4 Chatbot memory of message history</text>
+        </navLabel>
+        <content src="Text/chapter-7.html#p137"/>
+        <navPoint class="chapter" id="navPoint-140" playOrder="140">
+          <navLabel>
+            <text>7.4.1 Amending the prompt</text>
+          </navLabel>
+          <content src="Text/chapter-7.html#p141"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-141" playOrder="141">
+          <navLabel>
+            <text>7.4.2 Updating the chat message history</text>
+          </navLabel>
+          <content src="Text/chapter-7.html#p156"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-142" playOrder="142">
+          <navLabel>
+            <text>7.4.3 Feeding the chat history to the RAG chain</text>
+          </navLabel>
+          <content src="Text/chapter-7.html#p167"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-143" playOrder="143">
+          <navLabel>
+            <text>7.4.4 Putting everything together</text>
+          </navLabel>
+          <content src="Text/chapter-7.html#p171"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-144" playOrder="144">
+        <navLabel>
+          <text>7.5 Tracing execution with LangSmith</text>
+        </navLabel>
+        <content src="Text/chapter-7.html#p186"/>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-145" playOrder="145">
+      <navLabel>
+        <text>Part 4 Advanced RAG</text>
+      </navLabel>
+      <content src="Text/part-4.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-146" playOrder="146">
+      <navLabel>
+        <text>8 Advanced indexing</text>
+      </navLabel>
+      <content src="Text/chapter-8.html"/>
+      <navPoint class="chapter" id="navPoint-147" playOrder="147">
+        <navLabel>
+          <text>8.1 Improving RAG accuracy</text>
+        </navLabel>
+        <content src="Text/chapter-8.html#p10"/>
+        <navPoint class="chapter" id="navPoint-148" playOrder="148">
+          <navLabel>
+            <text>8.1.1 Content ingestion stage</text>
+          </navLabel>
+          <content src="Text/chapter-8.html#p12"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-149" playOrder="149">
+          <navLabel>
+            <text>8.1.2 Question-answering stage</text>
+          </navLabel>
+          <content src="Text/chapter-8.html#p16"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-150" playOrder="150">
+        <navLabel>
+          <text>8.2 Advanced document indexing</text>
+        </navLabel>
+        <content src="Text/chapter-8.html#p28"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-151" playOrder="151">
+        <navLabel>
+          <text>8.3 Splitting strategy</text>
+        </navLabel>
+        <content src="Text/chapter-8.html#p35"/>
+        <navPoint class="chapter" id="navPoint-152" playOrder="152">
+          <navLabel>
+            <text>8.3.1 Splitting strategies</text>
+          </navLabel>
+          <content src="Text/chapter-8.html#p42"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-153" playOrder="153">
+          <navLabel>
+            <text>8.3.2 Factors to consider</text>
+          </navLabel>
+          <content src="Text/chapter-8.html#p46"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-154" playOrder="154">
+          <navLabel>
+            <text>8.3.3 Choosing the right strategy</text>
+          </navLabel>
+          <content src="Text/chapter-8.html#p50"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-155" playOrder="155">
+          <navLabel>
+            <text>8.3.4 Splitting by HTML header</text>
+          </navLabel>
+          <content src="Text/chapter-8.html#p54"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-156" playOrder="156">
+        <navLabel>
+          <text>8.4 Embedding strategy</text>
+        </navLabel>
+        <content src="Text/chapter-8.html#p99"/>
+        <navPoint class="chapter" id="navPoint-157" playOrder="157">
+          <navLabel>
+            <text>8.4.1 Embedding child chunks with ParentDocumentRetriever</text>
+          </navLabel>
+          <content src="Text/chapter-8.html#p102"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-158" playOrder="158">
+          <navLabel>
+            <text>8.4.2 Embedding child chunks with MultiVectorRetriever</text>
+          </navLabel>
+          <content src="Text/chapter-8.html#p129"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-159" playOrder="159">
+          <navLabel>
+            <text>8.4.3 Embedding document summaries</text>
+          </navLabel>
+          <content src="Text/chapter-8.html#p150"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-160" playOrder="160">
+          <navLabel>
+            <text>8.4.4 Embedding hypothetical questions</text>
+          </navLabel>
+          <content src="Text/chapter-8.html#p176"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-161" playOrder="161">
+        <navLabel>
+          <text>8.5 Granular chunk expansion</text>
+        </navLabel>
+        <content src="Text/chapter-8.html#p204"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-162" playOrder="162">
+        <navLabel>
+          <text>8.6 Semi-structured content</text>
+        </navLabel>
+        <content src="Text/chapter-8.html#p226"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-163" playOrder="163">
+        <navLabel>
+          <text>8.7 Multimodal RAG</text>
+        </navLabel>
+        <content src="Text/chapter-8.html#p231"/>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-164" playOrder="164">
+      <navLabel>
+        <text>9 Question transformations</text>
+      </navLabel>
+      <content src="Text/chapter-9.html"/>
+      <navPoint class="chapter" id="navPoint-165" playOrder="165">
+        <navLabel>
+          <text>9.1 Rewrite-Retrieve-Read</text>
+        </navLabel>
+        <content src="Text/chapter-9.html#p8"/>
+        <navPoint class="chapter" id="navPoint-166" playOrder="166">
+          <navLabel>
+            <text>9.1.1 Retrieving content using the original user question</text>
+          </navLabel>
+          <content src="Text/chapter-9.html#p20"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-167" playOrder="167">
+          <navLabel>
+            <text>9.1.2 Setting up the query rewriter chain</text>
+          </navLabel>
+          <content src="Text/chapter-9.html#p26"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-168" playOrder="168">
+          <navLabel>
+            <text>9.1.3 Retrieving content with the rewritten query</text>
+          </navLabel>
+          <content src="Text/chapter-9.html#p34"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-169" playOrder="169">
+          <navLabel>
+            <text>9.1.4 Combining everything into a single RAG chain</text>
+          </navLabel>
+          <content src="Text/chapter-9.html#p46"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-170" playOrder="170">
+        <navLabel>
+          <text>9.2 Generating multiple queries</text>
+        </navLabel>
+        <content src="Text/chapter-9.html#p54"/>
+        <navPoint class="chapter" id="navPoint-171" playOrder="171">
+          <navLabel>
+            <text>9.2.1 Setting up the chain for generating multiple queries</text>
+          </navLabel>
+          <content src="Text/chapter-9.html#p70"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-172" playOrder="172">
+          <navLabel>
+            <text>9.2.2 Setting up a custom multi-query retriever</text>
+          </navLabel>
+          <content src="Text/chapter-9.html#p84"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-173" playOrder="173">
+          <navLabel>
+            <text>9.2.3 Using a standard MultiQueryRetriever instance</text>
+          </navLabel>
+          <content src="Text/chapter-9.html#p91"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-174" playOrder="174">
+        <navLabel>
+          <text>9.3 Step-back question</text>
+        </navLabel>
+        <content src="Text/chapter-9.html#p97"/>
+        <navPoint class="chapter" id="navPoint-175" playOrder="175">
+          <navLabel>
+            <text>9.3.1 Setting up the chain to generate a step-back question</text>
+          </navLabel>
+          <content src="Text/chapter-9.html#p108"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-176" playOrder="176">
+          <navLabel>
+            <text>9.3.2 Incorporating step-back question generation into the RAG chain</text>
+          </navLabel>
+          <content src="Text/chapter-9.html#p119"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-177" playOrder="177">
+        <navLabel>
+          <text>9.4 Hypothetical Document Embeddings (HyDE)</text>
+        </navLabel>
+        <content src="Text/chapter-9.html#p127"/>
+        <navPoint class="chapter" id="navPoint-178" playOrder="178">
+          <navLabel>
+            <text>9.4.1 Generating a hypothetical document for the user question</text>
+          </navLabel>
+          <content src="Text/chapter-9.html#p132"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-179" playOrder="179">
+          <navLabel>
+            <text>9.4.2 Integrating the HyDE chain into the RAG chain</text>
+          </navLabel>
+          <content src="Text/chapter-9.html#p142"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-180" playOrder="180">
+        <navLabel>
+          <text>9.5 Single-step and multi-step decomposition</text>
+        </navLabel>
+        <content src="Text/chapter-9.html#p150"/>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-181" playOrder="181">
+      <navLabel>
+        <text>10 Query generation, routing, and retrieval postprocessing</text>
+      </navLabel>
+      <content src="Text/chapter-10.html"/>
+      <navPoint class="chapter" id="navPoint-182" playOrder="182">
+        <navLabel>
+          <text>10.1 Content database query generation</text>
+        </navLabel>
+        <content src="Text/chapter-10.html#p8"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-183" playOrder="183">
+        <navLabel>
+          <text>10.2 Self-querying (metadata query enrichment)</text>
+        </navLabel>
+        <content src="Text/chapter-10.html#p15"/>
+        <navPoint class="chapter" id="navPoint-184" playOrder="184">
+          <navLabel>
+            <text>10.2.1 Ingestion: Metadata enrichment</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p24"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-185" playOrder="185">
+          <navLabel>
+            <text>10.2.2 Q&amp;A on a metadata-enriched collection</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p47"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-186" playOrder="186">
+        <navLabel>
+          <text>10.3 Generating a structured SQL query</text>
+        </navLabel>
+        <content src="Text/chapter-10.html#p94"/>
+        <navPoint class="chapter" id="navPoint-187" playOrder="187">
+          <navLabel>
+            <text>10.3.1 Installing SQLite</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p99"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-188" playOrder="188">
+          <navLabel>
+            <text>10.3.2 Setting up and connecting to the database</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p101"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-189" playOrder="189">
+          <navLabel>
+            <text>10.3.3 Generating SQL queries from natural language</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p126"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-190" playOrder="190">
+          <navLabel>
+            <text>10.3.4 Executing the SQL query</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p140"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-191" playOrder="191">
+        <navLabel>
+          <text>10.4 Generating a semantic SQL query</text>
+        </navLabel>
+        <content src="Text/chapter-10.html#p148"/>
+        <navPoint class="chapter" id="navPoint-192" playOrder="192">
+          <navLabel>
+            <text>10.4.1 Standard SQL query</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p151"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-193" playOrder="193">
+          <navLabel>
+            <text>10.4.2 Semantic SQL query</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p158"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-194" playOrder="194">
+          <navLabel>
+            <text>10.4.3 Creating the embeddings</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p160"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-195" playOrder="195">
+          <navLabel>
+            <text>10.4.4 Performing a semantic SQL search</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p169"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-196" playOrder="196">
+          <navLabel>
+            <text>10.4.5 Automating semantic SQL search</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p173"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-197" playOrder="197">
+          <navLabel>
+            <text>10.4.6 Benefits of a semantic SQL search</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p175"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-198" playOrder="198">
+        <navLabel>
+          <text>10.5 Generating queries for a graph database</text>
+        </navLabel>
+        <content src="Text/chapter-10.html#p178"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-199" playOrder="199">
+        <navLabel>
+          <text>10.6 Chain routing</text>
+        </navLabel>
+        <content src="Text/chapter-10.html#p198"/>
+        <navPoint class="chapter" id="navPoint-200" playOrder="200">
+          <navLabel>
+            <text>10.6.1 Setting up data retrievers</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p204"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-201" playOrder="201">
+          <navLabel>
+            <text>10.6.2 Setting up the query router</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p210"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-202" playOrder="202">
+          <navLabel>
+            <text>10.6.3 Integrating the chain router into a full RAG chain</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p232"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-203" playOrder="203">
+        <navLabel>
+          <text>10.7 Retrieval postprocessing</text>
+        </navLabel>
+        <content src="Text/chapter-10.html#p248"/>
+        <navPoint class="chapter" id="navPoint-204" playOrder="204">
+          <navLabel>
+            <text>10.7.1 Similarity postprocessors</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p252"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-205" playOrder="205">
+          <navLabel>
+            <text>10.7.2 Keyword postprocessors</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p259"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-206" playOrder="206">
+          <navLabel>
+            <text>10.7.3 Time weighting</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p264"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-207" playOrder="207">
+          <navLabel>
+            <text>10.7.4 RAG fusion (Reciprocal Rank Fusion)</text>
+          </navLabel>
+          <content src="Text/chapter-10.html#p272"/>
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-208" playOrder="208">
+      <navLabel>
+        <text>Part 5 AI agents</text>
+      </navLabel>
+      <content src="Text/part-5.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-209" playOrder="209">
+      <navLabel>
+        <text>11 Building tool-based agents with LangGraph</text>
+      </navLabel>
+      <content src="Text/chapter-11.html"/>
+      <navPoint class="chapter" id="navPoint-210" playOrder="210">
+        <navLabel>
+          <text>11.1 Starting simple: Building a single-tool travel info agent</text>
+        </navLabel>
+        <content src="Text/chapter-11.html#p12"/>
+        <navPoint class="chapter" id="navPoint-211" playOrder="211">
+          <navLabel>
+            <text>11.1.1 Project setup</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p15"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-212" playOrder="212">
+          <navLabel>
+            <text>11.1.2 Loading environment variables</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p32"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-213" playOrder="213">
+          <navLabel>
+            <text>11.1.3 Preparing the travel information vector store</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p35"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-214" playOrder="214">
+        <navLabel>
+          <text>11.2 Enabling agents to call tools</text>
+        </navLabel>
+        <content src="Text/chapter-11.html#p40"/>
+        <navPoint class="chapter" id="navPoint-215" playOrder="215">
+          <navLabel>
+            <text>11.2.1 From function calling to tool calling</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p42"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-216" playOrder="216">
+          <navLabel>
+            <text>11.2.2 How tool calling works with LLMs</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p54"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-217" playOrder="217">
+          <navLabel>
+            <text>11.2.3 Registering tools with the LLM</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p59"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-218" playOrder="218">
+          <navLabel>
+            <text>11.2.4 Agent state: Tracking the conversation</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p72"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-219" playOrder="219">
+          <navLabel>
+            <text>11.2.5 Executing tool calls</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p76"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-220" playOrder="220">
+          <navLabel>
+            <text>11.2.6 The LLM node: Coordinating reasoning and action</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p85"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-221" playOrder="221">
+        <navLabel>
+          <text>11.3 Assembling the agent graph</text>
+        </navLabel>
+        <content src="Text/chapter-11.html#p92"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-222" playOrder="222">
+        <navLabel>
+          <text>11.4 Understanding the agent graph structure</text>
+        </navLabel>
+        <content src="Text/chapter-11.html#p96"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-223" playOrder="223">
+        <navLabel>
+          <text>11.5 Running the agent chatbot: The Read-Eval-Print Loop</text>
+        </navLabel>
+        <content src="Text/chapter-11.html#p104"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-224" playOrder="224">
+        <navLabel>
+          <text>11.6 Executing a request</text>
+        </navLabel>
+        <content src="Text/chapter-11.html#p110"/>
+        <navPoint class="chapter" id="navPoint-225" playOrder="225">
+          <navLabel>
+            <text>11.6.1 Step-by-step debugging</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p112"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-226" playOrder="226">
+        <navLabel>
+          <text>11.7 Expanding your agent: Adding a weather forecast tool</text>
+        </navLabel>
+        <content src="Text/chapter-11.html#p155"/>
+        <navPoint class="chapter" id="navPoint-227" playOrder="227">
+          <navLabel>
+            <text>11.7.1 Implementing a mock weather service</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p157"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-228" playOrder="228">
+          <navLabel>
+            <text>11.7.2 Creating the weather forecast tool</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p162"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-229" playOrder="229">
+          <navLabel>
+            <text>11.7.3 Updating the agent for multi-tool support</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p166"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-230" playOrder="230">
+        <navLabel>
+          <text>11.8 Executing the multi-tool agent</text>
+        </navLabel>
+        <content src="Text/chapter-11.html#p170"/>
+        <navPoint class="chapter" id="navPoint-231" playOrder="231">
+          <navLabel>
+            <text>11.8.1 Running the multi-tool agent (initial behavior)</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p172"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-232" playOrder="232">
+          <navLabel>
+            <text>11.8.2 Improving LLM tool usage with system guidance</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p179"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-233" playOrder="233">
+        <navLabel>
+          <text>11.9 Using prebuilt components for rapid development</text>
+        </navLabel>
+        <content src="Text/chapter-11.html#p207"/>
+        <navPoint class="chapter" id="navPoint-234" playOrder="234">
+          <navLabel>
+            <text>11.9.1 Refactoring to use the LangGraph ReAct agent</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p210"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-235" playOrder="235">
+          <navLabel>
+            <text>11.9.2 Running the prebuilt agent</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p226"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-236" playOrder="236">
+          <navLabel>
+            <text>11.9.3 Observing and debugging with LangSmith</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p230"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-237" playOrder="237">
+          <navLabel>
+            <text>11.9.4 Enabling LangSmith tracing</text>
+          </navLabel>
+          <content src="Text/chapter-11.html#p232"/>
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-238" playOrder="238">
+      <navLabel>
+        <text>12 Multi-agent systems</text>
+      </navLabel>
+      <content src="Text/chapter-12.html"/>
+      <navPoint class="chapter" id="navPoint-239" playOrder="239">
+        <navLabel>
+          <text>12.1 Building an accommodation booking agent</text>
+        </navLabel>
+        <content src="Text/chapter-12.html#p9"/>
+        <navPoint class="chapter" id="navPoint-240" playOrder="240">
+          <navLabel>
+            <text>12.1.1 Hotel booking tool</text>
+          </navLabel>
+          <content src="Text/chapter-12.html#p11"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-241" playOrder="241">
+          <navLabel>
+            <text>12.1.2 B&amp;B booking tool</text>
+          </navLabel>
+          <content src="Text/chapter-12.html#p32"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-242" playOrder="242">
+          <navLabel>
+            <text>12.1.3 ReAct accommodation booking agent</text>
+          </navLabel>
+          <content src="Text/chapter-12.html#p38"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-243" playOrder="243">
+        <navLabel>
+          <text>12.2 Building a router-based travel assistant</text>
+        </navLabel>
+        <content src="Text/chapter-12.html#p50"/>
+        <navPoint class="chapter" id="navPoint-244" playOrder="244">
+          <navLabel>
+            <text>12.2.1 Designing the router agent</text>
+          </navLabel>
+          <content src="Text/chapter-12.html#p53"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-245" playOrder="245">
+          <navLabel>
+            <text>12.2.2 Routing logic</text>
+          </navLabel>
+          <content src="Text/chapter-12.html#p63"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-246" playOrder="246">
+          <navLabel>
+            <text>12.2.3 Building the multi-agent graph</text>
+          </navLabel>
+          <content src="Text/chapter-12.html#p69"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-247" playOrder="247">
+          <navLabel>
+            <text>12.2.4 Trying out the router agent</text>
+          </navLabel>
+          <content src="Text/chapter-12.html#p76"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-248" playOrder="248">
+        <navLabel>
+          <text>12.3 Handling multi-agent requests with a Supervisor component</text>
+        </navLabel>
+        <content src="Text/chapter-12.html#p88"/>
+        <navPoint class="chapter" id="navPoint-249" playOrder="249">
+          <navLabel>
+            <text>12.3.1 The Supervisor pattern: An agent of agents</text>
+          </navLabel>
+          <content src="Text/chapter-12.html#p93"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-250" playOrder="250">
+          <navLabel>
+            <text>12.3.2 From “one-way” to “return ticket” interactions</text>
+          </navLabel>
+          <content src="Text/chapter-12.html#p106"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-251" playOrder="251">
+          <navLabel>
+            <text>12.3.3 Trying out the Supervisor agent</text>
+          </navLabel>
+          <content src="Text/chapter-12.html#p111"/>
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-252" playOrder="252">
+      <navLabel>
+        <text>13 Building and consuming MCP servers</text>
+      </navLabel>
+      <content src="Text/chapter-13.html"/>
+      <navPoint class="chapter" id="navPoint-253" playOrder="253">
+        <navLabel>
+          <text>13.1 Introduction to MCP servers</text>
+        </navLabel>
+        <content src="Text/chapter-13.html#p11"/>
+        <navPoint class="chapter" id="navPoint-254" playOrder="254">
+          <navLabel>
+            <text>13.1.1 The problem: Context integration at scale</text>
+          </navLabel>
+          <content src="Text/chapter-13.html#p15"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-255" playOrder="255">
+          <navLabel>
+            <text>13.1.2 The solution: The Model Context Protocol</text>
+          </navLabel>
+          <content src="Text/chapter-13.html#p18"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-256" playOrder="256">
+          <navLabel>
+            <text>13.1.3 The MCP ecosystem</text>
+          </navLabel>
+          <content src="Text/chapter-13.html#p24"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-257" playOrder="257">
+        <navLabel>
+          <text>13.2 How to build MCP servers</text>
+        </navLabel>
+        <content src="Text/chapter-13.html#p30"/>
+        <navPoint class="chapter" id="navPoint-258" playOrder="258">
+          <navLabel>
+            <text>13.2.1 Essential resources for MCP server development</text>
+          </navLabel>
+          <content src="Text/chapter-13.html#p32"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-259" playOrder="259">
+          <navLabel>
+            <text>13.2.2 Official language-specific MCP SDKs</text>
+          </navLabel>
+          <content src="Text/chapter-13.html#p36"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-260" playOrder="260">
+          <navLabel>
+            <text>13.2.3 Consuming MCP servers in LLM applications and agents</text>
+          </navLabel>
+          <content src="Text/chapter-13.html#p47"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-261" playOrder="261">
+        <navLabel>
+          <text>13.3 Building a weather MCP server</text>
+        </navLabel>
+        <content src="Text/chapter-13.html#p55"/>
+        <navPoint class="chapter" id="navPoint-262" playOrder="262">
+          <navLabel>
+            <text>13.3.1 Implementing the MCP server</text>
+          </navLabel>
+          <content src="Text/chapter-13.html#p57"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-263" playOrder="263">
+          <navLabel>
+            <text>13.3.2 Trying out the MCP server with MCP Inspector</text>
+          </navLabel>
+          <content src="Text/chapter-13.html#p69"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-264" playOrder="264">
+          <navLabel>
+            <text>13.3.3 Consuming the MCP server from a test MCP host</text>
+          </navLabel>
+          <content src="Text/chapter-13.html#p104"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-265" playOrder="265">
+        <navLabel>
+          <text>13.4 Integrating the Weather MCP tool into an agent</text>
+        </navLabel>
+        <content src="Text/chapter-13.html#p114"/>
+        <navPoint class="chapter" id="navPoint-266" playOrder="266">
+          <navLabel>
+            <text>13.4.1 Preparing the travel agent for live weather data</text>
+          </navLabel>
+          <content src="Text/chapter-13.html#p117"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-267" playOrder="267">
+          <navLabel>
+            <text>13.4.2 Integrating the AccuWeather MCP tool</text>
+          </navLabel>
+          <content src="Text/chapter-13.html#p124"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-268" playOrder="268">
+          <navLabel>
+            <text>13.4.3 Updating the agent chat loop</text>
+          </navLabel>
+          <content src="Text/chapter-13.html#p127"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-269" playOrder="269">
+          <navLabel>
+            <text>13.4.4 Combining local and remote tools</text>
+          </navLabel>
+          <content src="Text/chapter-13.html#p130"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-270" playOrder="270">
+          <navLabel>
+            <text>13.4.5 Testing and verification</text>
+          </navLabel>
+          <content src="Text/chapter-13.html#p134"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-271" playOrder="271">
+          <navLabel>
+            <text>13.4.6 Using the agent for complex queries</text>
+          </navLabel>
+          <content src="Text/chapter-13.html#p140"/>
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-272" playOrder="272">
+      <navLabel>
+        <text>14 Productionizing AI agents: Memory, guardrails, and beyond</text>
+      </navLabel>
+      <content src="Text/chapter-14.html"/>
+      <navPoint class="chapter" id="navPoint-273" playOrder="273">
+        <navLabel>
+          <text>14.1 Memory</text>
+        </navLabel>
+        <content src="Text/chapter-14.html#p8"/>
+        <navPoint class="chapter" id="navPoint-274" playOrder="274">
+          <navLabel>
+            <text>14.1.1 Types of memory</text>
+          </navLabel>
+          <content src="Text/chapter-14.html#p12"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-275" playOrder="275">
+          <navLabel>
+            <text>14.1.2 Why short-term memory is needed</text>
+          </navLabel>
+          <content src="Text/chapter-14.html#p18"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-276" playOrder="276">
+          <navLabel>
+            <text>14.1.3 Checkpoints in LangGraph</text>
+          </navLabel>
+          <content src="Text/chapter-14.html#p26"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-277" playOrder="277">
+          <navLabel>
+            <text>14.1.4 Adding short-term memory to our travel assistant</text>
+          </navLabel>
+          <content src="Text/chapter-14.html#p46"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-278" playOrder="278">
+          <navLabel>
+            <text>14.1.5 Executing the checkpointer-enabled assistant</text>
+          </navLabel>
+          <content src="Text/chapter-14.html#p73"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-279" playOrder="279">
+          <navLabel>
+            <text>14.1.6 Rewinding the state to a past checkpoint</text>
+          </navLabel>
+          <content src="Text/chapter-14.html#p80"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-280" playOrder="280">
+        <navLabel>
+          <text>14.2 Guardrails</text>
+        </navLabel>
+        <content src="Text/chapter-14.html#p118"/>
+        <navPoint class="chapter" id="navPoint-281" playOrder="281">
+          <navLabel>
+            <text>14.2.1 Implementing guardrails to reject nontravel-related questions</text>
+          </navLabel>
+          <content src="Text/chapter-14.html#p131"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-282" playOrder="282">
+          <navLabel>
+            <text>14.2.2 Implementing more restrictive guardrails at the agent level</text>
+          </navLabel>
+          <content src="Text/chapter-14.html#p165"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-283" playOrder="283">
+        <navLabel>
+          <text>14.3 Beyond this chapter</text>
+        </navLabel>
+        <content src="Text/chapter-14.html#p197"/>
+        <navPoint class="chapter" id="navPoint-284" playOrder="284">
+          <navLabel>
+            <text>14.3.1 Long-term user and application memory</text>
+          </navLabel>
+          <content src="Text/chapter-14.html#p200"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-285" playOrder="285">
+          <navLabel>
+            <text>14.3.2 Human-in-the-loop</text>
+          </navLabel>
+          <content src="Text/chapter-14.html#p208"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-286" playOrder="286">
+          <navLabel>
+            <text>14.3.3 Post-model guardrails</text>
+          </navLabel>
+          <content src="Text/chapter-14.html#p214"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-287" playOrder="287">
+          <navLabel>
+            <text>14.3.4 Evaluation of AI agents and applications</text>
+          </navLabel>
+          <content src="Text/chapter-14.html#p221"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-288" playOrder="288">
+          <navLabel>
+            <text>14.3.5 Deployment on the LangGraph platform and Open Agent Platform</text>
+          </navLabel>
+          <content src="Text/chapter-14.html#p229"/>
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-289" playOrder="289">
+      <navLabel>
+        <text>appendix A Trying out LangChain</text>
+      </navLabel>
+      <content src="Text/appendix-a.html"/>
+      <navPoint class="chapter" id="navPoint-290" playOrder="290">
+        <navLabel>
+          <text>A.1 Trying out LangChain in a Jupyter Notebook environment</text>
+        </navLabel>
+        <content src="Text/appendix-a.html#p2"/>
+        <navPoint class="chapter" id="navPoint-291" playOrder="291">
+          <navLabel>
+            <text>A.1.1 Sentence completion example</text>
+          </navLabel>
+          <content src="Text/appendix-a.html#p26"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-292" playOrder="292">
+          <navLabel>
+            <text>A.1.2 Prompt engineering examples</text>
+          </navLabel>
+          <content src="Text/appendix-a.html#p45"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-293" playOrder="293">
+          <navLabel>
+            <text>A.1.3 Creating chains and executing them with LCEL</text>
+          </navLabel>
+          <content src="Text/appendix-a.html#p56"/>
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-294" playOrder="294">
+      <navLabel>
+        <text>appendix B Setting up a Jupyter Notebook environment</text>
+      </navLabel>
+      <content src="Text/appendix-b.html"/>
+      <navPoint class="chapter" id="navPoint-295" playOrder="295">
+        <navLabel>
+          <text>B.1 Installing the Python interpreter or a Python distribution</text>
+        </navLabel>
+        <content src="Text/appendix-b.html#p3"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-296" playOrder="296">
+        <navLabel>
+          <text>B.2 Creating a virtual environment with venv and upgrading pip</text>
+        </navLabel>
+        <content src="Text/appendix-b.html#p9"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-297" playOrder="297">
+        <navLabel>
+          <text>B.3 Setting up a Jupyter Notebook</text>
+        </navLabel>
+        <content src="Text/appendix-b.html#p21"/>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-298" playOrder="298">
+      <navLabel>
+        <text>appendix C Choosing an LLM</text>
+      </navLabel>
+      <content src="Text/appendix-c.html"/>
+      <navPoint class="chapter" id="navPoint-299" playOrder="299">
+        <navLabel>
+          <text>C.1 Popular large language models</text>
+        </navLabel>
+        <content src="Text/appendix-c.html#p3"/>
+        <navPoint class="chapter" id="navPoint-300" playOrder="300">
+          <navLabel>
+            <text>C.1.1 OpenAI GPT series</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p5"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-301" playOrder="301">
+          <navLabel>
+            <text>C.1.2 Gemini</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p8"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-302" playOrder="302">
+          <navLabel>
+            <text>C.1.3 Gemma</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p14"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-303" playOrder="303">
+          <navLabel>
+            <text>C.1.4 Claude</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p16"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-304" playOrder="304">
+          <navLabel>
+            <text>C.1.5 Cohere</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p20"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-305" playOrder="305">
+          <navLabel>
+            <text>C.1.6 Llama</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p23"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-306" playOrder="306">
+          <navLabel>
+            <text>C.1.7 Falcon</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p25"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-307" playOrder="307">
+          <navLabel>
+            <text>C.1.8 Mistral</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p27"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-308" playOrder="308">
+          <navLabel>
+            <text>C.1.9 Qwen</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p29"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-309" playOrder="309">
+          <navLabel>
+            <text>C.1.10 Grok</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p31"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-310" playOrder="310">
+          <navLabel>
+            <text>C.1.11 Phi</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p33"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-311" playOrder="311">
+          <navLabel>
+            <text>C.1.12 DeepSeek</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p36"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-312" playOrder="312">
+        <navLabel>
+          <text>C.2 How to choose a model</text>
+        </navLabel>
+        <content src="Text/appendix-c.html#p41"/>
+        <navPoint class="chapter" id="navPoint-313" playOrder="313">
+          <navLabel>
+            <text>C.2.1 Model purpose</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p52"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-314" playOrder="314">
+          <navLabel>
+            <text>C.2.2 Proprietary vs. open source</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p55"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-315" playOrder="315">
+          <navLabel>
+            <text>C.2.3 Model size (number of parameters)</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p58"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-316" playOrder="316">
+          <navLabel>
+            <text>C.2.4 Context window size</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p61"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-317" playOrder="317">
+          <navLabel>
+            <text>C.2.5 Multilingual support</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p66"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-318" playOrder="318">
+          <navLabel>
+            <text>C.2.6 Accuracy vs. speed</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p68"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-319" playOrder="319">
+          <navLabel>
+            <text>C.2.7 Cost and hardware requirements</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p72"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-320" playOrder="320">
+          <navLabel>
+            <text>C.2.8 Task suitability (standard benchmarks)</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p77"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-321" playOrder="321">
+          <navLabel>
+            <text>C.2.9 Safety and Bias</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p88"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-322" playOrder="322">
+          <navLabel>
+            <text>C.2.10 A practical example</text>
+          </navLabel>
+          <content src="Text/appendix-c.html#p94"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-323" playOrder="323">
+        <navLabel>
+          <text>C.3 A word of caution</text>
+        </navLabel>
+        <content src="Text/appendix-c.html#p105"/>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-324" playOrder="324">
+      <navLabel>
+        <text>appendix D Installing SQLite on Windows</text>
+      </navLabel>
+      <content src="Text/appendix-d.html"/>
+      <navPoint class="chapter" id="navPoint-325" playOrder="325">
+        <navLabel>
+          <text>D.1 Installing SQLite</text>
+        </navLabel>
+        <content src="Text/appendix-d.html#p3"/>
+      </navPoint>
+    </navPoint>
+    <navPoint class="chapter" id="navPoint-326" playOrder="326">
+      <navLabel>
+        <text>appendix E Open source LLMs</text>
+      </navLabel>
+      <content src="Text/appendix-e.html"/>
+      <navPoint class="chapter" id="navPoint-327" playOrder="327">
+        <navLabel>
+          <text>E.1 Benefits of open source LLMs</text>
+        </navLabel>
+        <content src="Text/appendix-e.html#p5"/>
+        <navPoint class="chapter" id="navPoint-328" playOrder="328">
+          <navLabel>
+            <text>E.1.1 Transparency</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p7"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-329" playOrder="329">
+          <navLabel>
+            <text>E.1.2 Privacy</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p11"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-330" playOrder="330">
+          <navLabel>
+            <text>E.1.3 Community driven</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p14"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-331" playOrder="331">
+          <navLabel>
+            <text>E.1.4 Cost savings</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p19"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-332" playOrder="332">
+        <navLabel>
+          <text>E.2 Popular open source LLMs</text>
+        </navLabel>
+        <content src="Text/appendix-e.html#p24"/>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-333" playOrder="333">
+        <navLabel>
+          <text>E.3 Considerations on running open source LLMs locally</text>
+        </navLabel>
+        <content src="Text/appendix-e.html#p36"/>
+        <navPoint class="chapter" id="navPoint-334" playOrder="334">
+          <navLabel>
+            <text>E.3.1 Limitations of consumer hardware</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p38"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-335" playOrder="335">
+          <navLabel>
+            <text>E.3.2 Quantization</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p41"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-336" playOrder="336">
+          <navLabel>
+            <text>E.3.3 OpenAI REST API compatibility</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p51"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-337" playOrder="337">
+        <navLabel>
+          <text>E.4 Local inference engines</text>
+        </navLabel>
+        <content src="Text/appendix-e.html#p76"/>
+        <navPoint class="chapter" id="navPoint-338" playOrder="338">
+          <navLabel>
+            <text>E.4.1 llama.cpp</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p81"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-339" playOrder="339">
+          <navLabel>
+            <text>E.4.2 Ollama</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p105"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-340" playOrder="340">
+          <navLabel>
+            <text>E.4.3 vLLM</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p147"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-341" playOrder="341">
+          <navLabel>
+            <text>E.4.4 llamafile</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p174"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-342" playOrder="342">
+          <navLabel>
+            <text>E.4.5 LM Studio</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p192"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-343" playOrder="343">
+          <navLabel>
+            <text>E.4.6 LocalAI</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p213"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-344" playOrder="344">
+          <navLabel>
+            <text>E.4.7 GPT4All</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p227"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-345" playOrder="345">
+          <navLabel>
+            <text>E.4.8 Comparing local inference engines</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p254"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-346" playOrder="346">
+          <navLabel>
+            <text>E.4.9 Choosing a local inference engine</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p258"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-347" playOrder="347">
+        <navLabel>
+          <text>E.5 Inference via the Hugging Face Transformers library</text>
+        </navLabel>
+        <content src="Text/appendix-e.html#p261"/>
+        <navPoint class="chapter" id="navPoint-348" playOrder="348">
+          <navLabel>
+            <text>E.5.1 Hugging Face Transformers library</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p263"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-349" playOrder="349">
+          <navLabel>
+            <text>E.5.2 LangChain’s Hugging Face pipeline</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p269"/>
+        </navPoint>
+      </navPoint>
+      <navPoint class="chapter" id="navPoint-350" playOrder="350">
+        <navLabel>
+          <text>E.6 Building a local summarization engine</text>
+        </navLabel>
+        <content src="Text/appendix-e.html#p273"/>
+        <navPoint class="chapter" id="navPoint-351" playOrder="351">
+          <navLabel>
+            <text>E.6.1 Choosing the inference engine</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p276"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-352" playOrder="352">
+          <navLabel>
+            <text>E.6.2 Starting up the OpenAI-compatible server</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p279"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-353" playOrder="353">
+          <navLabel>
+            <text>E.6.3 Modifying the original solution</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p281"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-354" playOrder="354">
+          <navLabel>
+            <text>E.6.4 Running the summarization engine through the local LLM</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p289"/>
+        </navPoint>
+        <navPoint class="chapter" id="navPoint-355" playOrder="355">
+          <navLabel>
+            <text>E.6.5 Comparison between OpenAI and local LLM</text>
+          </navLabel>
+          <content src="Text/appendix-e.html#p291"/>
+        </navPoint>
+      </navPoint>
+    </navPoint>
+  </navMap>
+</ncx>
