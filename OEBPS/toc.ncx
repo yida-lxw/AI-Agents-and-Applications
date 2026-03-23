@@ -68,108 +68,108 @@
     </navPoint>
     <navPoint class="chapter" id="navPoint-10" playOrder="10">
       <navLabel>
-        <text>Part 1 Getting started with LLMs</text>
+        <text>第一部分 大语言模型入门</text>
       </navLabel>
       <content src="Text/part-1.html"/>
     </navPoint>
     <navPoint class="chapter" id="navPoint-11" playOrder="11">
       <navLabel>
-        <text>1 Introduction to AI agents and applications</text>
+        <text>1 人工智能代理与应用导论</text>
       </navLabel>
       <content src="Text/chapter-1.html"/>
       <navPoint class="chapter" id="navPoint-12" playOrder="12">
         <navLabel>
-          <text>1.1 Building LLM-based applications and agents</text>
+          <text>1.1 构建基于大语言模型的应用与智能体</text>
         </navLabel>
         <content src="Text/chapter-1.html#p8"/>
         <navPoint class="chapter" id="navPoint-13" playOrder="13">
           <navLabel>
-            <text>1.1.1 LLM-based applications: Summarization and Q&amp;A engines</text>
+            <text>1.1.1 基于大语言模型的应用：摘要生成与问答引擎</text>
           </navLabel>
           <content src="Text/chapter-1.html#p15"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-14" playOrder="14">
           <navLabel>
-            <text>1.1.2 LLM-based chatbots</text>
+            <text>1.1.2 基于大语言模型的聊天机器人</text>
           </navLabel>
           <content src="Text/chapter-1.html#p29"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-15" playOrder="15">
           <navLabel>
-            <text>1.1.3 AI agents</text>
+            <text>1.1.3 AI智能体</text>
           </navLabel>
           <content src="Text/chapter-1.html#p37"/>
         </navPoint>
       </navPoint>
       <navPoint class="chapter" id="navPoint-16" playOrder="16">
         <navLabel>
-          <text>1.2 Introducing LangChain</text>
+          <text>1.2 LangChain 简介</text>
         </navLabel>
         <content src="Text/chapter-1.html#p53"/>
         <navPoint class="chapter" id="navPoint-17" playOrder="17">
           <navLabel>
-            <text>1.2.1 LangChain architecture</text>
+            <text>1.2.1 LangChain 架构</text>
           </navLabel>
           <content src="Text/chapter-1.html#p64"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-18" playOrder="18">
           <navLabel>
-            <text>1.2.2 LangChain’s core object model</text>
+            <text>1.2.2 LangChain的核心对象模型</text>
           </navLabel>
           <content src="Text/chapter-1.html#p88"/>
         </navPoint>
       </navPoint>
       <navPoint class="chapter" id="navPoint-19" playOrder="19">
         <navLabel>
-          <text>1.3 Typical LLM use cases</text>
+          <text>1.3 大语言模型的典型应用场景</text>
         </navLabel>
         <content src="Text/chapter-1.html#p105"/>
       </navPoint>
       <navPoint class="chapter" id="navPoint-20" playOrder="20">
         <navLabel>
-          <text>1.4 How to adapt an LLM to your needs</text>
+          <text>1.4 如何根据您的需求调整大语言模型</text>
         </navLabel>
         <content src="Text/chapter-1.html#p115"/>
         <navPoint class="chapter" id="navPoint-21" playOrder="21">
           <navLabel>
-            <text>1.4.1 Prompt engineering</text>
+            <text>1.4.1 提示词工程</text>
           </navLabel>
           <content src="Text/chapter-1.html#p121"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-22" playOrder="22">
           <navLabel>
-            <text>1.4.2 RAG</text>
+            <text>1.4.2 检索增强生成(RAG)</text>
           </navLabel>
           <content src="Text/chapter-1.html#p126"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-23" playOrder="23">
           <navLabel>
-            <text>1.4.3 Fine-tuning</text>
+            <text>1.4.3 微调</text>
           </navLabel>
           <content src="Text/chapter-1.html#p138"/>
         </navPoint>
       </navPoint>
       <navPoint class="chapter" id="navPoint-24" playOrder="24">
         <navLabel>
-          <text>1.5 Which LLMs to choose</text>
+          <text>1.5 选择哪种大语言模型</text>
         </navLabel>
         <content src="Text/chapter-1.html#p149"/>
       </navPoint>
       <navPoint class="chapter" id="navPoint-25" playOrder="25">
         <navLabel>
-          <text>1.6 What you’ll learn from this book</text>
+          <text>1.6 你从本书中能学到什么</text>
         </navLabel>
         <content src="Text/chapter-1.html#p163"/>
       </navPoint>
     </navPoint>
     <navPoint class="chapter" id="navPoint-26" playOrder="26">
       <navLabel>
-        <text>2 Executing prompts programmatically</text>
+        <text>2 以编程方式执行提示词</text>
       </navLabel>
       <content src="Text/chapter-2.html"/>
       <navPoint class="chapter" id="navPoint-27" playOrder="27">
         <navLabel>
-          <text>2.1 Running prompts programmatically</text>
+          <text>2.1 以编程方式运行提示词</text>
         </navLabel>
         <content src="Text/chapter-2.html#p9"/>
         <navPoint class="chapter" id="navPoint-28" playOrder="28">

@@ -24,6 +24,9 @@
     <item href="Text/about-this-book.html" id="about-this-book" media-type="application/xhtml+xml"/>
     <item href="Text/about-the-author.html" id="about-the-author" media-type="application/xhtml+xml"/>
     <item href="Text/about-the-cover-illustration.html" id="about-the-cover-illustration" media-type="application/xhtml+xml"/>
+    <item href="Text/part-1.html" id="part-1" media-type="application/xhtml+xml"/>
+    <item href="Text/chapter-1.html" id="chapter-1" media-type="application/xhtml+xml"/>
+    <item href="Text/chapter-2.html" id="chapter-2" media-type="application/xhtml+xml"/>
     <item href="Images/APPE_F01_Infante2.png" id="file-1" media-type="image/png"/>
     <item href="Images/APPB_F01_Infante2.png" id="file-2" media-type="image/png"/>
     <item href="Images/APPE_F03_Infante2.png" id="file-3" media-type="image/png"/>
@@ -135,6 +138,9 @@
     <itemref idref="about-this-book"/>
     <itemref idref="about-the-author"/>
     <itemref idref="about-the-cover-illustration"/>
+    <itemref idref="part-1"/>
+    <itemref idref="chapter-1"/>
+    <itemref idref="chapter-2"/>
   </spine>
   <guide>
     <reference href="Text/titlepage.xhtml" title="Cover" type="cover"/>
