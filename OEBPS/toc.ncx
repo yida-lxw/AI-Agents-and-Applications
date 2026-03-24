@@ -74,7 +74,7 @@
     </navPoint>
     <navPoint class="chapter" id="navPoint-11" playOrder="11">
       <navLabel>
-        <text>1 人工智能代理与应用导论</text>
+        <text>1 AI智能体与应用导论</text>
       </navLabel>
       <content src="Text/chapter-1.html"/>
       <navPoint class="chapter" id="navPoint-12" playOrder="12">
