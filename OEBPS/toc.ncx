@@ -174,231 +174,231 @@
         <content src="Text/chapter-2.html#p9"/>
         <navPoint class="chapter" id="navPoint-28" playOrder="28">
           <navLabel>
-            <text>2.1.1 Setting up the environment for this chapter</text>
+            <text>2.1.1 本章环境设置</text>
           </navLabel>
           <content src="Text/chapter-2.html#p14"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-29" playOrder="29">
           <navLabel>
-            <text>2.1.2 Minimal prompt execution</text>
+            <text>2.1.2 极简提示词执行</text>
           </navLabel>
           <content src="Text/chapter-2.html#p34"/>
         </navPoint>
       </navPoint>
       <navPoint class="chapter" id="navPoint-30" playOrder="30">
         <navLabel>
-          <text>2.2 Running prompts with LangChain</text>
+          <text>2.2 使用LangChain运行提示词</text>
         </navLabel>
         <content src="Text/chapter-2.html#p57"/>
       </navPoint>
       <navPoint class="chapter" id="navPoint-31" playOrder="31">
         <navLabel>
-          <text>2.3 Prompt templates</text>
+          <text>2.3 提示词模板</text>
         </navLabel>
         <content src="Text/chapter-2.html#p65"/>
         <navPoint class="chapter" id="navPoint-32" playOrder="32">
           <navLabel>
-            <text>2.3.1 Implementing a prompt template with a Python function</text>
+            <text>2.3.1 使用Python函数实现提示词模板</text>
           </navLabel>
           <content src="Text/chapter-2.html#p67"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-33" playOrder="33">
           <navLabel>
-            <text>2.3.2 Using LangChain’s PromptTemplate</text>
+            <text>2.3.2 使用 LangChain 的 PromptTemplate</text>
           </navLabel>
           <content src="Text/chapter-2.html#p74"/>
         </navPoint>
       </navPoint>
       <navPoint class="chapter" id="navPoint-34" playOrder="34">
         <navLabel>
-          <text>2.4 Prompt types</text>
+          <text>2.4 提示词类型</text>
         </navLabel>
         <content src="Text/chapter-2.html#p84"/>
         <navPoint class="chapter" id="navPoint-35" playOrder="35">
           <navLabel>
-            <text>2.4.1 Text classification</text>
+            <text>2.4.1 文本分类</text>
           </navLabel>
           <content src="Text/chapter-2.html#p87"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-36" playOrder="36">
           <navLabel>
-            <text>2.4.2 Sentiment analysis</text>
+            <text>2.4.2 情感分析</text>
           </navLabel>
           <content src="Text/chapter-2.html#p103"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-37" playOrder="37">
           <navLabel>
-            <text>2.4.3 Text summarization</text>
+            <text>2.4.3 文本摘要</text>
           </navLabel>
           <content src="Text/chapter-2.html#p123"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-38" playOrder="38">
           <navLabel>
-            <text>2.4.4 Composing text</text>
+            <text>2.4.4 文本创作</text>
           </navLabel>
           <content src="Text/chapter-2.html#p131"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-39" playOrder="39">
           <navLabel>
-            <text>2.4.5 Question answering</text>
+            <text>2.4.5 问答</text>
           </navLabel>
           <content src="Text/chapter-2.html#p163"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-40" playOrder="40">
           <navLabel>
-            <text>2.4.6 Reasoning</text>
+            <text>2.4.6 推理</text>
           </navLabel>
           <content src="Text/chapter-2.html#p179"/>
         </navPoint>
       </navPoint>
       <navPoint class="chapter" id="navPoint-41" playOrder="41">
         <navLabel>
-          <text>2.5 Reasoning in detail</text>
+          <text>2.5 详细推理</text>
         </navLabel>
         <content src="Text/chapter-2.html#p195"/>
         <navPoint class="chapter" id="navPoint-42" playOrder="42">
           <navLabel>
-            <text>2.5.1 One-shot learning</text>
+            <text>2.5.1 单样本学习</text>
           </navLabel>
           <content src="Text/chapter-2.html#p197"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-43" playOrder="43">
           <navLabel>
-            <text>2.5.2 Two-shot learning</text>
+            <text>2.5.2 双样本学习</text>
           </navLabel>
           <content src="Text/chapter-2.html#p206"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-44" playOrder="44">
           <navLabel>
-            <text>2.5.3 Providing steps</text>
+            <text>2.5.3 提供步骤</text>
           </navLabel>
           <content src="Text/chapter-2.html#p217"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-45" playOrder="45">
           <navLabel>
-            <text>2.5.4 Few-shot learning</text>
+            <text>2.5.4 少样本学习</text>
           </navLabel>
           <content src="Text/chapter-2.html#p249"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-46" playOrder="46">
           <navLabel>
-            <text>2.5.5 Implementing few-shot learning with LangChain</text>
+            <text>2.5.5 使用LangChain实现少样本学习</text>
           </navLabel>
           <content src="Text/chapter-2.html#p281"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-47" playOrder="47">
           <navLabel>
-            <text>2.5.6 Chain of Thought</text>
+            <text>2.5.6 思维链</text>
           </navLabel>
           <content src="Text/chapter-2.html#p292"/>
         </navPoint>
       </navPoint>
       <navPoint class="chapter" id="navPoint-48" playOrder="48">
         <navLabel>
-          <text>2.6 Prompt structure</text>
+          <text>2.6 提示词结构</text>
         </navLabel>
         <content src="Text/chapter-2.html#p325"/>
       </navPoint>
     </navPoint>
     <navPoint class="chapter" id="navPoint-49" playOrder="49">
       <navLabel>
-        <text>Part 2 Summarization</text>
+        <text>第二部分 摘要生成</text>
       </navLabel>
       <content src="Text/part-2.html"/>
     </navPoint>
     <navPoint class="chapter" id="navPoint-50" playOrder="50">
       <navLabel>
-        <text>3 Summarizing text using LangChain</text>
+        <text>3 使用LangChain进行文本摘要</text>
       </navLabel>
       <content src="Text/chapter-3.html"/>
       <navPoint class="chapter" id="navPoint-51" playOrder="51">
         <navLabel>
-          <text>3.1 Summarizing a document bigger than the context window</text>
+          <text>3.1 为超出上下文窗口长度的文档生成摘要</text>
         </navLabel>
         <content src="Text/chapter-3.html#p7"/>
         <navPoint class="chapter" id="navPoint-52" playOrder="52">
           <navLabel>
-            <text>3.1.1 Chunking the text into Document objects</text>
+            <text>3.1.1 将文本分块为文档对象</text>
           </navLabel>
           <content src="Text/chapter-3.html#p19"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-53" playOrder="53">
           <navLabel>
-            <text>3.1.2 Split</text>
+            <text>3.1.2 分割</text>
           </navLabel>
           <content src="Text/chapter-3.html#p24"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-54" playOrder="54">
           <navLabel>
-            <text>3.1.3 Map</text>
+            <text>3.1.3 映射</text>
           </navLabel>
           <content src="Text/chapter-3.html#p34"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-55" playOrder="55">
           <navLabel>
-            <text>3.1.4 Reduce</text>
+            <text>3.1.4 合并</text>
           </navLabel>
           <content src="Text/chapter-3.html#p41"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-56" playOrder="56">
           <navLabel>
-            <text>3.1.5 MapReduce combined chain</text>
+            <text>3.1.5 MapReduce组合链</text>
           </navLabel>
           <content src="Text/chapter-3.html#p47"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-57" playOrder="57">
           <navLabel>
-            <text>3.1.6 MapReduce execution</text>
+            <text>3.1.6 MapReduce执行</text>
           </navLabel>
           <content src="Text/chapter-3.html#p51"/>
         </navPoint>
       </navPoint>
       <navPoint class="chapter" id="navPoint-58" playOrder="58">
         <navLabel>
-          <text>3.2 Summarizing across documents</text>
+          <text>3.2 跨文档摘要</text>
         </navLabel>
         <content src="Text/chapter-3.html#p58"/>
         <navPoint class="chapter" id="navPoint-59" playOrder="59">
           <navLabel>
-            <text>3.2.1 Creating a list of Document objects</text>
+            <text>3.2.1 创建文档对象列表</text>
           </navLabel>
           <content src="Text/chapter-3.html#p65"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-60" playOrder="60">
           <navLabel>
-            <text>3.2.2 Wikipedia content</text>
+            <text>3.2.2 维基百科内容</text>
           </navLabel>
           <content src="Text/chapter-3.html#p67"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-61" playOrder="61">
           <navLabel>
-            <text>3.2.3 File-based content</text>
+            <text>3.2.3 基于文件的内容</text>
           </navLabel>
           <content src="Text/chapter-3.html#p72"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-62" playOrder="62">
           <navLabel>
-            <text>3.2.4 Creating the Document list</text>
+            <text>3.2.4 创建文档列表</text>
           </navLabel>
           <content src="Text/chapter-3.html#p81"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-63" playOrder="63">
           <navLabel>
-            <text>3.2.5 Progressively refining the final summary</text>
+            <text>3.2.5 逐步完善最终摘要</text>
           </navLabel>
           <content src="Text/chapter-3.html#p91"/>
         </navPoint>
       </navPoint>
       <navPoint class="chapter" id="navPoint-64" playOrder="64">
         <navLabel>
-          <text>3.3 Summarization flowchart</text>
+          <text>3.3 摘要流程图</text>
         </navLabel>
         <content src="Text/chapter-3.html#p109"/>
       </navPoint>
     </navPoint>
     <navPoint class="chapter" id="navPoint-65" playOrder="65">
       <navLabel>
-        <text>4 Building a research summarization engine</text>
+        <text>4 构建研究摘要引擎</text>
       </navLabel>
       <content src="Text/chapter-4.html"/>
       <navPoint class="chapter" id="navPoint-66" playOrder="66">

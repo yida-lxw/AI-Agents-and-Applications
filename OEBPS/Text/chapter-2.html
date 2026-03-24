@@ -18,7 +18,7 @@
    </ul> 
   </div> 
   <div class="readable-text" id="p6">
-   <p>人工智能应用主要通过<em>提示词</em>与大型语言模型进行交互—这些结构化的输入旨在引导模型的行为。这有点像给一位才华横溢但经验不足的同事下达指令：你的指示越清晰、越具体，得到的结果就越好。为了获得准确且相关的输出，提示词需要根据任务精心设计与定制。在实战中，提示词设计是影响应用性能表现的最重要因素之一。</p>
+   <p>人工智能应用主要通过<em>提示词</em>与大语言模型进行交互—这些结构化的输入旨在引导模型的行为。这有点像给一位才华横溢但经验不足的同事下达指令：你的指示越清晰、越具体，得到的结果就越好。为了获得准确且相关的输出，提示词需要根据任务精心设计与定制。在实战中，提示词设计是影响应用性能表现的最重要因素之一。</p>
   </div> 
   <div class="readable-text intended-text" id="p7">
    <p><em>提示词工程</em>—即设计和优化提示词以引导大语言模型输出的实践—是构建大语言模型应用的核心技能。你将花费大量时间创建、测试并迭代提示词，以确保你的系统能够提供可靠、高质量的结果。</p>
@@ -33,7 +33,7 @@
    <p>大语言模型应用依赖精心设计的提示词来生成补全内容，这些内容随后会传递给链中的下一个组件。与在ChatGPT等界面中手动输入的提示词不同，LangChain的提示词通常作为更大工作流的一部分，通过编程方式构建并发送给大语言模型。以下章节首先介绍如何直接使用OpenAI API来设置和执行提示词，然后我们将探讨如何在LangChain内部运行和管理提示词。在深入之前，请确保你已经掌握了这些基础知识：</p>
   </div> 
   <ul> 
-   <li class="readable-text" id="p11"> 你拥有一个OpenAI API key。</li> 
+   <li class="readable-text" id="p11"> 你拥有一个OpenAI API key(密钥)。</li>
    <li class="readable-text" id="p12"> 你知道如何创建一个Python Jupyter Notebook环境。</li> 
   </ul> 
   <div class="readable-text" id="p13">
@@ -188,7 +188,7 @@ print(response)</pre>
    </div> 
   </div> 
   <div class="readable-text print-book-callout" id="p48">
-   <p><span class="print-book-callout-head">注意</span> 如果您不熟悉，其实我用来构建提示词的三对双引号 (<code>"""</code>)允许您以非常易读的方式输入跨多行的文本块，而无需引入换行符(<code>\n</code>)，这对于捕获提示词来说是理想的选择。</p> 
+   <p><span class="print-book-callout-head">注意</span> 如果您不熟悉以上Python语法，其实我用来构建提示词的三对双引号 (<code>"""</code>)允许您以非常易读的方式输入跨多行的文本块，而无需引入换行符(<code>\n</code>)，这对于捕获提示词来说是理想的选择。</p> 
   </div> 
   <div class="callout-container sidebar-container"> 
    <div class="readable-text" id="p49"> 
@@ -347,8 +347,8 @@ print(response.content)</pre>
   <div class="readable-text" id="p74"> 
    <h3 class=" readable-text-h3"><span class="num-string">2.3.2</span> 使用 LangChain 的 PromptTemplate</h3> 
   </div> 
-  <div class="readable-text" id="p75"> 
-   <p>With LangChain, you don’t need to implement a prompt template function manually. Instead, you can use the convenient <code>PromptTemplate</code> class to handle parametrized templates. Here’s how you can use it:</p> 
+  <div class="readable-text" id="p75">
+   <p>使用LangChain，您无需手动实现提示词模板函数。相反，您可以使用便捷的<code>PromptTemplate</code>类来处理参数化模板。以下是其使用方法：</p>
   </div> 
   <div class="browsable-container listing-container" id="p76"> 
    <div class="code-area-container"> 
@@ -360,8 +360,8 @@ Write a {num_words} words summary of the following text,
 using a {tone} tone: {text}""")</pre>  
    </div> 
   </div> 
-  <div class="readable-text" id="p77"> 
-   <p>To use the prompt template, create a prompt instance, and format it with your parameters:</p> 
+  <div class="readable-text" id="p77">
+   <p>要使用提示词模板，请创建一个prompt实例，并使用您的参数进行格式化：</p>
   </div> 
   <div class="browsable-container listing-container" id="p78"> 
    <div class="code-area-container"> 
@@ -372,7 +372,7 @@ using a {tone} tone: {text}""")</pre>
    </div> 
   </div> 
   <div class="readable-text" id="p79"> 
-   <p>Then, invoke the <code>ChatOpenAI</code> client with the formatted prompt:</p> 
+   <p>然后，使用格式化后的提示词调用<code>ChatOpenAI</code>客户端：</p>
   </div> 
   <div class="browsable-container listing-container" id="p80"> 
    <div class="code-area-container"> 
@@ -380,258 +380,259 @@ using a {tone} tone: {text}""")</pre>
 print(response.content)</pre>  
    </div> 
   </div> 
-  <div class="readable-text" id="p81"> 
-   <p>This will generate output similar to what’s shown here (as you now understand, the exact output may differ from what’s printed in the book, so I won’t repeat this point on the next page):</p> 
+  <div class="readable-text" id="p81">
+   <p>它将生成如下显示的类似输出（正如你现在所理解的，确切的输出可能与书中打印的不同，因此我不会在下一页重复这一点）：</p>
   </div> 
   <div class="browsable-container listing-container" id="p82"> 
    <div class="code-area-container"> 
-    <pre class="code-area">The Aqueduct of Segovia, a Roman marvel built in the 1st century AD, channels water to Segovia's fountains and baths.</pre>  
+    <pre class="code-area">
+    The Aqueduct of Segovia, a Roman marvel built in the 1st century AD, channels water to Segovia's fountains and baths.<br/>
+    译文：塞戈维亚水道，这座建于公元1世纪的罗马奇迹，将水引向塞戈维亚的喷泉和浴场。
+    </pre>  
    </div> 
   </div> 
-  <div class="readable-text" id="p83"> 
-   <p>Let’s take a short break from coding with LangChain. I want to delve deeper into prompt engineering. In the upcoming pages, you’ll see that a good prompt can have various elements, depending on your goal, task complexity, and desired accuracy. By learning from different prompt variations, you’ll be able to handle both simple and complex prompts, adjusting their complexity to fit specific cases.</p> 
+  <div class="readable-text" id="p83">
+   <p>让我们暂时从LangChain的编码中稍作休息。我想更深入地探讨提示词工程。在接下来的几页中，你会看到，一个好的提示词可以包含多种元素，这取决于你的目标、任务复杂度和期望的准确性。通过学习不同的提示词变体，你将能够处理简单和复杂的提示词，并根据具体情况调整其复杂度。</p> 
   </div> 
   <div class="readable-text" id="p84"> 
-   <h2 class=" readable-text-h2"><span class="num-string">2.4</span> Prompt types</h2> 
+   <h2 class=" readable-text-h2"><span class="num-string">2.4</span> 提示词类型</h2> 
   </div> 
-  <div class="readable-text" id="p85"> 
-   <p>Creating effective prompts is crucial for getting the best results in LangChain applications. Whether your app is focused on text classification, sentiment analysis, summarization, text generation, or question answering, each task requires a carefully designed prompt. In the following sections, we’ll dive into how to craft prompts tailored to these specific tasks, ensuring your application functions as intended.</p> 
+  <div class="readable-text" id="p85">
+   <p>在LangChain应用中，创建有效的提示词对于获得最佳结果至关重要。无论您的应用是专注于文本分类、情感分析、摘要生成、文本生成还是问答系统，每项任务都需要精心设计的提示词。在接下来的章节中，我们将深入探讨如何为这些特定任务量身定制提示词，确保您的应用按预期运行。</p>
   </div> 
-  <div class="readable-text intended-text" id="p86"> 
-   <p>Although these prompting techniques are key to developing LangChain applications, we’ll use ChatGPT for now to keep things simple and explain prompt engineering concepts more clearly. The patterns you learn here will directly apply to the LLM apps we build with LangChain in the upcoming chapters.</p> 
+  <div class="readable-text intended-text" id="p86">
+   <p>尽管这些提示词技术对于开发LangChain应用程序至关重要，但为了保持简洁并更清晰地解释提示词工程概念，我们暂时将使用ChatGPT。您在这里学到的模式将直接适用于我们在后续章节中使用LangChain构建的大语言模型应用程序。</p>
   </div> 
   <div class="readable-text" id="p87"> 
-   <h3 class=" readable-text-h3"><span class="num-string">2.4.1</span> Text classification </h3> 
+   <h3 class=" readable-text-h3"><span class="num-string">2.4.1</span> 文本分类 </h3> 
   </div> 
-  <div class="readable-text" id="p88"> 
-   <p>In classification, the goal is to assign an input text to one of several predefined categories. The following prompt demonstrates this concept—try entering it into ChatGPT, which we’ll use throughout this section:</p> 
+  <div class="readable-text" id="p88">
+   <p>在分类任务中，目标是将输入文本分配到多个预定义类别中的其中一个。以下提示词展示了这一概念—请尝试将其输入到ChatGPT中，我们将在本节中全程使用它：</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p89"> 
-   <p><span class="small-caps">Instruction</span> Classify the following text into one of these categories: history, tech, gardening.</p> 
+   <p><span class="small-caps">指令</span> 将以下文本归类到以下类别之一：历史、科技、园艺。</p> 
   </div> 
   <div class="readable-text prompt  prompt-1" id="p90"> 
-   <p><span class="small-caps">Text</span> Headphones provide immersive audio experiences for music lovers and gamers alike.</p> 
+   <p><span class="small-caps">文本</span> 耳机为音乐爱好者和游戏玩家提供了沉浸式音频体验。</p> 
   </div> 
-  <div class="readable-text response response-1" id="p91"> 
-   <p><span class="response-1q">“</span>The text “Headphones provide immersive audio experiences for music lovers and gamers alike.” should be classified as “tech” because it discusses technology-related products and their functionality.</p> 
+  <div class="readable-text response response-1" id="p91">
+   <p><span class="response-1q">文本</span>“耳机为音乐爱好者和游戏玩家提供了沉浸式音频体验。” 应归类为 “科技”，因为它讨论了与技术相关的产品及其功能。</p> 
   </div> 
   <div class="readable-text" id="p92"> 
-   <p>The output is overly detailed. Let’s revise the prompt and specify to display the category only.</p> 
+   <p>输出内容过于详细。让我们修改提示词，指定只显示类别。</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p93"> 
-   <p><span class="small-caps">Instruction</span> Classify the following text into one of these categories: history, tech, gardening.</p> 
+   <p><span class="small-caps">指令</span> 将以下文本归类到以下类别之一：历史、科技、园艺。</p> 
   </div> 
   <div class="readable-text prompt  prompt-1" id="p94"> 
-   <p><span class="small-caps">Text</span> Headphones provide immersive audio experiences for music lovers and gamers alike.</p> 
+   <p><span class="small-caps">文本</span> 耳机为音乐爱好者和游戏玩家提供了沉浸式音频体验。</p> 
   </div> 
   <div class="readable-text prompt  prompt-1" id="p95"> 
-   <p><span class="small-caps">Output</span> only the category</p> 
+   <p><span class="small-caps">输出</span> 只输出分类名称</p> 
   </div> 
   <div class="readable-text response response-1" id="p96"> 
-   <p><span class="response-1q">“</span>Tech</p> 
+   <p><span class="response-1q">“科技”</span></p> 
   </div> 
-  <div class="readable-text" id="p97"> 
-   <p>Now categorize another sentence by applying the same prompt and only altering the text:</p> 
+  <div class="readable-text" id="p97">
+   <p>现在通过应用相同的提示词并仅修改文本来对另一个句子进行分类：</p>
   </div> 
   <div class="readable-text prompt prompt-1" id="p98"> 
-   <p><span class="small-caps">Instruction</span> Classify the following text into one of these categories: history, tech, gardening.</p> 
+   <p><span class="small-caps">指令</span> 将以下文本归类到以下类别之一：历史、科技、园艺。</p> 
   </div> 
   <div class="readable-text prompt  prompt-1" id="p99"> 
-   <p><span class="small-caps">Text</span> Julius Caesar was a Roman general and statesman who played a pivotal role in thedemise of the Roman Republic and the rise of the Roman Empire.</p> 
+   <p><span class="small-caps">文本</span> 尤利乌斯·凯撒是一位罗马将军和政治家，他在罗马共和国的覆灭和罗马帝国的崛起中扮演了关键角色。</p> 
   </div> 
   <div class="readable-text prompt  prompt-1" id="p100"> 
-   <p><span class="small-caps">Output</span> only the category</p> 
+   <p><span class="small-caps">输出</span> 只输出分类名称</p> 
   </div> 
   <div class="readable-text response response-1" id="p101"> 
-   <p><span class="response-1q">“</span>History </p> 
+   <p><span class="response-1q">“历史”</span></p> 
   </div> 
-  <div class="readable-text" id="p102"> 
-   <p>In summary, in a standard text classification prompt, you find three components: an Instruction, the input Text, and an Output specification. Next, let’s delve into a slightly specialized text classification: sentiment analysis.</p> 
+  <div class="readable-text" id="p102">
+   <p>总而言之，在一个标准的文本分类提示词中，你会找到三个组成部分：指令、输入文本和输出规范。接下来，让我们深入探讨一个略微专业化的文本分类：情感分析。</p>
   </div> 
   <div class="readable-text" id="p103"> 
-   <h3 class=" readable-text-h3"><span class="num-string">2.4.2</span> Sentiment analysis</h3> 
+   <h3 class=" readable-text-h3"><span class="num-string">2.4.2</span> 情感分析</h3> 
   </div> 
-  <div class="readable-text" id="p104"> 
-   <p><em>Sentiment analysis</em> is a specific type of text classification that aims to determine whether a given text is perceived as positive, neutral, or negative. Following are three sample prompts (and expected responses) that you can experiment with independently:</p> 
+  <div class="readable-text" id="p104">
+   <p><em>情感分析</em>是一种特定的文本分类类型，旨在判断给定文本被感知为积极、中性还是消极。以下是三个示例提示词（及期望回复），您可以独立进行实验：</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p105"> 
-   <p><span class="small-caps">Instruction</span> Classify the following text as positive, neutral or negative </p> 
+   <p><span class="small-caps">指令</span> 将以下文本分类为积极、中性或消极</p> 
   </div> 
   <div class="readable-text prompt  prompt-1" id="p106"> 
-   <p><span class="small-caps">Text</span> Apple has announced stellar quarterly results</p> 
+   <p><span class="small-caps">文本</span> 苹果公司公布了出色的季度业绩</p> 
   </div> 
   <div class="readable-text response response-1" id="p107"> 
-   <p><span class="response-1q">“</span>Positive</p> 
+   <p><span class="response-1q">“积极”</span></p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p108"> 
-   <p><span class="small-caps">Instruction</span> Classify the following text as positive, neutral or negative </p> 
+   <p><span class="small-caps">指令</span> 将以下文本分类为积极、中性或消极</p> 
   </div> 
   <div class="readable-text prompt  prompt-1" id="p109"> 
-   <p><span class="small-caps">Text</span> this is the worst movie I have watched this month</p> 
+   <p><span class="small-caps">文本</span> 这是本月我看过的最糟糕的电影</p> 
   </div> 
   <div class="readable-text response response-1" id="p110"> 
-   <p><span class="response-1q">“</span>Negative</p> 
+   <p><span class="response-1q">“消极”</span></p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p111"> 
-   <p><span class="small-caps">Instruction</span> Classify the following text as positive, neutral or negative </p> 
+   <p><span class="small-caps">指令</span> 将以下文本分类为积极、中性或消极</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p112"> 
-   <p><span class="small-caps">Text</span> The customer bought a green dress</p> 
+   <p><span class="small-caps">文本</span> 顾客购买了一条绿色连衣裙</p> 
   </div> 
   <div class="readable-text response response-1" id="p113"> 
-   <p><span class="response-1q">“</span>Neutral</p> 
+   <p><span class="response-1q">“中性”</span></p> 
   </div> 
-  <div class="readable-text" id="p114"> 
-   <p>If you have a list of texts and want to analyze their sentiments collectively, you can input them all into a single prompt:</p> 
+  <div class="readable-text" id="p114">
+   <p>如果您有一个文本列表，并希望集中分析它们的情感倾向，可以将它们全部输入到同一个提示词中：</p>
   </div> 
   <div class="readable-text prompt prompt-1" id="p115"> 
-   <p><span class="small-caps">Instruction</span> classify the sentiment of following stock reports as positive, neutral or negative</p> 
+   <p><span class="small-caps">指令</span> 将以下股票报告的情绪分类为积极、中性或消极</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p116"> 
-   <p>  Stock 1: Apple: the launch of the new iPhone has been a success</p> 
+   <p>  股票1: 苹果：新款iPhone的发布取得了成功</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p117"> 
-   <p>  Stock 2: Nvidia: sales are being propelled by consumer demand on LLMs</p> 
+   <p>  股票2: 英伟达：销售额正受到消费者对大语言模型需求的推动</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p118"> 
-   <p>  Stock 3: GX oil: demand of carbon based energy is dropping thanks to the increase of renewable energy</p> 
+   <p>  股票3: GX石油：由于可再生能源的增加，碳基能源的需求正在下降</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p119"> 
-   <p><span class="small-caps">Output</span> output a table with the columns “stock name”, “sentiment”</p> 
+   <p><span class="small-caps">输出</span> 输出一个包含“股票名称”、“情感倾向”列的表格</p> 
   </div> 
-  <div class="readable-text response response-1" id="p120"> 
-   <p><code/></p> 
-  </div> 
+   
   <div class="browsable-container listing-container" id="p121"> 
-   <span class="response-1q">“</span> 
+   <span class="response-1q"></span> 
    <div class="code-area-container"> 
-    <pre class="code-area">| Stock Name  | Sentiment |
-|-------------|-----------|
-| Apple       | positive  |
-| Nvidia      | positive  |
-| GX oil      | negative  |</pre>  
+    <pre class="code-area">|   股票名称   |   情感倾向   |
+|-------------|-------------|
+|    苹果     |     积极     |
+|   英伟达    |     积极     |
+|   GX石油    |     消极     |</pre>  
    </div> 
   </div> 
   <div class="readable-text" id="p122"> 
-   <p>As you can see, in this scenario, the output is formatted in a table and can be readily processed programmatically. Next, let’s create a prompt for one of the most common LLM use cases: text summarization.</p> 
+   <p>正如你所见，在这个场景中，输出以表格形式呈现，并且可以轻松地通过编程方式处理。接下来，让我们为最常见的大语言模型应用场景之一—文本摘要—创建一个提示词。</p> 
   </div> 
   <div class="readable-text" id="p123"> 
-   <h3 class=" readable-text-h3"><span class="num-string">2.4.3</span> Text summarization</h3> 
+   <h3 class=" readable-text-h3"><span class="num-string">2.4.3</span> 文本摘要</h3> 
   </div> 
-  <div class="readable-text" id="p124"> 
-   <p>Creating a <em>text summarization </em>prompt is simple: you only need to ask for a summary of an input text with your preferred length.</p> 
+  <div class="readable-text" id="p124">
+   <p>创建<em>文本摘要</em>提示非常简单：你只需要请求对输入文本进行摘要生成，并指定你偏好的长度。</p>
   </div> 
   <div class="readable-text prompt prompt-1" id="p125"> 
-   <p><span class="small-caps"> Instruction</span> write a 30 word summary for the following text</p> 
+   <p><span class="small-caps"> 指令</span> 为下列文本写一段30字的文本摘要</p> 
   </div> 
   <div class="readable-text prompt" id="p126"> 
-   <p><span class="small-caps"> Text</span> Home PCs from the 1980s were iconic pioneers of personal computing. Computers like the Apple II, IBM PC, and Commodore 64 revolutionized how we lived and worked. They introduced us to word processing, gaming, and the possibilities of home computing. The graphical user interface, as seen in the Apple Macintosh, changed the way we interacted with machines. These PCs, though less powerful by today’s standards, ignited a digital revolution, shaping the technology landscape we know today. They hold a special place in history, symbolizing the dawn of a new era in computing that laid the foundation for the modern digital age.</p> 
+   <p><span class="small-caps"> 文本</span> 20世纪80年代的家用个人电脑是个人计算领域的标志性先驱。诸如Apple II、IBM PC和Commodore 64等计算机彻底改变了我们的日常生活和工作方式。它们将文字处理、游戏以及家庭计算的可能性带入了我们的日常生活。正如苹果Macintosh所展示的用户图形界面，改变了我们与机器交互的方式。这些个人电脑，尽管以今天的标准来看性能较弱，却点燃了一场数字革命，它塑造了我们今天所熟知的技术格局。它们在历史上占据着特殊的地位，象征着计算领域新时代的黎明，为现代数字时代奠定了基础。</p> 
   </div> 
-  <div class="readable-text response response-1" id="p127"> 
-   <p><span class="response-1q">“</span>1980s home PCs like Apple II, IBM PC, Commodore 64 pioneered personal computing, introducing word processing, gaming, and GUIs. They shaped today’s tech, symbolizing a digital era’s dawn.</p> 
+  <div class="readable-text response response-1" id="p127">
+   <p><span class="response-1q">“20世纪80年代的家用个人电脑，如Apple II、IBM PC、Commodore 64，开创了个人计算的先河，引入了文字处理、游戏和用户图形界面。它们塑造了当今的科技格局，象征着一个数字时代的黎明。”</span></p>
   </div> 
-  <div class="readable-text" id="p128"> 
-   <p>You can also ask the LLM to provide a summary for a text it’s already familiar with:</p> 
+  <div class="readable-text" id="p128">
+   <p>你也可以要求大语言模型为它已经熟悉的文本提供摘要：</p>
   </div> 
   <div class="readable-text prompt prompt-1" id="p129"> 
-   <p><span class="small-caps"> Instruction</span> Write a one sentence summary of the Lord of the Rings </p> 
+   <p><span class="small-caps"> 指令</span> 请用一句话总结《指环王》</p> 
   </div> 
   <div class="readable-text response response-1" id="p130"> 
-   <p><span class="response-1q">“</span>“The Lord of the Rings” follows the epic journey of a diverse group of characters as they seek to destroy a powerful ring and save Middle-earth from the dark lord Sauron.</p> 
+   <p><span class="response-1q">“《指环王》讲述了一群各具特色的角色展开史诗般的旅程，他们试图摧毁一枚强大的戒指，将中土世界从黑暗魔君索伦手中拯救出来。”</span></p> 
   </div> 
   <div class="readable-text" id="p131"> 
-   <h3 class=" readable-text-h3"><span class="num-string">2.4.4</span> Composing text</h3> 
+   <h3 class=" readable-text-h3"><span class="num-string">2.4.4</span> 文本创作</h3>
   </div> 
-  <div class="readable-text" id="p132"> 
-   <p>LLMs are part of the AI category called <em>generative AI</em>. While LLMs can handle audio and video, when prompted with text, they can generate new content, like a paragraph or sentence, based on a list of facts, for example:</p> 
+  <div class="readable-text" id="p132">
+   <p>大语言模型属于人工智能的一个类别，被称为<em>生成式AI</em>。虽然大语言模型能够处理音频和视频，但当接收到文本提示词时，它们可以基于一系列事实生成新的内容，例如一个段落或句子：</p>
   </div> 
   <div class="readable-text prompt prompt-1" id="p133"> 
-   <p>  Write a piece on the diver watches, mentioning the following facts:</p> 
+   <p>  撰写一篇关于潜水手表的文章，需提及以下事实：</p> 
   </div> 
   <ul class="prompt"> 
-   <li class="readable-text" id="p134"> the Rolex Oyster Perpetual was among the first to be water resistant </li> 
-   <li class="readable-text" id="p135"> Omega produced the Seamaster in 1948 as the first purpose designed diver watch was the Seamaster </li> 
-   <li class="readable-text" id="p136"> the Seamaster set a world record of immersion of 62.5m in 1955 </li> 
-   <li class="readable-text" id="p137"> Rolex produced the first Submariner in 1953 </li> 
-   <li class="readable-text" id="p138"> the Submariner became popular also because of the association with James Bond until 1995 </li> 
-   <li class="readable-text" id="p139"> James Bond started to wear the Seamaster in 1995 </li> 
+   <li class="readable-text" id="p134"> 劳力士蚝式恒动手表是首批具备防水性能的手表之一。</li> 
+   <li class="readable-text" id="p135"> 欧米茄于1948年推出海马系列，成为首款专为潜水设计的手表。</li> 
+   <li class="readable-text" id="p136"> 1955年，海马系列创下62.5米潜水深度的世界纪录。</li> 
+   <li class="readable-text" id="p137"> 劳力士于1953年推出首款潜航者型手表。</li> 
+   <li class="readable-text" id="p138"> 潜航者型手表因与詹姆斯·邦德的关联而广受欢迎，直至1995年。</li> 
+   <li class="readable-text" id="p139"> 自1995年起，詹姆斯·邦德开始佩戴欧米茄海马系列手表。</li> 
   </ul> 
   <div class="readable-text response response-1" id="p140"> 
-   <p><span class="response-1q">“</span>The Rolex Oyster Perpetual, introduced in the early 20th century, played a pioneering role in the evolution of diver watches. Among its notable features was its remarkable water-resistant design, which set the stage for the development of truly waterproof timepieces. This innovation marked a crucial step in ensuring that watches could withstand the rigors of underwater exploration.</p> 
+   <p><span class="response-1q">“</span>劳力士蚝式恒动手表于20世纪初问世，在潜水手表的发展历程中发挥了开创性作用。其卓越的防水设计成为关键突破，为真正意义上的防水手表奠定了技术基础，这一创新显著提升了手表在水下极端环境中的可靠性与实用性。</p> 
   </div> 
   <div class="readable-text response" id="p141"> 
-   <p>Omega, a respected Swiss watchmaker, made its mark on the diver watch scene in 1948 with the introduction of the Seamaster. This timepiece was a game-changer as it was purposefully designed for divers, combining style and functionality. The Seamaster didn’t stop at design; it also showcased its capabilities in the depths. In 1955, it set a remarkable world record for immersion, descending to an astonishing 62.5 meters underwater.</p> 
+   <p>欧米茄作为备受尊敬的瑞士制表品牌，于1948年推出海马系列，彻底改变了潜水手表领域。这款手表专为潜水员设计，将优雅风格与实用功能完美融合。海马系列不仅在设计上突破创新，更在深海环境中验证了其卓越性能—1955年，它创下潜水深度62.5米的世界纪录，成为当时水下耐压能力的标杆。</p> 
   </div> 
   <div class="readable-text response" id="p142"> 
-   <p>Not to be outdone, Rolex joined the fray by producing the first Submariner in 1953. This iconic watch quickly became synonymous with underwater exploration and adventure. Its success was further boosted by its association with the fictional British spy, James Bond. However, the tides of popularity shifted in 1995 when James Bond, portrayed by Pierce Brosnan, made a bold move by strapping on an Omega Seamaster in “GoldenEye.” This marked the beginning of a new era for the Seamaster, as it became the watch of choice for the world’s most famous secret agent.”</p> 
+   <p>不甘示弱，劳力士于1953年推出了首款潜航者型手表，加入了这场竞争。这款标志性手表迅速成为水下探索与冒险的代名词。其与虚构的英国间谍詹姆斯·邦德的关联，进一步推动了它的成功。然而，流行趋势在1995年发生了转变，当时由皮尔斯·布鲁斯南饰演的詹姆斯·邦德在《黄金眼》中大胆地佩戴上了欧米茄海马手表。这标志着海马腕表新时代的开始，因为它成为了世界上最著名特工的首选手表。”</p> 
   </div> 
   <div class="readable-text" id="p143"> 
-   <p>You may notice that ChatGPT has used the limited information to create a quite lengthy article. On the other hand, you might have expected a shorter piece and may not be a fan of the complex vocabulary or somewhat formal tone it used. In such a situation, try restructuring the prompt more systematically to get the generated text to match your preferred length, vocabulary, and tone:</p> 
+   <p>您可能会注意到，ChatGPT利用有限的信息创作了一篇相当长的文章。另一方面，您可能期望一篇更短的文章，并且可能不喜欢它使用复杂词汇或略显正式的语气。在这种情况下，请尝试更系统地重构提示词，以使生成的文本符合您偏好的长度、词汇和语气：</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p144"> 
-   <p> <span class="small-caps">Persona</span> you’re a watch enthusiast, experienced in writing high quality articles for watch magazines for a general audience </p> 
+   <p> <span class="small-caps">角色设定</span> 你是一位手表爱好者，经验丰富，擅长为面向大众的手表杂志撰写高质量文章。</p> 
   </div> 
   <div class="readable-text prompt" id="p145"> 
-   <p> <span class="small-caps">Instruction</span> Write a piece on the diver watches</p> 
+   <p> <span class="small-caps">指令</span> 撰写一篇关于潜水手表的文章</p> 
   </div> 
   <div class="readable-text prompt" id="p146"> 
-   <p>  Facts to mention:</p> 
+   <p>  需要提及的事实：</p> 
   </div> 
   <ul class="prompt"> 
-   <li class="readable-text" id="p147"> the Rolex Oyster Perpetual was among the first to be water resistant </li> 
-   <li class="readable-text" id="p148"> Omega produced the Seamaster in 1948 as the first purpose designed diver watch was the Seamaster </li> 
-   <li class="readable-text" id="p149"> the Seamaster set a world record of immersion of 62.5m in 1955 </li> 
-   <li class="readable-text" id="p150"> Rolex produced the first Submariner in 1953 </li> 
-   <li class="readable-text" id="p151"> the Submariner became popular also because of the association with James Bond until 1995 </li> 
-   <li class="readable-text" id="p152"> James Bond started to wear the Seamaster in 1995 </li> 
+   <li class="readable-text" id="p147"> 劳力士蚝式恒动手表是首批具备防水性能的手表之一。</li> 
+   <li class="readable-text" id="p148"> 欧米茄于1948年推出海马系列，成为首款专为潜水设计的手表。</li> 
+   <li class="readable-text" id="p149"> 1955年，海马系列创下62.5米潜水深度的世界纪录。</li> 
+   <li class="readable-text" id="p150"> 劳力士于1953年推出首款潜航者型手表。</li> 
+   <li class="readable-text" id="p151"> 潜航者型手表因与詹姆斯·邦德的关联而广受欢迎，直至1995年。</li> 
+   <li class="readable-text" id="p152"> 自1995年起，詹姆斯·邦德开始佩戴欧米茄海马系列手表。</li> 
   </ul> 
   <div class="readable-text prompt" id="p153"> 
-   <p> <span class="small-caps">Tone</span> use a sober, knowledgeable but not too formal tone and use everyday vocabulary </p> 
+   <p> <span class="small-caps">语气</span> 采用一种庄重、博学但又不过于正式的语气，并使用日常词汇。</p> 
   </div> 
   <div class="readable-text prompt" id="p154"> 
-   <p> <span class="small-caps">Output</span> the length of the article should be 150 words at most</p> 
+   <p> <span class="small-caps">输出</span> 文章长度最多应最多控制在150个字以内</p> 
   </div> 
   <div class="readable-text response response-1" id="p155"> 
-   <p><span class="response-1q">“</span>**Diver Watches: Timepieces of Exploration and Style**</p> 
+   <p><span class="response-1q">“</span>**潜水手表: 探险精神与时尚风范并存的手表杰作**</p> 
   </div> 
-  <div class="readable-text response" id="p156"> 
-   <p>Diver watches have long been cherished for their blend of functionality and aesthetics, a perfect companion for both the adventurous spirit and the style-conscious. </p> 
+  <div class="readable-text response" id="p156">
+   <p>潜水手表长久以来因其功能与美学的完美融合而备受推崇，既是冒险者的理想伴侣，也是时尚品味者的不二之选。</p>
   </div> 
   <div class="readable-text response" id="p157"> 
-   <p>Rolex deserves recognition for pioneering water resistance with the Oyster Perpetual, setting the stage for a new era in watchmaking. </p> 
+   <p>劳力士凭借蚝式恒动手表率先开创了防水技术，为手表制造开启了一个全新的时代。</p> 
   </div> 
   <div class="readable-text response" id="p158"> 
-   <p>Omega, however, made a significant splash in 1948 with the Seamaster, the world’s first purpose-designed diver watch. Its 1955 record dive of 62.5 meters underlines its prowess in the deep.</p> 
+   <p>然而，欧米茄于1948年以海马系列掀起革命，成为全球首款专为潜水员设计的手表。它不仅在设计上兼顾优雅与实用，更在深海中验证了其卓越性能—1955年，它创下62.5米潜水深度的世界纪录，彰显了其在极端环境下的可靠表现。</p> 
   </div> 
   <div class="readable-text response" id="p159"> 
-   <p>Rolex didn’t lag behind, introducing the Submariner in 1953, a watch that became synonymous with exploration, partly due to its affiliation with James Bond on-screen.</p> 
+   <p>劳力士并未落后，于1953年推出潜航者型手表，这款手表因与银幕上詹姆斯·邦德角色的紧密关联，迅速成为探险精神的代名词。</p> 
   </div> 
   <div class="readable-text response" id="p160"> 
-   <p>Speaking of James Bond, it’s worth noting that in 1995, the iconic secret agent started sporting the Omega Seamaster, a move that reinforced the Seamaster’s reputation as a sophisticated yet rugged timepiece for those who dare to explore both land and sea. These diver watches are more than instruments; they’re symbols of adventure and style.</p> 
+   <p>说到詹姆斯·邦德，值得一提的是，1995年这位传奇特工开始佩戴欧米茄海马系列，这一转变进一步巩固了海马系列作为兼具精致气质与坚韧性能的手表地位，专为那些敢于探索陆地与海洋之人而生。这些潜水手表早已超越计时工具的范畴，成为冒险精神与优雅风格的永恒象征。”</p> 
   </div> 
   <div class="readable-text" id="p161"> 
-   <p>By adding more details to the prompt, the article has been generated exactly as you wanted it.</p> 
+   <p>通过向提示中添加更多细节，文章已完全按照您的要求生成。</p> 
   </div> 
   <div class="readable-text print-book-callout" id="p162"> 
-   <p><span class="print-book-callout-head">note</span>  Creating a well-structured prompt with defined sections (Persona, Instruction, Facts, Tone, Output Format) helps the LLM understand your requirements better and generate the expected text.</p> 
+   <p><span class="print-book-callout-head">注意</span>  创建一个结构清晰、包含明确定义部分（角色、指令、事实、语气、输出格式）的提示词，有助于大语言模型更好地理解您的要求，并生成预期的文本。</p> 
   </div> 
   <div class="readable-text" id="p163"> 
-   <h3 class=" readable-text-h3"><span class="num-string">2.4.5</span> Question answering</h3> 
+   <h3 class=" readable-text-h3"><span class="num-string">2.4.5</span> 问答</h3>
   </div> 
-  <div class="readable-text" id="p164"> 
-   <p>The ability of LLMs to “understand” text makes them suitable not only for summarizing but also for retrieving specific information, known as the <em>question answering</em> use case. Now let’s go back to the same text we used in the summarization example and ask focused questions about its content.</p> 
+  <div class="readable-text" id="p164">
+   <p>大语言模型“理解”文本的能力使其不仅适用于摘要生成，也适用于检索特定信息，这被称为<em>问答</em>使用场景。现在，让我们回到摘要示例中使用的同一段文本，并针对其内容提出一些具体问题。</p>
   </div> 
   <div class="readable-text prompt prompt-1" id="p165"> 
-   <p> <span class="small-caps">Instruction</span> read the following text, and tell me which home computers were popular in the 80s.</p> 
+   <p> <span class="small-caps">指令</span> 阅读以下文本，并告诉我80年代哪些家用个人电脑比较流行。</p> 
   </div> 
   <div class="readable-text prompt" id="p166"> 
-   <p><span class="small-caps">Text</span> Home PCs from the 1980s were iconic pioneers of personal computing. Computers like the Apple II, IBM PC, and Commodore 64 revolutionized how we lived and worked. They introduced us to word processing, gaming, and the possibilities of home computing. The graphical user interface, as seen in the Apple Macintosh, changed the way we interacted with machines. These PCs, though less powerful by today’s standards, ignited a digital revolution, shaping the technology landscape we know today. They hold a special place in history, symbolizing the dawn of a new era in computing that laid the foundation for the modern digital age.</p> 
+   <p><span class="small-caps">文本</span> 20世纪80年代的家用个人电脑是个人计算领域的标志性先驱。诸如Apple II、IBM PC和Commodore 64等计算机彻底改变了我们的日常生活和工作方式。它们将文字处理、游戏以及家庭计算的可能性带入了我们的日常生活。正如苹果Macintosh所展示的用户图形界面，改变了我们与机器交互的方式。这些个人电脑，尽管以今天的标准来看性能较弱，却点燃了一场数字革命，它塑造了我们今天所熟知的技术格局。它们在历史上占据着特殊的地位，象征着计算领域新时代的黎明，为现代数字时代奠定了基础。</p> 
   </div> 
   <div class="readable-text prompt" id="p167"> 
-   <p><span class="small-caps">Output</span> just output the names of the computers in a list</p> 
+   <p><span class="small-caps">输出</span> 仅以列表形式输出电脑的名称</p> 
   </div> 
   <div class="readable-text response response-1" id="p168"> 
-   <p><span class="response-1q">“</span>The popular home computers in the 1980s were:</p> 
+   <p><span class="response-1q">20世纪80年代流行的家用个人电脑有:</span></p> 
   </div> 
   <ol class="response"> 
    <li class="readable-text" id="p169"> Apple II </li> 
@@ -640,206 +641,203 @@ print(response.content)</pre>
    <li class="readable-text" id="p172"> Apple Macintosh </li> 
   </ol> 
   <div class="readable-text" id="p173"> 
-   <p>Question answering is such a common use case that most LLMs understand Q and A as shorthand for Question and Answer. For example:</p> 
+   <p>问答是一种常见的应用场景，因此大多数大语言模型都将Q和A理解为问题和答案的缩写。例如：</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p174"> 
-   <p><span class="small-caps">Text</span> Java is a popular programming language that compiles code into bytecode, which is executed by the Java Virtual Machine (JVM) for platform-independent application development.</p> 
+   <p><span class="small-caps">文本</span> Java是一种流行的编程语言，它将代码编译成字节码，由Java虚拟机（JVM）执行，从而实现跨平台的应用程序开发。</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p175"> 
-   <p>  Q: Where is Java code executed?</p> 
+   <p>  Q: Java代码在哪里被执行？</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p176"> 
-   <p>  A:</p> 
-  </div> 
-  <div class="readable-text response response-1" id="p177"> 
-   <p><span class="response-1q">“</span>Java code is executed by the Java Virtual Machine (JVM).</p> 
+   <p>  A: Java代码由Java虚拟机（JVM）执行。</p> 
   </div> 
   <div class="readable-text" id="p178"> 
-   <p>LLMs are skilled not just at finding requested information in a text but also at making logical deductions. This will become apparent in the next section.</p> 
+   <p>大语言模型不仅擅长在文本中查找所需信息，还擅长进行逻辑推理。这一点将在下一节中讲解。</p> 
   </div> 
   <div class="readable-text" id="p179"> 
-   <h3 class=" readable-text-h3"><span class="num-string">2.4.6</span> Reasoning </h3> 
+   <h3 class=" readable-text-h3"><span class="num-string">2.4.6</span> 推理 </h3> 
   </div> 
   <div class="readable-text" id="p180"> 
-   <p>While reasoning is a powerful capability, it’s an area where LLMs are still improving. Therefore, you might need more advanced prompt engineering techniques to get the results you want. Here’s a simple example involving mathematical reasoning:</p> 
+   <p>虽然推理是一项强大的能力，但大语言模型在这方面仍在不断改进。因此，你可能需要更高级的提示词工程技术来获得想要的结果。以下是一个涉及数学推理的简单示例：</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p181"> 
-   <p> <span class="small-caps">Instruction</span> Add the square numbers in this sequence: 19, 13, 1, 17, 4, 64, 900 </p> 
+   <p> <span class="small-caps">指令</span> 计算这串数字中平方数的和：19, 13, 1, 17, 4, 64, 900</p> 
   </div> 
   <div class="readable-text response response-1" id="p182"> 
-   <p><span class="response-1q">“</span>The square numbers in the sequence 19, 13, 1, 17, 4, 64, and 900 are 1, 4, 64, and 900. To find their sum:</p> 
+   <p><span class="response-1q">“这串数字19, 13, 1, 17, 4, 64, 900中是平方数的有：1, 4, 64, 900，它们的和为：”</span></p> 
   </div> 
   <div class="readable-text response" id="p183"> 
    <p>1 + 4 + 64 + 900 = 969</p> 
   </div> 
   <div class="readable-text response" id="p184"> 
-   <p>So, the sum of the square numbers in this sequence is 969.</p> 
+   <p>因此，这串数字中平方数的和为969。</p> 
   </div> 
   <div class="readable-text" id="p185"> 
-   <p>ChatGPT identified the square numbers, picked them out, and then calculated their total. The next example is more challenging, involving palindromes—numbers that read the same forward and backward, such as 1661 or 27872:</p> 
+   <p>ChatGPT识别出平方数，将它们挑选出来，然后计算它们的总和。下一个例子更具挑战性，涉及到回文数—那些正读反读都相同的数字，例如1661或27872：</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p186"> 
-   <p> <span class="small-caps">Instruction</span> Sum the palindromes in this sequence: 13, 1331, 121, 73, 99, 56, 232, 7</p> 
+   <p> <span class="small-caps">指令</span> 求这串数字中回文数的和：13, 1331, 121, 73, 99, 56, 232, 7</p> 
   </div> 
   <div class="readable-text" id="p187"> 
-   <p>I got this output:</p> 
+   <p>我得到了如下输出：</p> 
   </div> 
   <div class="readable-text response response-1" id="p188"> 
-   <p><span class="response-1q">“</span>The palindromes in the sequence 13, 1331, 121, 73, 99, 56, 232, and 7 are 1331, 121, 232, and 7. To find their sum:</p> 
+   <p><span class="response-1q">“这串数字13, 1331, 121, 73, 99, 56, 232, 7中是回文数的有：1331, 121, 232, 7，它们的和为：”</span></p> 
   </div> 
   <div class="readable-text response" id="p189"> 
    <p>1331 + 121 + 232 + 7 = 1691</p> 
   </div> 
   <div class="readable-text response" id="p190"> 
-   <p>So, the sum of the palindromes in this sequence is 1691.</p> 
+   <p>因此，这串数字中回文数的和为1691。</p> 
   </div> 
   <div class="readable-text" id="p191"> 
-   <p>This is incorrect! A palindrome is a number that reads the same forward and backward. Therefore, 99 should have been considered a palindrome, but it wasn’t.</p> 
+   <p>这是错误的！回文数是指正读和反读都相同的数字。因此，99本应被视为回文数，但它却没有被纳入计算。</p> 
   </div> 
   <div class="readable-text intended-text" id="p192"> 
-   <p>I’ll be frank with you: this output is what I encountered in the early stages of writing this book. However, you should now see a different and, more importantly, accurate output. It’s still valuable to explain how I corrected ChatGPT’s mistake before OpenAI addressed this in a later version of the model.</p> 
+   <p>坦白地说：这个输出是我在撰写本书早期阶段遇到的。不过，你现在应该会看到一个不同的结果，更重要的是，你将会得到一个准确的输出。OpenAI在后续模型版本中解决这个问题之前，解释以下我是如何纠正ChatGPT的这个错误的，仍然很具有价值。</p> 
   </div> 
   <div class="readable-text intended-text" id="p193"> 
-   <p>So how did I fix it? Because the earlier LLM version didn’t fully grasp the concept of a palindrome, I “taught” ChatGPT to correctly identify all relevant cases, as I’ll explain in the next section. Before moving on, take a moment to review the types of prompts you’ve learned as summarized in table 2.1.</p> 
+   <p>那么我是如何解决这个问题的呢？由于早期的大语言模型版本未能完全理解回文的概念，我“教会”了ChatGPT正确识别所有相关案例，具体方法将在下一节中阐述。在继续之前，请花点时间回顾一下表2.1中总结的您已学习的提示词类型。</p> 
   </div> 
   <div class="browsable-container browsable-table-container framemaker-table-container" id="p194"> 
-   <h5 class=" browsable-container-h5"><span class="num-string">Table 2.1</span> Prompt types and examples</h5> 
+   <h5 class=" browsable-container-h5"><span class="num-string">表格 2.1</span> 提示词类型与提示词示例</h5> 
    <table> 
     <thead> 
      <tr> 
       <th> 
        <div>
-         Prompt type 
+         提示词类型 
        </div> </th> 
       <th> 
        <div>
-         Prompt example 
+         提示词示例 
        </div> </th> 
      </tr> 
     </thead> 
     <tbody> 
      <tr> 
-      <td>  Text classification <br/> </td> 
-      <td>  Classify the following text into one of these categories: history, tech, gardening. <br/> </td> 
+      <td>  文本分类 <br/> </td> 
+      <td>  将以下文本归类到以下类别之一：历史、科技、园艺。<br/> </td> 
      </tr> 
      <tr> 
-      <td>  Sentiment analysis <br/> </td> 
-      <td>  Classify the following text as positive, neutral, or negative. <br/> </td> 
+      <td>  情感分析 <br/> </td> 
+      <td>  将以下文本分类为积极、中性或消极<br/> </td> 
      </tr> 
      <tr> 
-      <td>  Text summarization <br/> </td> 
-      <td>  Write a 30-word summary for the following text. <br/> </td> 
+      <td>  文本摘要 <br/> </td> 
+      <td>  为下列文本写一段30字的文本摘要<br/> </td> 
      </tr> 
      <tr> 
-      <td>  Composing text <br/> </td> 
-      <td>  Write a piece on the diver watches, mentioning the following facts: <br/>  <span class="num-string">•</span> The Rolex Oyster Perpetual was among the first to be water resistant. <br/>  <span class="num-string">•</span> Omega produced the Seamaster in 1948 as the first purpose designed diver watch was the Seamaster. <br/> </td> 
+      <td>  文本创作 <br/> </td> 
+      <td>  撰写一篇关于潜水手表的文章，需提及以下事实：<br/>  <span class="num-string">•</span> 劳力士蚝式恒动手表是首批具备防水性能的手表之一。<br/>  <span class="num-string">•</span> 欧米茄于1948年推出海马系列，成为首款专为潜水设计的手表。<br/> </td> 
      </tr> 
      <tr> 
-      <td>  Question answering <br/> </td> 
-      <td>  Read the following text, and tell me which home computers were popular in the 80s. <br/> </td> 
+      <td>  问答 <br/> </td> 
+      <td>  阅读以下文本，并告诉我80年代哪些家用个人电脑比较流行。<br/> </td> 
      </tr> 
      <tr> 
-      <td>  Reasoning <br/> </td> 
-      <td>  Add the square numbers in this sequence: 19, 13, 1, 17, 4, 64, 900. <br/> </td> 
+      <td>  推理 <br/> </td> 
+      <td>  计算这串数字中平方数的和：19, 13, 1, 17, 4, 64, 900<br/> </td> 
      </tr> 
     </tbody> 
    </table> 
   </div> 
   <div class="readable-text" id="p195"> 
-   <h2 class=" readable-text-h2"><span class="num-string">2.5</span> Reasoning in detail</h2> 
+   <h2 class=" readable-text-h2"><span class="num-string">2.5</span> 详细推理</h2> 
   </div> 
   <div class="readable-text" id="p196"> 
-   <p>When developing LLM applications, particularly those requiring complex reasoning, it’s important to understand the limitations of different prompt techniques. For instance, <em>zero-shot learning</em> is a method in which you provide no examples, expecting the LLM to grasp and perform the task based purely on the instructions given. While this approach can work well in some scenarios, it doesn’t always yield accurate results for more intricate tasks, such as teaching an LLM to identify palindromes. In the following sections, I’ll demonstrate how to go beyond zero-shot learning to refine LLM prompts for more reliable performance in reasoning tasks.</p> 
+   <p>在开发大语言模型应用时，特别是那些需要复杂推理的应用，理解不同提示词技术的局限性至关重要。例如，<em>零样本学习</em>是一种不提供任何示例的方法，期望大语言模型仅根据给定的指令来理解和执行任务。虽然这种方法在某些场景下效果良好，但对于更复杂的任务（例如教大语言模型识别回文），它并不能总产生准确的结果。在接下来的章节中，我将演示如何超越<em>零样本学习</em>，优化大语言模型提示词，以在推理任务中获得更可靠的性能。</p>
   </div> 
   <div class="readable-text" id="p197"> 
-   <h3 class=" readable-text-h3"><span class="num-string">2.5.1</span> One-shot learning</h3> 
+   <h3 class=" readable-text-h3"><span class="num-string">2.5.1</span> 单样本学习</h3> 
   </div> 
   <div class="readable-text" id="p198"> 
-   <p>When you provide just one example in the prompt, it’s called <em>one-shot learning</em>. Here’s how I attempted to address the palindrome problem by giving a single example:</p> 
+   <p>当你在提示词中只提供一个示例时，这被称为<em>单样本学习</em>。以下是我通过提供单个示例来尝试解决回文问题的方法：</p>
   </div> 
   <div class="readable-text prompt prompt-1" id="p199"> 
-   <p> <span class="small-caps">Instruction</span> Sum the palindromes in this sequence: 13, 1331, 121, 73, 99, 56, 232, 7</p> 
+   <p> <span class="small-caps">指令</span> 求这串数字中回文数的和：13, 1331, 121, 73, 99, 56, 232, 7</p> 
   </div> 
   <div class="readable-text prompt" id="p200"> 
-   <p> <span class="small-caps">Example</span> 33 is a palindrome </p> 
+   <p> <span class="small-caps">示例</span> 33是一个回文数</p> 
   </div> 
   <div class="readable-text response response-1" id="p201"> 
-   <p><span class="response-1q">“</span>I apologize for the previous oversight. Let’s correctly identify and sum the palindromes in this sequence: 13, 1331, 121, 73, 99, 56, 232, and 7.</p> 
+   <p><span class="response-1q">“我为之前的疏忽致歉。让我们重新正确识别回文数并计算这串数字中的回文数之和：13, 1331, 121, 73, 99, 56, 232, 7。”</span></p> 
   </div> 
   <div class="readable-text response" id="p202"> 
-   <p>The palindromes in the sequence are 1331, 121, 232, and 7. To find their sum:</p> 
+   <p>“这串数字中是回文数的有：1331, 121, 232, 7，它们的和为：”</p> 
   </div> 
   <div class="readable-text response" id="p203"> 
    <p>1331 + 121 + 232 + 7 = 1691</p> 
   </div> 
   <div class="readable-text response" id="p204"> 
-   <p>So, the sum of the palindromes in this sequence is indeed 1691.</p> 
+   <p>因此，这串数字中回文数的和确实为1691。</p>
   </div> 
   <div class="readable-text" id="p205"> 
-   <p>Unfortunately, even after using one-shot learning, the issue persisted. So I adjusted the prompt and included two examples.</p> 
+   <p>遗憾的是，即使使用了单样本学习，问题依然存在。因此我调整了提示词并加入了两个示例。</p> 
   </div> 
   <div class="readable-text" id="p206"> 
-   <h3 class=" readable-text-h3"><span class="num-string">2.5.2</span> Two-shot learning</h3> 
+   <h3 class=" readable-text-h3"><span class="num-string">2.5.2</span> 双样本学习</h3> 
   </div> 
   <div class="readable-text" id="p207"> 
-   <p>Here is the amended prompt I used, followed by the output it produced. This output illustrates how the model interpreted the revised instructions and applied them within the context of this two-shot learning example.</p> 
+   <p>以下是我使用的修订后的提示词，以及它生成的输出。这个输出展示了模型如何理解修订后的指令，并在这个双样本学习示例的上下文中应用它们。</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p208"> 
-   <p><span class="small-caps"> Instruction</span> Sum the palindromes in this sequence: 13, 1331, 121, 73, 99, 56, 232, 7</p> 
+   <p><span class="small-caps"> 指令</span> 求这串数字中回文数的和：13, 1331, 121, 73, 99, 56, 232, 7</p> 
   </div> 
   <div class="readable-text prompt" id="p209"> 
-   <p><span class="small-caps">  </span>Examples:</p> 
+   <p><span class="small-caps"> </span>示例:</p> 
   </div> 
   <div class="readable-text prompt" id="p210"> 
-   <p>  33 is a palindrome </p> 
+   <p> 33是一个回文数</p> 
   </div> 
   <div class="readable-text prompt" id="p211"> 
-   <p>  44 is a palindrome </p> 
+   <p> 44是一个回文数</p> 
   </div> 
   <div class="readable-text response response-1" id="p212"> 
-   <p><span class="response-1q">“</span>Certainly, let’s identify and sum the palindromes in the sequence: 13, 1331, 121, 73, 99, 56, 232, and 7.</p> 
+   <p><span class="response-1q">“当然，让我们找出这串数字：13, 1331, 121, 73, 99, 56, 232, 7中的所有回文数，并计算它们的和。”</span></p> 
   </div> 
   <div class="readable-text response" id="p213"> 
-   <p>The palindromes in this sequence are 1331, 121, 232, and 7. To find their sum:</p> 
+   <p>“这串数字中是回文数的有：1331, 121, 232, 7，它们的和为：”</p> 
   </div> 
   <div class="readable-text response" id="p214"> 
    <p>1331 + 121 + 232 + 7 = 1691</p> 
   </div> 
   <div class="readable-text response" id="p215"> 
-   <p>So, the sum of the palindromes in this sequence is 1691.</p> 
+   <p>因此，这串数字中回文数的和为1691。</p> 
   </div> 
-  <div class="readable-text" id="p216"> 
-   <p>Still incorrect: 99 got overlooked once again. Following another unsuccessful attempt, I explored different approaches and found a standard solution. It suggested breaking down the problem into steps and providing clear instructions for each step. This is similar to guiding a colleague who may be struggling with a specific step in a procedure.</p> 
+  <div class="readable-text" id="p216">
+   <p>依然不正确：99这个数字再次被忽略了。在又一次尝试失败后，我探索了不同的方法，并找到了一个标准解决方案。它建议将问题分解为多个步骤，并为每个步骤提供清晰的说明。这类似于指导一位可能在某个具体步骤上遇到困难的同事。</p> 
   </div> 
   <div class="readable-text" id="p217"> 
-   <h3 class=" readable-text-h3"><span class="num-string">2.5.3</span> Providing steps</h3> 
+   <h3 class=" readable-text-h3"><span class="num-string">2.5.3</span> 提供步骤</h3> 
   </div> 
-  <div class="readable-text" id="p218"> 
-   <p>This is the amended prompt I entered, along with the resulting output it generated. This output demonstrates how the model followed the revised instructions and applied the step-by-step reasoning approach required for this example.</p> 
+  <div class="readable-text" id="p218">
+   <p>这是我输入的修改后的提示词，以及它生成的相应输出。此输出展示了模型如何遵循修订后的指令，并应用了此示例所需的逐步推理方法。</p>
   </div> 
   <div class="readable-text prompt prompt-1" id="p219"> 
-   <p> <span class="small-caps">Instruction</span> Sum the palindromes in this sequence: 13, 1331, 121, 73, 99, 56 232, 7</p> 
+   <p> <span class="small-caps">指令</span> 求这串数字中回文数的和：13, 1331, 121, 73, 99, 56, 232, 7</p> 
   </div> 
   <div class="readable-text prompt" id="p220"> 
-   <p>  Examples: </p> 
+   <p> 示例: </p> 
   </div> 
   <div class="readable-text prompt" id="p221"> 
-   <p>  33 is a palindrome </p> 
+   <p> 33是一个回文数</p> 
   </div> 
   <div class="readable-text prompt" id="p222"> 
-   <p>  44 is a palindrome </p> 
+   <p> 44是一个回文数</p> 
   </div> 
   <div class="readable-text prompt" id="p223"> 
-   <p>  Steps: 1) identify the palindromes; 2) add them up</p> 
+   <p> 步骤: 1) 识别回文数; 2) 对回文数求和</p> 
   </div> 
   <div class="readable-text response response-1" id="p224"> 
-   <p><span class="response-1q">“</span>Certainly, let’s follow your instructions step by step:</p> 
+   <p><span class="response-1q">“当然，让我们按照您的指示逐步进行”</span>:</p> 
   </div> 
   <div class="readable-text response" id="p225"> 
-   <p>Step 1: Identify the palindromes in the sequence.</p> 
+   <p>第1步: 识别这串数字中的回文数</p> 
   </div> 
   <div class="readable-text response" id="p226"> 
-   <p>Palindromes in the sequence:</p> 
+   <p>这串数字中的回文数有：</p> 
   </div> 
   <ul class="response"> 
    <li class="readable-text" id="p227"> 1331 </li> 
@@ -849,125 +847,125 @@ print(response.content)</pre>
    <li class="readable-text" id="p231"> 7 </li> 
   </ul> 
   <div class="readable-text response" id="p232"> 
-   <p>Step 2: Add them up.</p> 
+   <p>第2步: 对它们求和</p> 
   </div> 
   <div class="readable-text response" id="p233"> 
    <p>1331 + 121 + 99 + 232 + 7 = 1790</p> 
   </div> 
   <div class="readable-text response" id="p234"> 
-   <p>So, the sum of the palindromes in the sequence is 1790.</p> 
+   <p>因此，这串数字中回文数的和为1790。</p> 
   </div> 
-  <div class="readable-text" id="p235"> 
-   <p>Finally, I nailed it! Interestingly, it appears that ChatGPT has undergone a similar training process (on a much larger scale, of course) to fix this issue. To show this, if you enter the original prompt as</p> 
+  <div class="readable-text" id="p235">
+   <p>终于，我搞定了这个问题！有趣的是，ChatGPT似乎也经历了类似的训练过程（当然规模要大得多）来解决这个问题。为了说明这一点，如果你输入原始提示词：</p>
   </div> 
   <div class="readable-text prompt prompt-1" id="p236"> 
-   <p> <span class="small-caps">Instruction</span> Sum the palindromes in this sequence: 13, 1331, 121, 73, 99, 56, 232, 7</p> 
+   <p> <span class="small-caps">指令</span> 求这串数字中回文数的和：13, 1331, 121, 73, 99, 56, 232, 7</p> 
   </div> 
   <div class="readable-text" id="p237"> 
-   <p>you’ll now see the following output: </p> 
+   <p>现在你将看到如下输出：</p> 
   </div> 
   <div class="readable-text response response-1" id="p238"> 
-   <p><span class="response-1q">“</span>Let’s identify the palindromes in the given sequence:</p> 
+   <p><span class="response-1q">“让我们找出给定数字中的回文数：”</span></p> 
   </div> 
   <ul class="response"> 
-   <li class="readable-text" id="p239"> 1331 is a palindrome </li> 
-   <li class="readable-text" id="p240"> 121 is a palindrome </li> 
-   <li class="readable-text" id="p241"> 99 is a palindrome </li> 
-   <li class="readable-text" id="p242"> 232 is a palindrome </li> 
-   <li class="readable-text" id="p243"> 7 is a palindrome </li> 
+   <li class="readable-text" id="p239"> 1331是一个回文数</li> 
+   <li class="readable-text" id="p240"> 121是一个回文数</li> 
+   <li class="readable-text" id="p241"> 99是一个回文数</li> 
+   <li class="readable-text" id="p242"> 232是一个回文数</li> 
+   <li class="readable-text" id="p243"> 7是一个回文数</li> 
   </ul> 
   <div class="readable-text response" id="p244"> 
-   <p>Now, let’s add these palindromes together:</p> 
+   <p>现在，让我们将这些回文数相加：</p> 
   </div> 
   <div class="readable-text response" id="p245"> 
    <p>1331 + 121 + 99 + 232 + 7 = 1790</p> 
   </div> 
   <div class="readable-text response" id="p246"> 
-   <p>Therefore, the sum of the palindromes in the sequence is 1790.</p> 
+   <p>因此，这串数字中回文数的和为1790。</p> 
   </div> 
   <div class="readable-text" id="p247"> 
-   <p>It appears that ChatGPT is tackling the problem step-by-step, much like I did. Reasoning models such as GPT-5 Thinking often decompose problems on their own, without being told what steps to follow. However, in more complex cases—especially when the steps are deterministic—it’s still useful to spell them out explicitly in the prompt. This ensures the LLM follows the intended sequence rather than inventing its own, which could lead to errors. </p> 
+   <p>看起来ChatGPT正在像我一样逐步解决问题。像GPT-5 Thinking这样的推理模型通常会自行分解问题，而无需被告知要遵循哪些步骤。然而，在更复杂的情况下—尤其是当步骤是确定的时候—在提示词中明确列出它们仍然很有用。这确保了大语言模型遵循预期的顺序，而不是自行发明步骤，后者可能会导致错误。</p> 
   </div> 
   <div class="readable-text intended-text" id="p248"> 
-   <p>I found it interesting to share an example that’s no longer relevant. This is something you might experience while working with LLMs: you could invest time in teaching the LLM certain tasks using advanced prompt engineering techniques, only to find that a newer model version can handle the task without any additional training. For instance, OpenAI’s GPT-5 model performed reasoning tasks with minimal prompts. These tasks previously required more complex prompts such as the few-shot techniques you’re about to learn. </p> 
+   <p>我觉得分享一个已不再适用的例子很有意思。这是你在使用大语言模型时可能会遇到的情况：你可能会花费时间，利用高级提示词工程技术来教导模型执行某些任务，结果却发现新版本的模型无需任何额外训练就能处理这些任务。例如，OpenAI的GPT-5模型仅需极简提示词就能执行推理任务。而这些任务在过去则需要更复杂的提示词技巧，比如你即将要学习的少样本提示词技术。</p>
   </div> 
   <div class="readable-text" id="p249"> 
-   <h3 class=" readable-text-h3"><span class="num-string">2.5.4</span> Few-shot learning </h3> 
+   <h3 class=" readable-text-h3"><span class="num-string">2.5.4</span> 少样本学习</h3> 
   </div> 
   <div class="readable-text" id="p250"> 
-   <p>In some cases, providing only two examples may not be enough to teach the LLM a new concept. In such instances, you need to provide several examples, known as <em>few-shot learning</em>. To demonstrate this, let me create a game where a number can be classified as Abra, Kadabra, or Abra Kadabra. Let’s see what happens when no information about the classification rules is provided.</p> 
+   <p>在某些情况下，仅提供两个示例可能不足以教会大语言模型理解一个新概念。此时，你需要提供多个示例，这被称为<em>少样本学习</em>。为了演示这一点，让我来设计一个游戏，在这个游戏中，一个数字可以被归类为Abra、Kadabra或Abra Kadabra。让我们看看在没有提供任何分类规则信息时会发生什么。</p>
   </div> 
   <div class="readable-text prompt prompt-1" id="p251"> 
-   <p>  Classify the following numbers as Abra, Kadabra or Abra Kadabra:</p> 
+   <p>  将下列数字归类为Abra、Kadabra或Abra Kadabra：</p> 
   </div> 
   <div class="readable-text prompt" id="p252"> 
    <p>  3, 5, 8, 2, 7, 12, 13</p> 
   </div> 
   <div class="readable-text response response-1" id="p253"> 
-   <p><span class="response-1q">“</span>The classification of numbers into “Abra,” “Kadabra,” or “Abra Kadabra” doesn’t follow a conventional mathematical pattern. These are just words, not related to numbers. Therefore, it’s not possible to classify the numbers you provided as “Abra,” “Kadabra,” or “Abra Kadabra” based on any mathematical or logical criteria.</p> 
+   <p><span class="response-1q">“将数字分类为Abra、Kadabra或Abra Kadabra，并不遵循传统的数学模式。这些分类只是词语，与数字无关，因此无法依据任何数学或逻辑标准，将你提供的数字归类为Abra、Kadabra或Abra Kadabra。”</span></p> 
   </div> 
   <div class="readable-text" id="p254"> 
-   <p>ChatGPT hasn’t experienced any hallucinations but rightfully pointed out that you haven’t clarified the classification rules. Now I’ll show you a prompt that, instead of directly explaining the rules, offers an interpretation based on a specific list of numbers, different from the ones I originally asked to be addressed: </p> 
+   <p>ChatGPT并未出现任何幻觉，反而恰当地提出了您尚未阐明的分类规则。现在我将演示一个提示词，它并非直接解释规则，而是基于一个特定的数字列表提供分类规则解读，这个列表与我最初要求处理的数字不同：</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p255"> 
-   <p>  Classify the following numbers as Abra, Kadabra or Abra Kadabra:</p> 
+   <p>  将下列数字归类为Abra、Kadabra或Abra Kadabra：</p> 
   </div> 
   <div class="readable-text prompt" id="p256"> 
    <p>  3, 4, 5, 7, 8, 10, 11, 13, 35</p> 
   </div> 
   <div class="readable-text prompt" id="p257"> 
-   <p>  Examples: </p> 
+   <p>  示例: </p> 
   </div> 
   <div class="readable-text prompt" id="p258"> 
-   <p>  6 // not divisible by 5, not divisible by 7 // None</p> 
+   <p>  6 // 不能被5整除，不能被7整除 // 什么都不是</p> 
   </div> 
   <div class="readable-text prompt" id="p259"> 
-   <p>  15 // divisible by 5, not divisible by 7 // Abra</p> 
+   <p>  15 // 能被5整除，但不能被7整除 // Abra</p> 
   </div> 
   <div class="readable-text prompt" id="p260"> 
-   <p>  12 // not divisible by 5, not divisible by 7 // None</p> 
+   <p>  12 // 不能被5整除且不能被7整除 // 什么都不是</p> 
   </div> 
   <div class="readable-text prompt" id="p261"> 
-   <p>  21 // not divisible by 5, divisible by 7 // Kadabra</p> 
+   <p>  21 // 不能被5整除，但能被7整除 // Kadabra</p> 
   </div> 
   <div class="readable-text prompt" id="p262"> 
-   <p>  70 // divisible by 5, divisible by 7 // Abra Kadabra</p> 
+   <p>  70 // 能被5整除，且能被7整除 // Abra Kadabra</p> 
   </div> 
   <div class="readable-text" id="p263"> 
-   <p>Observe the format I’ve employed for every example: I’ve delineated each field with a double forward slash (//), although I haven’t explicitly outlined the meaning of each field. I’m trusting the LLM to decipher it. Here’s the output:</p> 
+   <p>请注意我在每个示例中采用的格式：我使用双斜杠（//）来分隔每个字段，尽管我没有明确说明每个字段的含义。我依赖大语言模型来解读它。以下是输出结果：</p>
   </div> 
-  <div class="readable-text response response-1" id="p264"> 
-   <p><span class="response-1q">“</span>Let’s classify the numbers as Abra, Kadabra, or Abra Kadabra based on whether they are divisible by 5 and/or 7:</p> 
+  <div class="readable-text response response-1" id="p264">
+   <p><span class="response-1q">“让我们根据数字是否能被5和/或7整除，将其归类为Abra、Kadabra或Abra Kadabra：”</span></p> 
   </div> 
   <div class="readable-text response" id="p265"> 
-   <p>3: Not divisible by 5, not divisible by 7 - None</p> 
+   <p>3: 不能被5整除且不能被7整除 - 什么都不是</p> 
   </div> 
   <div class="readable-text response" id="p266"> 
-   <p>4: Not divisible by 5, not divisible by 7 - None</p> 
+   <p>4: 不能被5整除且不能被7整除 - 什么都不是</p> 
   </div> 
   <div class="readable-text response" id="p267"> 
-   <p>5: Divisible by 5, not divisible by 7 - Abra</p> 
+   <p>5: 能被5整除，但不能被7整除 - Abra</p> 
   </div> 
   <div class="readable-text response" id="p268"> 
-   <p>7: Not divisible by 5, divisible by 7 - Kadabra</p> 
+   <p>7: 不能被5整除，但能被7整除 - Kadabra</p> 
   </div> 
   <div class="readable-text response" id="p269"> 
-   <p>8: Not divisible by 5, not divisible by 7 - None</p> 
+   <p>8: 不能被5整除且不能被7整除 - 什么都不是</p> 
   </div> 
   <div class="readable-text response" id="p270"> 
-   <p>10: Divisible by 5, not divisible by 7 - Abra</p> 
+   <p>10: 能被5整除，但不能被7整除 - Abra</p> 
   </div> 
   <div class="readable-text response" id="p271"> 
-   <p>11: Not divisible by 5, not divisible by 7 - None</p> 
+   <p>11: 不能被5整除且不能被7整除 - 什么都不是</p> 
   </div> 
   <div class="readable-text response" id="p272"> 
-   <p>13: Not divisible by 5, not divisible by 7 - None</p> 
+   <p>13: 不能被5整除且不能被7整除 - 什么都不是</p> 
   </div> 
   <div class="readable-text response" id="p273"> 
-   <p>35: Divisible by 5, divisible by 7 - Abra Kadabra</p> 
+   <p>35: 能被5整除，且能被7整除 - Abra Kadabra</p> 
   </div> 
   <div class="readable-text response" id="p274"> 
-   <p>So, here’s the classification:</p> 
+   <p>那么，分类如下：</p> 
   </div> 
   <div class="readable-text response" id="p275"> 
    <p>Abra: 5, 10, 35</p> 
@@ -979,19 +977,19 @@ print(response.content)</pre>
    <p>Abra Kadabra: 35</p> 
   </div> 
   <div class="readable-text response" id="p278"> 
-   <p>None: 3, 4, 8, 11, 13</p> 
+   <p>什么都不是: 3, 4, 8, 11, 13</p> 
   </div> 
-  <div class="readable-text" id="p279"> 
-   <p>ChatGPT not only provided accurate results but also explained the reasoning behind them. It successfully deduced the general rules from the given examples and articulated them well. Quite impressive, isn’t it?</p> 
+  <div class="readable-text" id="p279">
+   <p>ChatGPT不仅提供了准确的结果，还解释了其背后的推理过程。它成功地从给定的示例中推导出通用规则，并清晰地阐述了这些规则。这确实令人印象深刻，不是吗？</p>
   </div> 
   <div class="readable-text print-book-callout" id="p280"> 
-   <p><span class="print-book-callout-head">Note</span>  You may be familiar with a similar number classification game or “divisibility test algorithm,” as it’s called on Stack Overflow (<a href="https://mng.bz/GwzJ">https://mng.bz/GwzJ</a>), where a number divisible by 3 is labeled “Foo,” a number divisible by 5 is labeled “Bar,” and a number divisible by both 3 and 5 is labeled “Foo Bar.” I haven’t used this as an example because ChatGPT already knows it and can correctly classify numbers without examples, using zero-shot learning.</p> 
+   <p><span class="print-book-callout-head">注意</span>  您可能熟悉一个类似的数字分类游戏或“可除性测试算法”，正如它在 Stack Overflow (<a href="https://mng.bz/GwzJ">https://mng.bz/GwzJ</a>) 上所称的那样，其中能被3整除的数字被标记为“Foo”，能被5整除的数字被标记为“Bar”，而同时能被3和5整除的数字则被标记为“Foo Bar”。我没有使用这个作为例子，是因为 ChatGPT 已经知道它了，并且可以在没有示例的情况下，使用零样本学习正确地对数字进行分类。</p> 
   </div> 
   <div class="readable-text" id="p281"> 
-   <h3 class=" readable-text-h3"><span class="num-string">2.5.5</span> Implementing few-shot learning with LangChain</h3> 
+   <h3 class=" readable-text-h3"><span class="num-string">2.5.5</span> 使用LangChain实现少样本学习</h3> 
   </div> 
   <div class="readable-text" id="p282"> 
-   <p>Let’s implement the AbraKadabra game with LangChain. First, establish a connection to the LLM, as you did previously:</p> 
+   <p>让我们使用LangChain来实现AbraKadabra游戏。首先，像之前一样建立与大语言模型的连接：</p> 
   </div> 
   <div class="browsable-container listing-container" id="p283"> 
    <div class="code-area-container"> 
@@ -1002,21 +1000,21 @@ llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY,
    </div> 
   </div> 
   <div class="readable-text" id="p284"> 
-   <p>Now define and run the same few-shot prompt you executed previously directly against ChatGPT:</p> 
+   <p>现在定义并运行你之前在ChatGPT上直接执行的相同少样本提示词：</p> 
   </div> 
   <div class="browsable-container listing-container" id="p285"> 
    <div class="code-area-container code-area-with-html"> 
-    <pre class="code-area">prompt_input = """Classify the following numbers as Abra, Kadabra 
-<span class="">↪</span>or Abra Kadabra:
+    <pre class="code-area">prompt_input = """将下列数字归类为Abra、Kadabra 
+<span class="">↪</span>或Abra Kadabra：
 
 3, 4, 5, 7, 8, 10, 11, 13, 35
 
-Examples: 
-6 // not divisible by 5, not divisible by 7 // None
-15 // divisible by 5, not divisible by 7 // Abra
-12 // not divisible by 5, not divisible by 7 // None
-21 // not divisible by 5, divisible by 7 // Kadabra
-70 // divisible by 5, divisible by 7 // Abra Kadabra
+示例: 
+6 // 不能被5整除且不能被7整除 // 什么都不是
+15 // 能被5整除，但不能被7整除 // Abra
+12 // 不能被5整除且不能被7整除 // 什么都不是
+21 // 不能被5整除，但能被7整除 // Kadabra
+70 // 能被5整除且能被7整除 // Abra Kadabra
 """
 
 response = llm.invoke(prompt_input)
@@ -1028,22 +1026,22 @@ print(response.content)</pre>
   </div> 
   <div class="browsable-container listing-container" id="p287"> 
    <div class="code-area-container"> 
-    <pre class="code-area">3 // not divisible by 5, not divisible by 7 // None
-4 // not divisible by 5, not divisible by 7 // None
-5 // divisible by 5, not divisible by 7 // Abra
-7 // not divisible by 5, divisible by 7 // Kadabra
-8 // not divisible by 5, not divisible by 7 // None
-10 // divisible by 5, not divisible by 7 // Abra
-11 // not divisible by 5, not divisible by 7 // None
-13 // not divisible by 5, not divisible by 7 // None
-35 // divisible by 5, divisible by 7 // Abra Kadabra</pre>  
+    <pre class="code-area">3 // 不能被5整除且不能被7整除 // 什么都不是
+4 // 不能被5整除且不能被7整除 // 什么都不是
+5 // 能被5整除，但不能被7整除 // Abra
+7 // 不能被5整除，但能被7整除 // Kadabra
+8 // 不能被5整除且不能被7整除 // 什么都不是
+10 // 能被5整除，但不能被7整除 // Abra
+11 // 不能被5整除且不能被7整除 // 什么都不是
+13 // 不能被5整除且不能被7整除 // 什么都不是
+35 // 能被5整除且能被7整除 // Abra Kadabra</pre>  
    </div> 
   </div> 
-  <div class="readable-text" id="p288"> 
-   <p>The output is accurate, but the implementation isn’t ideal because the examples are hardcoded in the prompt. LangChain provides a cleaner solution for creating a few-shot prompt. It lets you separate the training examples from the prompt template and inject them later, as shown in the following listing.</p> 
+  <div class="readable-text" id="p288">
+   <p>输出结果是正确的，但实现方式并不理想，因为示例被硬编码在提示词中。LangChain 提供了一种更简洁的创建少样本提示词的解决方案。它允许你将训练示例与提示词模板分离，并在稍后注入它们，如下面的代码清单所示。</p>
   </div> 
   <div class="browsable-container listing-container" id="p289"> 
-   <h5 class=" listing-container-h5 browsable-container-h5"><span class="num-string">Listing 2.1</span> Few-shot prompt using <code>FewShotPromptTemplate</code></h5> 
+   <h5 class=" listing-container-h5 browsable-container-h5"><span class="num-string">清单 2.1</span> 使用 <code>FewShotPromptTemplate</code> 的少样本提示词</h5> 
    <div class="code-area-container code-area-with-html"> 
     <pre class="code-area">from langchain_core.prompts.few_shot import FewShotPromptTemplate
 from langchain_core.prompts.prompt import PromptTemplate
@@ -1080,8 +1078,8 @@ example_prompt = PromptTemplate(input_variables=["number",
 few_shot_prompt = FewShotPromptTemplate(
     examples=examples,
     example_prompt=example_prompt,
-    suffix="Classify the following numbers as Abra, Kadabra
-    <span class="">↪</span>or Abra Kadabra: {comma_delimited_input_numbers}",
+    suffix="将下列数字归类为Abra、Kadabra
+    <span class="">↪</span>或Abra Kadabra: {comma_delimited_input_numbers}",
     input_variables=["comma_delimited_input_numbers"]
 )
 
@@ -1093,211 +1091,211 @@ print(response.content)</pre>
    </div> 
   </div> 
   <div class="readable-text" id="p290"> 
-   <p>The result is still correct:</p> 
+   <p>输出结果依然是正确的：</p> 
   </div> 
   <div class="browsable-container listing-container" id="p291"> 
    <div class="code-area-container"> 
-    <pre class="code-area">3 \ not divisible by 5 nor by 7 \ None
-4 \ not divisible by 5 nor by 7 \ None
-5 \ divisible by 5 but not by 7 \ Abra
-7 \ divisible by 7 but not by 5 \ Kadabra
-8 \ not divisible by 5 nor by 7 \ None
-10 \ divisible by 5 but not by 7 \ Abra
-11 \ not divisible by 5 nor by 7 \ None
-13 \ not divisible by 5 nor by 7 \ None
-35 \ divisible by 5 and by 7 \ Abra Kadabra</pre>  
+    <pre class="code-area">3 \ 不能被5整除且不能被7整除 \ 什么都不是
+4 \ 不能被5整除且不能被7整除 \ 什么都不是
+5 \ 能被5整除，但不能被7整除 \ Abra
+7 \ 能被5整除且能被7整除 \ Abra Kadabra
+8 \ 不能被5整除且不能被7整除 \ 什么都不是
+10 \ 能被5整除，但不能被7整除 \ Abra
+11 \ 不能被5整除且不能被7整除 \ 什么都不是
+13 \ 不能被5整除且不能被7整除 \ 什么都不是
+35 \ 能被5整除且能被7整除 \ Abra Kadabra</pre>  
    </div> 
   </div> 
   <div class="readable-text" id="p292"> 
-   <h3 class=" readable-text-h3"><span class="num-string">2.5.6</span> Chain of Thought</h3> 
+   <h3 class=" readable-text-h3"><span class="num-string">2.5.6</span> 思维链</h3> 
   </div> 
-  <div class="readable-text" id="p293"> 
-   <p>Finally, I want to introduce you to the CoT technique, which blends providing logical steps with few-shot learning. Here, I’m making up a new mathematical definition in which a sequence of numbers is called “strange” if it contains at least two odd numbers and the sum of all odd numbers is divisible by 3. Initially, I check whether the LLM is unfamiliar with the rules of strange sequences:</p> 
+  <div class="readable-text" id="p293">
+   <p>最后，我想向您介绍思维链技术，它结合了提供逻辑步骤和少量示例学习。在这里，我虚构了一个新的数学定义：如果一个数列包含至少两个奇数，并且所有奇数的和能被3整除，则该数列被称为“奇异”数列。首先，我检查大语言模型是否不熟悉奇异数列的规则：</p>
   </div> 
   <div class="readable-text prompt prompt-1" id="p294"> 
-   <p>  Is the following sequence “strange”?</p> 
+   <p>  下面这个数列是否为“奇异”数列?</p> 
   </div> 
   <div class="readable-text prompt" id="p295"> 
    <p>  3, 4, 5, 7, 10, 18, 22, 24</p> 
   </div> 
-  <div class="readable-text response response-1" id="p296"> 
-   <p><span class="response-1q">“</span>The sequence you provided appears to be increasing, but it doesn’t follow a common mathematical pattern like arithmetic or geometric progressions. Whether it’s considered “strange” depends on the context or criteria you’re using to define “strange.” In a mathematical sense, it might be considered an unusual or nonstandard sequence. If you’ve specific criteria or rules that define what a “strange” sequence is, please provide more details for a more precise classification.</p> 
+  <div class="readable-text response response-1" id="p296">
+   <p><span class="response-1q">“您提供的这个数列看起来是递增的，但它并不遵循常见的数学规律，比如等差数列或等比数列。它是否被视为“奇异数列”取决于您用来定义“奇异数列”的上下文或标准。从数学意义上讲，它可能被认为是一个不寻常或非标准的数列。如果您有定义“奇异”数列的具体标准或规则，请提供更多细节以便进行更精确的分类。”</span></p> 
   </div> 
-  <div class="readable-text" id="p297"> 
-   <p>As expected, ChatGPT doesn’t seem to understand the concept of a “strange” sequence, reaffirming that, luckily, it hasn’t developed psychic abilities—yet. </p> 
+  <div class="readable-text" id="p297">
+   <p>正如预想的那样，ChatGPT似乎并不能理解“奇异”数列的概念，这再次证明，值得庆幸的是，它尚未发展出读心术，至少目前如此。</p> 
   </div> 
-  <div class="readable-text intended-text" id="p298"> 
-   <p>I’ll now create a prompt using the CoT technique, as introduced by Wei et al. (<a href="https://arxiv.org/abs/2201.11903">https://arxiv.org/abs/2201.11903</a>). This prompt, an extension of a few-shot learning prompt, will include the following:</p> 
+  <div class="readable-text intended-text" id="p298">
+   <p>我将基于Wei等人提出的思维链技术（参见<a href="https://arxiv.org/abs/2201.11903">https://arxiv.org/abs/2201.11903</a>），构建一个提示词模板。此提示词是对少量样本学习提示词的扩展，将包含以下内容：</p> 
   </div> 
   <ul> 
-   <li class="readable-text" id="p299"> Several sample sequences for few-shot learning </li> 
-   <li class="readable-text" id="p300"> An explanation for each sample sequence of the logical steps to determine if a sequence is strange </li> 
+   <li class="readable-text" id="p299"> 若干用于少量样本学习的示例数列</li> 
+   <li class="readable-text" id="p300"> 每个示例数列中关于判断数列是否为“奇异数列”的逻辑步骤说明</li> 
   </ul> 
   <div class="readable-text prompt prompt-1" id="p301"> 
-   <p>  Q: Is the following sequence “strange”?</p> 
+   <p>  Q: 下面这个数列是否为“奇异”数列?</p> 
   </div> 
   <div class="readable-text prompt" id="p302"> 
    <p>  3, 4, 5, 7, 10, 18, 22, 24</p> 
   </div> 
   <div class="readable-text prompt" id="p303"> 
-   <p>  Examples:</p> 
+   <p>  示例:</p> 
   </div> 
   <div class="readable-text prompt" id="p304"> 
-   <p>  Q: is the following sequence strange: 1, 4, 6, 8, 20</p> 
+   <p>  Q: 这个数列是否为“奇异”数列: 1, 4, 6, 8, 20</p> 
   </div> 
   <div class="readable-text prompt" id="p305"> 
-   <p>  A: 1 is an odd number; I need at least two odd numbers // Not Strange</p> 
+   <p>  A: 1是一个奇数; 我需要至少2个奇数 // 非奇异数列</p> 
   </div> 
   <div class="readable-text prompt" id="p306"> 
-   <p>  Q: is the following sequence strange: 5, 6, 7, 8, 20</p> 
+   <p>  Q: 这个数列是否为“奇异”数列: 5, 6, 7, 8, 20</p> 
   </div> 
   <div class="readable-text prompt" id="p307"> 
-   <p>  A: 5 and 7 are odd numbers; the sum of 5 and 7 is 12; 12 is divisible by 3 // Strange</p> 
+   <p>  A: 5和7是奇数; 5和7的和为12; 12能被3整除 // 奇异数列</p> 
   </div> 
   <div class="readable-text prompt" id="p308"> 
-   <p>  Q: is the following sequence strange: 1, 5, 6, 7, 8, 20</p> 
+   <p>  Q: 这个数列是否为“奇异”数列: 1, 5, 6, 7, 8, 20</p> 
   </div> 
   <div class="readable-text prompt" id="p309"> 
-   <p>  A: 1, 5 and 7 are odd numbers; the sum of 1, 5 and 7 is 13; 13 is not divisible by 3 // Not Strange</p> 
+   <p>  A: 1, 5, 7是奇数; 1, 5, 7的和为13; 13不能被3整除 // 非奇异数列</p> 
   </div> 
   <div class="readable-text prompt" id="p310"> 
-   <p>  Q: is the following sequence strange: 5, 6, 7, 8, 9, 20</p> 
+   <p>  Q: 这个数列是否为“奇异”数列: 5, 6, 7, 8, 9, 20</p> 
   </div> 
   <div class="readable-text prompt" id="p311"> 
-   <p>  A: 5, 7, 9 are odd numbers; the sum of 5, 7 and 9 is 21; 21 is divisible by 3 // Strange</p> 
+   <p>  A: 5, 7, 9是奇数; 5, 7, 9的和为21; 21能被3整除 // 奇异数列</p> 
   </div> 
   <div class="readable-text response response-1" id="p312"> 
-   <p><span class="response-1q">“</span>Thank you for providing the examples and clarifications. Based on the criteria you’ve presented:</p> 
+   <p><span class="response-1q">“感谢您提供的示例和说明。根据您提出的标准：”</span></p> 
   </div> 
   <div class="readable-text response" id="p313"> 
-   <p>The sequence “3, 4, 5, 7, 10, 18, 22, 24” has 3 odd numbers: 3, 5, and 7. The sum of these odd numbers is 15. 15 is divisible by 3. So, according to the criteria, this sequence is **Strange**.</p> 
+   <p>数列“3, 4, 5, 7, 10, 18, 22, 24”中有3个奇数: 3, 5, 7。这些奇数之和为15. 15能被3整除. 因此，根据上述标准, 这个数列是**奇异**数列。</p> 
   </div> 
-  <div class="readable-text" id="p314"> 
-   <p>ChatGPT gave the right answer and explained its thought process. To reinforce your understanding, try using a similar prompt with a different set of numbers. In addition, observe how ChatGPT responds when the sequence contains just one odd number.</p> 
+  <div class="readable-text" id="p314">
+   <p>ChatGPT给出了正确答案并解释了其思考过程。为了加深你的理解，我尝试使用一组不同的数字进行类似的提问。此外，观察当数列中只有一个奇数时，ChatGPT会如何回应。</p>
   </div> 
-  <div class="readable-text intended-text" id="p315"> 
-   <p>In this section, you’ve discovered how to introduce ChatGPT to a new task by offering various examples or outlining the necessary steps. This approach is known as in-context learning, as you’re instructing the LLM using information provided within the context of a prompt.</p> 
+  <div class="readable-text intended-text" id="p315">
+   <p>在本节中，您已经了解了如何通过提供各种示例或概述必要步骤，向ChatGPT介绍一项新任务。这种方法被称为上下文学习，因为您是在利用提示词的上下文中所提供的信息来指导大语言模型。</p>
   </div> 
-  <div class="readable-text print-book-callout" id="p316"> 
-   <p><span class="print-book-callout-head">Definition</span>  <em>In-context learning</em> refers to any method that instructs an LLM on an unfamiliar task or instruction requested by the user, using examples within the prompt context. Common techniques include one-shot, two-shot, or few-shot learning, as well as providing step-by-step guidance, often referred to as a chain of thought. Compared to fine-tuning—which involves creating a specialized LLM from a general one by training it on domain-specific text—in-context learning is a more cost-effective and less resource-intensive approach. It doesn’t require high-end hardware such as GPUs or an in-depth understanding of transformer architectures.</p> 
+  <div class="readable-text print-book-callout" id="p316">
+   <p><span class="print-book-callout-head">定义</span>  <em>上下文学习</em> 指的是任何通过提示词上下文中的示例，指导大语言模型完成用户请求的陌生任务或指令的方法。常见的技术包括单样本学习、双样本学习或少样本学习，以及提供逐步指导（通常称为思维链）。与微调相比—微调涉及通过在特定领域的文本上进行训练，基于通用模型创建专用的大语言模型—上下文学习是一种更具成本效益且资源密集度更低的方法。它不需要高端硬件（如GPU），也不需要深入理解Transformer架构。</p> 
   </div> 
   <div class="readable-text" id="p317"> 
-   <p>This section covered a range of in-context learning prompts, which are summarized in table 2.2.</p> 
+   <p>本节涵盖了多种上下文学习提示词，这些内容总结于表格2.2中。</p> 
   </div> 
   <div class="browsable-container browsable-table-container framemaker-table-container" id="p318"> 
-   <h5 class=" browsable-container-h5"><span class="num-string">Table 2.2</span> In-context learning prompts </h5> 
+   <h5 class=" browsable-container-h5"><span class="num-string">表格 2.2</span> 上下文学习提示词 </h5> 
    <table> 
     <thead> 
      <tr> 
       <th> 
        <div>
-         In-context learning technique 
+         上下文学习技术
        </div> </th> 
       <th> 
        <div>
-         Explanation 
+         解释说明 
        </div> </th> 
      </tr> 
     </thead> 
     <tbody> 
      <tr> 
-      <td>  Zero-shot learning <br/> </td> 
-      <td>  No example is provided in the prompt. <br/> </td> 
+      <td>  零样本学习 <br/> </td> 
+      <td>  提示词中未提供任何示例。<br/> </td> 
      </tr> 
      <tr> 
-      <td>  One-shot learning <br/> </td> 
-      <td>  One example is provided in the prompt. <br/> </td> 
+      <td>  单样本学习 <br/> </td> 
+      <td>  提示词中只提供了一个示例。 <br/> </td> 
      </tr> 
      <tr> 
-      <td>  Two-shot learning <br/> </td> 
-      <td>  Two examples are provided in the prompt. <br/> </td> 
+      <td>  双样本学习 <br/> </td> 
+      <td>  提示词中提供了两个示例。 <br/> </td> 
      </tr> 
      <tr> 
-      <td>  Few-shot learning <br/> </td> 
-      <td>  A number of examples are provided in the prompt. <br/> </td> 
+      <td>  少样本学习 <br/> </td> 
+      <td>  提示词中提供了若干示例。 <br/> </td> 
      </tr> 
      <tr> 
-      <td>  Chain of Thought (CoT) <br/> </td> 
-      <td>  A number of examples are provided in the prompt, and for each example, all the logical steps to achieve an objective are clearly explained. <br/> </td> 
+      <td>  思维链 (CoT) <br/> </td> 
+      <td>  提示词中提供了若干示例，并且对于每个示例，实现目标的全部逻辑步骤都给出了清晰的解释。<br/> </td> 
      </tr> 
     </tbody> 
    </table> 
   </div> 
   <div class="callout-container sidebar-container"> 
    <div class="readable-text" id="p319"> 
-    <h5 class=" callout-container-h5 readable-text-h5">Beyond Chain of Thought</h5> 
+    <h5 class=" callout-container-h5 readable-text-h5">超越思维链</h5> 
    </div> 
-   <div class="readable-text" id="p320"> 
-    <p>Chain of Thought (CoT) improves how language models handle complex reasoning by breaking problems into smaller, logical steps. However, it has limitations, such as missing deeper exploration or struggling with messy contexts. Two advanced techniques address these gaps—Tree of Thought (ToT) and Thread of Thought (ThoT):</p> 
+   <div class="readable-text" id="p320">
+    <p>思维链 (CoT) 通过将问题分解为更小的逻辑步骤，改进了大语言模型处理复杂推理的方式。然而，它存在一些局限性，例如缺乏更深入的探索或在处理混乱上下文时会遇到困难。两种先进技术—思维树（ToT）和思维线（ThoT）—可以解决这些不足：</p>
    </div> 
-   <ul> 
-    <li class="readable-text" id="p321"> <em>Tree of Thought</em>—ToT improves problem-solving by allowing language models to explore multiple reasoning paths. Traditional models make token-by-token decisions, which limits their ability to plan ahead or revisit earlier choices. ToT structures the process into coherent steps, enabling models to evaluate and refine options as they go (see <a href="https://arxiv.org/abs/2305.10601">https://arxiv.org/abs/2305.10601</a>). This method is highly effective in tasks requiring strategic thinking, such as Game of 24, creative writing, and mini crosswords. For example, ToT helped GPT-4 solve 74% of Game of 24 problems, compared to just 4% using CoT. This approach improves deliberate decision-making, backtracking, and strategic foresight. </li> 
-    <li class="readable-text" id="p322"> <em>Thread of Thought</em>—ThoT addresses challenges with chaotic contexts (see <a href="https://arxiv.org/abs/2311.08734">https://arxiv.org/abs/2311.08734</a>), where irrelevant details distract models or lead to errors. Inspired by human cognition, ThoT systematically breaks down and analyzes large chunks of information while focusing on relevant details. It works as a modular add-on that integrates with various models and prompts. Experiments on datasets such as PopQA, EntityQ, and a Multi-Turn Conversation Response dataset show ThoT significantly enhances reasoning accuracy. It excels in filtering noise and maintaining focus in complex contexts. </li> 
+   <ul>
+    <li class="readable-text" id="p321"> <em>思维树(ToT)</em>—ToT通过允许大语言模型探索多种推理路径来提升问题解决能力。传统模型进行逐个token的决策，这限制了它们提前规划或重新审视先前选择的能力。ToT将这一过程结构化为连贯的步骤，使模型能够在推进过程中评估和完善选项（参见<a href="https://arxiv.org/abs/2305.10601">https://arxiv.org/abs/2305.10601</a>）。这种方法在需要战略性思考的任务中非常有效，例如24点游戏、创意写作和迷你填字游戏。例如，ToT帮助GPT-4解决了74%的24点游戏问题，而使用CoT仅解决了4%。这种方法有助于提升审慎决策、回溯和战略预见能力。</li> 
+    <li class="readable-text" id="p322"> <em>思维线索(ThoT)</em>—ThoT是一种针对混乱上下文（参见 <a href="https://arxiv.org/abs/2311.08734">https://arxiv.org/abs/2311.08734</a>）中挑战的解决方案。在混乱上下文中，无关细节会干扰模型或导致错误。受人类认知过程启发，ThoT 通过系统性地分解和分析大段信息，同时聚焦相关细节，有效应对这一问题。该策略可作为模块化插件，与多种模型及提示词技术无缝集成。在 PopQA、EntityQ 以及多轮对话响应等数据集上的实验表明，ThoT 能显著提升推理准确性，其优势在于有效过滤噪声并在复杂上下文中保持注意力集中。</li>
    </ul> 
-   <div class="readable-text" id="p323"> 
-    <p>Both techniques push language models beyond simple response generation, improving reasoning, planning, and decision-making in structured and chaotic scenarios. For technical details and examples, refer to the published research and code repositories.</p> 
+   <div class="readable-text" id="p323">
+    <p>这两种技术都推动着大语言模型超越了简单的响应生成，在结构化和混乱的场景中提升了推理、规划和决策能力。有关技术细节和示例，请参阅已发表的研究论文和代码仓库。</p>
    </div> 
   </div> 
   <div class="readable-text" id="p324"> 
-   <p>Before closing this chapter, let’s try to extract a standard prompt format from our examination of various use cases up to this point.</p> 
+   <p>在本章结束之前，让我们尝试从迄今为止分析的各类用例中，提炼出一种标准的提示词格式。</p> 
   </div> 
   <div class="readable-text" id="p325"> 
-   <h2 class=" readable-text-h2"><span class="num-string">2.6</span> Prompt structure</h2> 
+   <h2 class=" readable-text-h2"><span class="num-string">2.6</span> 提示词结构</h2> 
   </div> 
   <div class="readable-text" id="p326"> 
-   <p>Combining all the prompt elements from earlier sections results in the following generalized structure:</p> 
+   <p>结合前面各章节的所有提示词要素，可得出以下通用结构：</p> 
   </div> 
   <ul> 
-   <li class="readable-text" id="p327"> <em>Persona</em>—Specify the role you want the LLM to embody. Whether a skilled marketing manager, an award-winning sci-fi author, or a proficient copy editor for a computing magazine, set the expectations high. </li> 
-   <li class="readable-text" id="p328"> <em>Context</em>—Provide detailed background information to help the LLM comprehend the context surrounding your request. Precision enhances the likelihood of aligning with your expectations. </li> 
-   <li class="readable-text" id="p329"> <em>Instruction</em>—Clearly define the action you want the LLM to take with your input text. Whether it’s translation, writing, rewriting, improving, classifying, ordering, or finding, be explicit. </li> 
-   <li class="readable-text" id="p330"> <em>Input</em>—This refers to specific context details, which could take the form of a paragraph, a query, or a list of key points. You may choose to label it accordingly, such as “Text,” “Question,” and so on. </li> 
-   <li class="readable-text" id="p331"> <em>Steps</em>—Outline the processing steps the LLM should follow to generate the output. </li> 
-   <li class="readable-text" id="p332"> <em>Tone</em>—Specify the desired tone of the LLM’s answer—formal, informal, witty, enthusiastic, sober, friendly, and so on. Combinations are possible as well. </li> 
-   <li class="readable-text" id="p333"> <em>Output format</em>—Optionally specify the desired output format. If not specified, the LLM assumes a text answer. However, you can request formats such as a table, CSV file (with column names), JSON (with attribute names), or other structured formats. </li> 
-   <li class="readable-text" id="p334"> <em>Examples</em>—In cases where the LLM may lack sufficient training for certain tasks, especially in text classification and reasoning, provide mini-inline training through examples. Even a few examples can significantly enhance answer quality. </li> 
+   <li class="readable-text" id="p327"> <em>角色设定</em>—明确指定你希望大语言模型（LLM）扮演的角色。无论是经验丰富的市场营销经理、获奖的科幻作家，还是专业计算机杂志的文稿编辑，都应设定高标准的期望。</li> 
+   <li class="readable-text" id="p328"> <em>上下文</em>—提供详细的上下文信息，帮助大语言模型理解你请求所处的上下文环境。精确的描述有助于提高结果与期望的契合度。</li> 
+   <li class="readable-text" id="p329"> <em>指令</em>—清晰定义你希望大语言模型对输入文本执行的具体操作。无论是翻译、写作、改写、优化、分类、排序还是查找，都需明确说明。</li> 
+   <li class="readable-text" id="p330"> <em>输入</em>—指的是具体的上下文细节，可以是一段文字、一个问题或一系列关键点。你可以选择相应的标签进行标注，例如“文本”、“问题”等等。</li> 
+   <li class="readable-text" id="p331"> <em>步骤</em>—概述大语言模型为生成输出应遵循的处理步骤。</li> 
+   <li class="readable-text" id="p332"> <em>语气</em>—指定大语言模型回答时您期望的语气，如正式、非正式、风趣、热情、冷静、友好等，也可组合使用。</li> 
+   <li class="readable-text" id="p333"> <em>输出格式</em>大语言模型默认以文本形式回答。但你也可以要求以表格、CSV 文件（含列名）、JSON（含属性名）或其他结构化格式呈现。</li> 
+   <li class="readable-text" id="p334"> <em>示例</em>—在大语言模型可能缺乏特定任务（尤其是文本分类和推理任务）足够训练的情况下，可通过示例提供小规模内联训练。即使少量示例也能显著提升回答质量。</li> 
   </ul> 
-  <div class="readable-text" id="p335"> 
-   <p>This list acts as a guide or checklist for organizing prompts. Customize it based on your requirements, choosing relevant sections or making modifications. Here’s a prompt that includes many of these elements, structured with clear sections:</p> 
+  <div class="readable-text" id="p335">
+   <p>此列表可作为组织提示词的指南或检查清单。建议根据实际需求自行调整，选取相关部分并进行个性化修改。以下是一个融合了上述诸多要素、结构清晰的提示词示例：</p> 
   </div> 
   <div class="readable-text prompt prompt-1" id="p336"> 
-   <p> <span class="small-caps">Persona</span> You’re an experienced Large Language Model (LLM) developer and renowned speaker. </p> 
+   <p> <span class="small-caps">角色设定</span> 您是一位经验丰富的大语言模型（LLM）开发者和知名演讲者。</p> 
   </div> 
   <div class="readable-text prompt" id="p337"> 
-   <p> <span class="small-caps">Context</span> You’ve been invited to give a keynote speech for a LLM event. </p> 
+   <p> <span class="small-caps">上下文</span> 你受邀为一场大语言模型活动发表主题演讲。</p> 
   </div> 
   <div class="readable-text prompt" id="p338"> 
-   <p> <span class="small-caps">Instruction</span> Write the punch lines for the speech. </p> 
+   <p> <span class="small-caps">指令</span> 为演讲撰写点睛之笔。</p> 
   </div> 
   <div class="readable-text prompt" id="p339"> 
-   <p> <span class="small-caps">Input</span> Include the following facts: </p> 
+   <p> <span class="small-caps">输入</span> 请包含以下事实：</p> 
   </div> 
   <ul class="prompt"> 
-   <li class="readable-text" id="p340"> LLMs have become mainstream with the launch of ChatGPT in November 2022 </li> 
-   <li class="readable-text" id="p341"> many popular LLMs and LLM based chatbots have been launched since then, such as LLAMA-2, Falcon180B, Bard. </li> 
-   <li class="readable-text" id="p342"> LLMs becoming as popular as search engines </li> 
-   <li class="readable-text" id="p343"> many companies want to integrate LLMs in their applications </li> 
+   <li class="readable-text" id="p340"> 大语言模型(LLM)自2022年11月ChatGPT发布以来已成为业界主流。</li> 
+   <li class="readable-text" id="p341"> 此后相继推出了LLaMA-2、Falcon180B、Bard等众多广受欢迎的大语言模型及基于LLM的聊天机器人。</li> 
+   <li class="readable-text" id="p342"> 大语言模型(LLM)的普及程度正逐步与搜索引擎比肩。</li> 
+   <li class="readable-text" id="p343"> 众多企业正积极将其自身应用与大语言模型进行集成。</li> 
   </ul> 
   <div class="readable-text prompt" id="p344"> 
-   <p> <span class="small-caps">Tone</span> Use a witty but entertaining tone.</p> 
+   <p> <span class="small-caps">语气</span> 采用机智诙谐但引人入胜的语气。</p> 
   </div> 
   <div class="readable-text prompt" id="p345"> 
-   <p> <span class="small-caps">Output format</span> Present the text in two paragraphs of 5 lines each.</p> 
+   <p> <span class="small-caps">输出格式</span> 将文本分以每段五行,总共两段的格式呈现。</p> 
   </div> 
   <div class="readable-text response response-1" id="p346"> 
-   <p><span class="response-1q">“</span>Ladies and gentlemen, as we embark on this linguistic odyssey, remember this: In November 2022, ChatGPT didn’t just enter the scene; it was the linguistic equivalent of a rockstar’s encore, setting the stage for an epic word-tastic journey! Today, with LLAMA-2, Falcon180B, and Bard, it’s safe to say that LLMs have become the Beatles of the digital era, making search engines feel like yesterday’s news.</p> 
+   <p><span class="response-1q">“女士们先生们，当我们踏上这段语言探索之旅时，请记住：2022年11月，ChatGPT不仅仅是登场亮相；它在语言领域的震撼程度堪比摇滚巨星的返场表演，为一场史诗般的文字盛宴拉开了序幕！如今，随着LLAMA-2、Falcon180B和Bard的出现，可以毫不夸张地说，大语言模型已成为数字时代的披头士乐队，让搜索引擎显得像是昨日旧闻。”</span></p> 
   </div> 
-  <div class="readable-text response" id="p347"> 
-   <p>But here’s the kicker – companies are now falling over themselves, desperately trying to get these LLMs into their applications. It’s like the gold rush, but instead of panning for precious metal, we’re sifting through bytes of brilliant language. So, my friends, in this age where words wield the power, and LLMs are the mighty pens, we’re not just scripting the future; we’re penning a linguistic saga that’s bound to be a best-seller! Welcome to the age of LLMs, where we’re rewriting the rules, one sentence at a time, and words are the currency of change!</p> 
+  <div class="readable-text response" id="p347">
+   <p>“但关键在于—如今各大公司都争先恐后地试图将这些大语言模型集成到自己的应用程序中。这就像一场淘金热，只不过我们不是在淘洗贵金属，而是在筛选那些闪耀着智慧光芒的语言字节。所以，朋友们，在这个文字掌握力量的时代，大语言模型就是那支强大的笔，我们不仅是在编写未来，更是在谱写一部注定畅销的语言传奇！欢迎来到大语言模型的时代，在这里我们正逐句改写规则，而文字就是变革的货币！”</p> 
   </div> 
-  <div class="readable-text" id="p348"> 
-   <p>A more reliable way to enforce prompt structure—recommended in both OpenAI’s and Anthropic’s prompt engineering guidelines (see the resource list at the end of this section)—is to mark different sections of the prompt with XML-style tags. For example, the previous prompt could be written as</p> 
+  <div class="readable-text" id="p348">
+   <p>一种更可靠的方式来强制规范提示词结构—在OpenAI和Anthropic的提示词工程指南中均有推荐（参见本节末尾的资源列表）—是使用XML风格的标签来标记提示词的不同部分。比如，之前的提示词可以写成下面这样：</p>
   </div> 
   <div class="readable-text prompt" id="p349"> 
    <p>&lt;Persona&gt;</p> 
   </div> 
   <div class="readable-text prompt" id="p350"> 
-   <p>You’re an experienced Large Language Model (LLM) developer and renowned speaker.</p> 
+   <p>您是一位经验丰富的大语言模型（LLM）开发者和知名演讲者。</p> 
   </div> 
   <div class="readable-text prompt" id="p351"> 
    <p>&lt;/Persona&gt;</p> 
@@ -1306,7 +1304,7 @@ print(response.content)</pre>
    <p>&lt;Context&gt;</p> 
   </div> 
   <div class="readable-text prompt" id="p353"> 
-   <p>You’ve been invited to give a keynote speech for a LLM event. </p> 
+   <p>你受邀为一场大语言模型活动发表主题演讲。</p> 
   </div> 
   <div class="readable-text prompt" id="p354"> 
    <p>&lt;/Context&gt;</p> 
@@ -1315,7 +1313,7 @@ print(response.content)</pre>
    <p>&lt;Instruction&gt;</p> 
   </div> 
   <div class="readable-text prompt" id="p356"> 
-   <p>Write the punch lines for the speech. </p> 
+   <p>为演讲撰写点睛之笔。</p> 
   </div> 
   <div class="readable-text prompt" id="p357"> 
    <p>&lt;/Instruction&gt;</p> 
@@ -1324,13 +1322,13 @@ print(response.content)</pre>
    <p>&lt;Input&gt;</p> 
   </div> 
   <div class="readable-text prompt" id="p359"> 
-   <p>Include the following facts: </p> 
+   <p>请包含以下事实：</p> 
   </div> 
   <ul class="prompt"> 
-   <li class="readable-text" id="p360"> LLMs have become mainstream with the launch of ChatGPT in November 2022 </li> 
-   <li class="readable-text" id="p361"> many popular LLMs and LLM based chatbots have been launched since then, such as LLAMA-2, Falcon180B, Bard. </li> 
-   <li class="readable-text" id="p362"> LLMs becoming as popular as search engines </li> 
-   <li class="readable-text" id="p363"> many companies want to integrate LLMs in their applications </li> 
+   <li class="readable-text" id="p360"> 大语言模型(LLM)自2022年11月ChatGPT发布以来已成为业界主流。</li> 
+   <li class="readable-text" id="p361"> 此后相继推出了LLaMA-2、Falcon180B、Bard等众多广受欢迎的大语言模型及基于LLM的聊天机器人。</li> 
+   <li class="readable-text" id="p362"> 大语言模型(LLM)的普及程度正逐步与搜索引擎比肩。</li> 
+   <li class="readable-text" id="p363"> 众多企业正积极将其自身应用与大语言模型进行集成。</li> 
   </ul> 
   <div class="readable-text prompt" id="p364"> 
    <p>&lt;/Input&gt;</p> 
@@ -1339,7 +1337,7 @@ print(response.content)</pre>
    <p>&lt;Tone&gt;</p> 
   </div> 
   <div class="readable-text prompt" id="p366"> 
-   <p>Use a witty but entertaining tone.</p> 
+   <p>采用机智诙谐但引人入胜的语气。</p> 
   </div> 
   <div class="readable-text prompt" id="p367"> 
    <p>&lt;/Tone&gt;</p> 
@@ -1348,16 +1346,17 @@ print(response.content)</pre>
    <p>&lt;OutputFormat&gt;</p> 
   </div> 
   <div class="readable-text prompt" id="p369"> 
-   <p>Present the text in two paragraphs of 5 lines each.</p> 
+   <p>将文本分以每段五行,总共两段的格式呈现。</p> 
   </div> 
   <div class="readable-text prompt" id="p370"> 
    <p>&lt;/OutputFormat&gt;</p> 
   </div> 
   <div class="readable-text print-book-callout" id="p371"> 
-   <p><span class="print-book-callout-head">NOTE</span>  Studies (e.g., “The Prompt Report: A Systematic Survey of Prompting Techniques,” <a href="https://arxiv.org/abs/2406.06608">https://arxiv.org/abs/2406.06608</a>) have found that explicitly naming different parts of a prompt tends to improve results. However, you don’t have to name every section. Most LLMs can figure out the purpose of the text in the prompt on their own. So you can mix things up by naming some parts (e.g., Question or Examples) and leaving out names for others (e.g., Context or Tone). Experiment and see what works best for your case and the results you’re getting.</p> 
+   
+   <p><span class="print-book-callout-head">注意</span>  研究（例如，“提示词报告：提示词技术的系统性调查”，<a href="https://arxiv.org/abs/2406.06608">https://arxiv.org/abs/2406.06608</a>）发现，明确命名提示词的不同部分往往能改善结果。然而，你并不需要为每个部分都命名。大多数大语言模型能够自行理解提示词中文本的意图。因此，你可以混合使用，为某些部分命名（例如，问题或示例），而省略其他部分的名称（例如，上下文或语气）。着手进行实验，看看哪种方式最适合你的使用场景和你所获得的结果。</p> 
   </div> 
   <div class="readable-text" id="p372"> 
-   <p>If you want to delve deeper into prompt engineering, I highly recommend the following resources:</p> 
+   <p>如果你想更深入地研究提示词工程，我强烈推荐以下资源：</p> 
   </div> 
   <ul> 
    <li class="readable-text" id="p373"> <a href="https://mng.bz/z2aA">https://mng.bz/z2aA</a> </li> 
@@ -1369,21 +1368,24 @@ print(response.content)</pre>
    <li class="readable-text" id="p379"> <a href="https://mng.bz/jZ8e">https://mng.bz/jZ8e</a> </li> 
   </ul> 
   <div class="readable-text" id="p380"> 
-   <h2 class=" readable-text-h2">Summary</h2> 
+   <h2 class=" readable-text-h2">总结</h2> 
   </div> 
   <ul> 
-   <li class="readable-text" id="p381"> A prompt guides the LLM by giving it instructions and context (background information, e.g., domain knowledge or constraints). Clear, specific prompts produce better results than vague ones. </li> 
-   <li class="readable-text" id="p382"> Different instruction patterns suit different tasks. Classification prompts request category labels or sentiment scores; generation prompts ask for original creative content; and extraction prompts pull specific facts from input text. </li> 
-   <li class="readable-text" id="p383"> When prompts fail to produce expected outputs, the LLM may lack training examples for that task format. Adding few-shot examples or adjusting instruction clarity usually fixes this. </li> 
-   <li class="readable-text" id="p384"> Few-shot learning demonstrates the desired response pattern. One-shot uses a single example, two-shot uses two, and so on—more examples generally improve consistency but increase token costs. </li> 
-   <li class="readable-text" id="p385"> Standard prompts include persona (role), context (background), instructions (task), input (data), style (tone/format), and examples (patterns). Not all sections are required for every task. </li> 
-   <li class="readable-text" id="p386"> You can omit, rearrange, or extend prompt sections with custom elements. Add constraints, output format specifications, or multi-step reasoning instructions as needed. </li> 
-   <li class="readable-text" id="p387"> API-based prompt automation injects variables into prompt templates and executes requests programmatically. This scales prompting from single requests to thousands of variations. For instance, you can produce thousands of product descriptions by populating a single template with different product attributes (name, category, features) from a database or CSV file. </li> 
-   <li class="readable-text" id="p388"> Prompt templates use placeholders (typically <code>{variable_name}</code> in curly braces) that get replaced with actual values at runtime. This separates prompt structure from dynamic content. </li> 
-   <li class="readable-text" id="p389"> LangChain offers <code>PromptTemplate</code> for basic variable substitution. <code>FewShotPromptTemplate</code> dynamically selects examples based on input similarity, and <code>ChatPromptTemplate</code> structures multi-turn conversations. </li> 
-   <li class="readable-text" id="p390"> Chain-of-thought (CoT) prompting asks the LLM to show step-by-step reasoning before providing the final answer. Include instructions such as ““Let’s think step-by-step” or explicitly list the reasoning steps required. </li> 
-   <li class="readable-text" id="p391"> Structure prompts with XML-style tags to enforce sections: <code>&lt;persona&gt;</code>, <code>&lt;context&gt;</code>, <code>&lt;instruction&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;examples&gt;</code>. This follows OpenAI and Anthropic prompt engineering guidelines for clarity. </li> 
-   <li class="readable-text" id="p392"> Format messages for OpenAI API as a list with role and content: <code>messages=[{"role": "system", "content": "..."}, {"role": "user", "content": "..."}]</code>. Roles include system, user, and assistant. </li> 
+
+   <li class="readable-text" id="p381"> 提示词通过提供指令和上下文（背景信息，比如领域知识或约束条件）来引导大语言模型（LLM）的运行，清晰且具体的提示词往往能比模糊的提示词产生更优的结果。</li> 
+   <li class="readable-text" id="p382"> 不同指令模式适用于不同任务：分类型提示词要求给出类别标签或情感评分；生成型提示词要求创作原创性内容；抽取型提示词则从输入文本中提取特定事实。</li>
+   <li class="readable-text" id="p383"> 当提示词未能产生预期输出时，大语言模型可能缺乏该类型任务的训练示例，此时添加少量示例或提升指令的清晰度，通常可有效解决问题。</li>
+   <li class="readable-text" id="p384"> 少样本学习通过示例展示期望的响应模式：单样本（one-shot）使用一个示例，双样本（two-shot）使用两个示例，依此类推——增加示例数量通常能提升输出一致性，但也会相应增加token开销。</li>
+   <li class="readable-text" id="p385"> 标准提示词通常包含以下六个要素：角色设定（角色）、上下文（背景）、指令（任务）、输入（数据）、风格（语气与格式）和示例（模式）。并非每个任务都需要全部包含这6个部分。</li>
+   <li class="readable-text" id="p386"> 你可以根据需要省略、重新排列或扩展提示词的各个部分，并加入自定义元素，如约束条件、输出格式规范或多步推理指令。</li>
+   <li class="readable-text" id="p387"> 基于API的提示词自动化通过将变量注入提示词模板，并以编程方式执行请求，从而将提示词应用从单次请求扩展至成千上万种变体。例如，只需使用一个模板，结合来自数据库或CSV文件的不同产品属性（如名称、类别、功能），即可批量生成数千条产品描述。</li> 
+   <li class="readable-text" id="p388"> 提示模板使用占位符（通常为用花括号包裹的 <code>{variable_name}</code>），这些占位符在运行时会被替换为实际值，从而将提示此的结构与动态内容分离。</li> 
+   <li class="readable-text" id="p389"> LangChain 提供了三种提示词模板类，<code>PromptTemplate</code>用于基础的变量替换，支持将运行时动态数据注入预定义的模板结构中。<code>FewShotPromptTemplate</code>会根据输入内容的语义相似性，动态选择最相关的示例，实现少样本学习的自适应提示词构建。而<code>ChatPromptTemplate</code>专门用于结构化多轮对话场景。</li>
+   <li class="readable-text" id="p390"> 思维链（CoT）提示词通过要求大语言模型在给出最终答案前，逐步展示其推理过程来提升输出的可解释性与准确性。通常可加入如“让我们逐步思考”之类的指令，或明确列出所需的推理步骤，引导模型进行结构化思考。</li> 
+   <li class="readable-text" id="p391"> 使用XML风格的标签来结构化提示词，明确划分各部分内容：<code>&lt;persona&gt;</code>、<code>&lt;context&gt;</code>、<code>&lt;instruction&gt;</code>、<code>&lt;input&gt;</code>、<code>&lt;examples&gt;</code>。此方法遵循 OpenAI 与 Anthropic 的提示词工程规范，旨在提升提示词的清晰度与可操作性。</li>
+   <li class="readable-text" id="p392"> 使用 OpenAI API 时，消息格式需以list列表形式组织，每条消息包含 role 和 content 两个字段：
+<code>messages=[{"role": "system", "content": "..."}, {"role": "user", "content": "..."}]</code>
+支持的角色包括：system、user 和 assistant。</li> 
   </ul>
  </body>
 </html>

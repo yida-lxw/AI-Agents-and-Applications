@@ -18,10 +18,10 @@
 <h2 class="readable-text-h2">本书适合哪些读者</h2>
 </div>
 <div class="readable-text" id="p5">
-<p>本书面向希望使用LangChain、LangGraph和MCP构建生产级AI智能体和应用程序的开发者和技术型读者。如果你熟悉基本的Python和标准开发者工作流程——例如在终端中运行命令和管理虚拟环境——你会感到得心应手。熟悉在Jupyter Notebook中启动项目或在Visual Studio Code（VS Code）中开发Python应用程序将有助于你更快地进步。虽然不需要具备LLM应用开发的经验，但如果你曾尝试过ChatGPT、Claude或Gemini等工具，将会大有裨益。</p>
+<p>本书面向希望使用LangChain、LangGraph和MCP构建生产级AI智能体和应用程序的开发者和技术型读者。如果你熟悉基本的Python和标准开发者工作流程—例如在终端中运行命令和管理虚拟环境—你会感到得心应手。熟悉在Jupyter Notebook中启动项目或在Visual Studio Code（VS Code）中开发Python应用程序将有助于你更快地进步。虽然不需要具备LLM应用开发的经验，但如果你曾尝试过ChatGPT、Claude或Gemini等工具，将会大有裨益。</p>
 </div>
 <div class="readable-text intended-text" id="p6">
-<p>您可能是一位希望超越简单LLM API调用的软件工程师，一位寻求将RAG原型转化为可靠应用或智能体的数据科学家或机器学习工程师，亦或是一位正在评估可行性及部署策略的技术主管或产品经理。学生、独立学习者、研究人员和爱好者同样能在此找到一条从基础概念到完整功能系统的清晰实用路径。</p>
+<p>您可能是一位希望超越简单大语言模型API调用的软件工程师，一位寻求将RAG原型转化为可靠应用或智能体的数据科学家或机器学习工程师，亦或是一位正在评估可行性及部署策略的技术主管或产品经理。学生、独立学习者、研究人员和爱好者同样能在此找到一条从基础概念到完整功能系统的清晰实用路径。</p>
 </div>
 <div class="readable-text intended-text" id="p7">
 <p>在本书各章节中，您将从基础概念逐步进阶至构建功能完备的应用程序：设计高效的提示词；使用LangChain构建、测试和强化RAG管道；通过LangGraph实现智能体工作流与多智能体协同；并借助MCP集成外部工具以创建安全、可互操作的能力。在此过程中，您将逐步掌握追踪、调试和优化系统行为的核心技能。若您的目标是将创意转化为可靠、可维护的AI产品，本书将全程为您提供指引。</p>
@@ -30,16 +30,16 @@
 <h2 class="readable-text-h2">本书的组织结构：路线图</h2>
 </div>
 <div class="readable-text" id="p9">
-<p>本书分为5个部分，共14章。每个部分都建立在前一部分的基础上，从基础的LLM技能逐步过渡到使用LangChain、LangGraph和MCP构建可用于生产环境的智能体。您可以从头到尾阅读，也可以专注于与您的项目最相关的章节——全文中的交叉引用将帮助您弥合任何知识缺口：</p>
+<p>本书分为5个部分，共14章。每个部分都建立在前一部分的基础上，从基础的LLM技能逐步过渡到使用LangChain、LangGraph和MCP构建可用于生产环境的智能体。您可以从头到尾阅读，也可以专注于与您的项目最相关的章节—全文中的交叉引用将帮助您弥合任何知识缺口：</p>
 </div>
 <ul>
-<li class="readable-text" id="p10"> <em>第一部分：</em> <em>大语言模型入门（第1-2章）</em>——本部分奠定基础，探讨大语言模型的优势与局限，以及为何框架对实际应用至关重要。您将了解主要应用模式（引擎、聊天机器人、智能体）和稳健系统的支柱——提示工程与检索增强生成（RAG）： <ul> <li> 第1章描绘大语言模型应用的全景，从摘要生成与语义搜索到聊天机器人和智能体，并审视常见挑战。您将看到LangChain、LangGraph和LangSmith如何提供模块化构建块，以及为何提示工程与RAG是构建可靠系统的关键。 </li> <li> 第2章提供提示设计的实践入门，涵盖角色设定、上下文、指令、输入和示例，以及单样本/少样本学习策略和思维链（CoT）提示。您将使用LangChain的<code>PromptTemplate</code>和<code>FewShotPromptTemplate</code>以及OpenAI API来自动生成、测试和迭代提示。 </li> </ul> </li> <li class="readable-text" id="p11"> <em>第二部分：摘要生成（第3-5章）</em>——本部分聚焦于大语言模型的一个基础用例：将大量文本提炼为可操作的见解，同时管理上下文限制并为智能体工作流做准备： <ul> <li> 第3章为单个大型文档、多文档语料库和结构化数据构建摘要链。您将把源数据加载到<code>Document</code>对象中，比较MapReduce与精炼策略，并构建LangChain表达式语言（LCEL）管道，以在不超出上下文限制的前提下保留关键思想。 </li> <li> 第4章开发一个研究摘要引擎，它能搜索网络、检索来源、进行摘要并生成简洁、可论证的报告。该过程被分解为子链（搜索、获取、摘要、组合）并通过LCEL进行编排。 </li> <li> 第5章从线性链过渡到LangGraph，引入显式状态、节点和边。您将实现条件分支（例如，当证据不足时重新查询）并重构研究助手，以提升其可靠性和可调试性。 </li> </ul> </li> <li class="readable-text" id="p12"> <em>第三部分：问答聊天机器人（第6-7章）</em>——本部分将焦点从总结信息转向回答用户问题，揭开RAG的神秘面纱，并为您的系统配备可观测性工具： <ul> <li> 第6章使用OpenAI和ChromaDB从基本原理实现RAG，涵盖数据摄取、嵌入、语义搜索以及一个演示摄取-查询循环及向量存储与检索器角色的最小问答聊天机器人。 </li> <li> 第7章使用LangChain的RAG组件重建聊天机器人，并集成LangSmith追踪。您将使用加载器、转换器、向量存储、检索器、聊天记忆以及用于简化问答的专用工具。 </li> </ul> </li> <li class="readable-text" id="p13"> <em>第四部分：高级RAG（第8-10章）</em>——本部分探讨随着数据和用户规模增长，如何扩展检索能力。您将优化索引和查询策略，并学习组合多个后端： <ul> <li> 第8章通过更智能的分块、用于粗粒度与细粒度上下文的多重嵌入以及针对性扩展来增强索引。您将使用<code>ParentDocumentRetriever</code>和<code>MultiVectorRetriever</code>，为半结构化和多模态内容定制策略。 </li> <li> 第9章通过强化查询本身来改进检索：使用重写-检索-读取模式、回退提示、假设文档嵌入（HyDE）和问题分解，以持续呈现更丰富的证据。 </li> <li> 第10章将查询路由到合适的后端（向量存储、SQL数据库、文档数据库或知识图谱），生成后端特定的查询（SQL/SPARQL），并使用互逆排序融合（RRF）对结果进行后处理，以向大语言模型提供最相关的上下文。 </li> </ul> </li> <li class="readable-text" id="p14"> <em>第五部分：AI智能体（第11-14章）</em>——本部分探讨系统如何做出决策并采取行动。您将构建使用工具和多智能体系统，通过MCP扩展它们，并为生产环境做好准备： <ul> <li> 第11章在LangGraph中构建基于工具的智能体，展示如何在模型逐步选择行动时注册和调用工具。您将从单一工具的旅行助手演进到多工具智能体，并在LangSmith中实现完整的可观测性。 </li> <li> 第12章使用路由器和监督者模式组合多智能体系统，确保由合适的专家处理每个子任务。您将把智能体连接到真实数据源（SQL/REST），并学习调试和测试跨智能体工作流的实用技术。 </li> <li> 第13章介绍模型上下文协议（MCP）：它是什么、为何重要以及如何使用它。您将构建并测试一个MCP服务器（例如天气工具），使用第三方MCP工具，并以清晰安全的方式将远程能力与本地能力集成。 </li> <li> 第14章通过添加记忆（通过LangGraph检查点）、分层防护栏和人机协同控制，以及建立持续评估流程以长期保持可靠性，为智能体投入生产环境做好准备。 </li> </ul> </li>
+<li class="readable-text" id="p10"> <em>第一部分：</em><em>大语言模型入门（第1-2章）</em>—本部分奠定基础，探讨大语言模型的优势与局限，以及为何框架对实际应用至关重要。您将了解主要应用模式（引擎、聊天机器人、智能体）和稳健系统的支柱—提示工程与检索增强生成（RAG）： <ul> <li> 第1章描绘大语言模型应用的全景，从摘要生成与语义搜索到聊天机器人和智能体，并审视常见挑战。您将看到LangChain、LangGraph和LangSmith如何提供模块化构建块，以及为何提示工程与RAG是构建可靠系统的关键。 </li> <li> 第2章提供提示设计的实践入门，涵盖角色设定、上下文、指令、输入和示例，以及单样本/少样本学习策略和思维链（CoT）提示。您将使用LangChain的<code>PromptTemplate</code>和<code>FewShotPromptTemplate</code>以及OpenAI API来自动生成、测试和迭代提示。 </li> </ul> </li> <li class="readable-text" id="p11"> <em>第二部分：摘要生成（第3-5章）</em>—本部分聚焦于大语言模型的一个基础用例：将大量文本提炼为可操作的见解，同时管理上下文限制并为智能体工作流做准备： <ul> <li> 第3章为单个大型文档、多文档语料库和结构化数据构建摘要链。您将把源数据加载到<code>Document</code>对象中，比较MapReduce与精炼策略，并构建LangChain表达式语言（LCEL）管道，以在不超出上下文限制的前提下保留关键思想。 </li> <li> 第4章开发一个研究摘要引擎，它能搜索网络、检索来源、进行摘要并生成简洁、可论证的报告。该过程被分解为子链（搜索、获取、摘要、组合）并通过LCEL进行编排。 </li> <li> 第5章从线性链过渡到LangGraph，引入显式状态、节点和边。您将实现条件分支（例如，当证据不足时重新查询）并重构研究助手，以提升其可靠性和可调试性。 </li> </ul> </li> <li class="readable-text" id="p12"> <em>第三部分：问答聊天机器人（第6-7章）</em>—本部分将焦点从总结信息转向回答用户问题，揭开RAG的神秘面纱，并为您的系统配备可观测性工具： <ul> <li> 第6章使用OpenAI和ChromaDB从基本原理实现RAG，涵盖数据摄取、嵌入、语义搜索以及一个演示摄取-查询循环及向量存储与检索器角色的最小问答聊天机器人。 </li> <li> 第7章使用LangChain的RAG组件重建聊天机器人，并集成LangSmith追踪。您将使用加载器、转换器、向量存储、检索器、聊天记忆以及用于简化问答的专用工具。 </li> </ul> </li> <li class="readable-text" id="p13"> <em>第四部分：高级RAG（第8-10章）</em>—本部分探讨随着数据和用户规模增长，如何扩展检索能力。您将优化索引和查询策略，并学习组合多个后端： <ul> <li> 第8章通过更智能的分块、用于粗粒度与细粒度上下文的多重嵌入以及针对性扩展来增强索引。您将使用<code>ParentDocumentRetriever</code>和<code>MultiVectorRetriever</code>，为半结构化和多模态内容定制策略。 </li> <li> 第9章通过强化查询本身来改进检索：使用重写-检索-读取模式、回退提示、假设文档嵌入（HyDE）和问题分解，以持续呈现更丰富的证据。 </li> <li> 第10章将查询路由到合适的后端（向量存储、SQL数据库、文档数据库或知识图谱），生成后端特定的查询（SQL/SPARQL），并使用互逆排序融合（RRF）对结果进行后处理，以向大语言模型提供最相关的上下文。 </li> </ul> </li> <li class="readable-text" id="p14"> <em>第五部分：AI智能体（第11-14章）</em>—本部分探讨系统如何做出决策并采取行动。您将构建使用工具和多智能体系统，通过MCP扩展它们，并为生产环境做好准备： <ul> <li> 第11章在LangGraph中构建基于工具的智能体，展示如何在模型逐步选择行动时注册和调用工具。您将从单一工具的旅行助手演进到多工具智能体，并在LangSmith中实现完整的可观测性。 </li> <li> 第12章使用路由器和监督者模式组合多智能体系统，确保由合适的专家处理每个子任务。您将把智能体连接到真实数据源（SQL/REST），并学习调试和测试跨智能体工作流的实用技术。 </li> <li> 第13章介绍模型上下文协议（MCP）：它是什么、为何重要以及如何使用它。您将构建并测试一个MCP服务器（例如天气工具），使用第三方MCP工具，并以清晰安全的方式将远程能力与本地能力集成。 </li> <li> 第14章通过添加记忆（通过LangGraph检查点）、分层防护栏和人机协同控制，以及建立持续评估流程以长期保持可靠性，为智能体投入生产环境做好准备。 </li> </ul> </li>
 </ul>
 <div class="readable-text" id="p15">
 <h2 class="readable-text-h2">如何阅读本书</h2>
 </div>
 <div class="readable-text" id="p16">
-<p>如果您是LLM应用的新手，请按顺序阅读第1至第3部分，然后再探索第4部分中更高级的主题。如果您的主要兴趣在于智能体，可以快速浏览第1章和第2章以了解术语，完成第3至第7章中的摘要和RAG基础部分，然后专注于第5部分。每章都包含可运行的示例和后续步骤建议，使您能够逐步将所学内容融入实际项目中。</p>
+<p>如果您是大语言模型应用的新手，请按顺序阅读第1至第3部分，然后再探索第4部分中更高级的主题。如果您的主要兴趣在于智能体，可以快速浏览第1章和第2章以了解术语，完成第3至第7章中的摘要和RAG基础部分，然后专注于第5部分。每章都包含可运行的示例和后续步骤建议，使您能够逐步将所学内容融入实际项目中。</p>
 </div>
 <div class="readable-text" id="p17">
 <h2 class="readable-text-h2">关于代码</h2>
@@ -51,25 +51,25 @@
 <p>在许多情况下，原始源代码已经过重新格式化；我们添加了换行符并调整了缩进，以适应书中可用的页面空间。在极少数情况下，即使这样也不够，因此代码清单中包含了续行标记（<span class="">↪</span>）。此外，当代码在正文中已有描述时，源代码中的注释通常已从清单中移除。许多代码清单都附有代码注释，用以突出重要概念。</p>
 </div>
 <div class="readable-text intended-text" id="p20">
-<p>本书中的所有示例代码均使用Python编写，并可在普通开发者笔记本电脑上运行——无需特殊硬件。在必要时，我会提供创建和激活虚拟环境的简要说明，以及一些常用的shell命令，但重点始终牢牢放在Python上。每一章的完整源代码均可从曼宁出版社网站<a href="http://www.manning.com/books/ai-agents-and-applications">www.manning.com/books/ai-agents-and-applications</a>获取，并在GitHub上镜像于<a href="https://mng.bz/rZlZ">https://mng.bz/rZlZ</a>，您还可以在那里找到更新和勘误。您可以从本书的liveBook（在线）版本<a href="https://livebook.manning.com/book/ai-agents-and-applications">https://livebook.manning.com/book/ai-agents-and-applications</a>获取可执行的代码片段。</p>
+<p>本书中的所有示例代码均使用Python编写，并可在普通开发者笔记本电脑上运行—无需特殊硬件。在必要时，我会提供创建和激活虚拟环境的简要说明，以及一些常用的shell命令，但重点始终牢牢放在Python上。每一章的完整源代码均可从曼宁出版社网站<a href="http://www.manning.com/books/ai-agents-and-applications">www.manning.com/books/ai-agents-and-applications</a>获取，并在GitHub上镜像于<a href="https://mng.bz/rZlZ">https://mng.bz/rZlZ</a>，您还可以在那里找到更新和勘误。您可以从本书的liveBook（在线）版本<a href="https://livebook.manning.com/book/ai-agents-and-applications">https://livebook.manning.com/book/ai-agents-and-applications</a>获取可执行的代码片段。</p>
 </div>
 <div class="readable-text intended-text" id="p21">
 <p>部分章节以Jupyter Notebook形式呈现，逐行跟随叙述展开；而其他章节则组织为可端到端运行的独立VS Code项目（如果你偏好Cursor，也可在 Cursor 中运行）。Notebook更侧重于解释与实验，而VS Code项目则聚焦于结构化与可复用性。两种方式均基于相同的底层模块，确保您在切换时获得一致的行为体验。</p>
 </div>
 <div class="readable-text intended-text" id="p22">
-<p>项目面向现代版本的Python（3.11或更高版本）并使用诸如pip和虚拟环境等标准工具。每个章节目录都包含一个<code>requirements.txt</code>文件。当示例依赖于外部服务时——通常是模型API或网络搜索——你需要通过环境变量或本地的<code>.env</code>文件提供你自己的凭据。这些情况在文中均有明确标示。</p>
+<p>项目面向现代版本的Python（3.11或更高版本）并使用诸如pip和虚拟环境等标准工具。每个章节目录都包含一个<code>requirements.txt</code>文件。当示例依赖于外部服务时—通常是模型API或网络搜索—你需要通过环境变量或本地的<code>.env</code>文件提供你自己的凭据。这些情况在文中均有明确标示。</p>
 </div>
 <div class="readable-text intended-text" id="p23">
-<p>由于您将构建基于LLM的应用程序和智能体，大多数示例会使用OpenAI模型，主要来自GPT-5系列。在运行它们之前，您需要创建一个OpenAI账户并关联一张借记卡或信用卡（书中提供了操作说明）。大多数示例在成本最低的GPT-5-nano模型上即可顺畅运行，完成所有示例的总花费应低于5美元。当然，如果您愿意，也可以自由尝试使用更大的模型。</p>
+<p>由于您将构建基于大语言模型的应用程序和智能体，大多数示例会使用OpenAI模型，主要来自GPT-5系列。在运行它们之前，您需要创建一个OpenAI账户并关联一张借记卡或信用卡（书中提供了操作说明）。大多数示例在成本最低的GPT-5-nano模型上即可顺畅运行，完成所有示例的总花费应低于5美元。当然，如果您愿意，也可以自由尝试使用更大的模型。</p>
 </div>
 <div class="readable-text intended-text" id="p24">
-<p>由于智能体系统本质上是非确定性的，您的结果可能与书中展示的略有不同。在需要可重复性的地方，我会固定随机种子、限制模型温度或包含示例记录，以便您比较输出。请将代码仓库视为本书的动态伴侣——运行它、扩展它，并将其作为您自己智能体和应用程序的基础。</p>
+<p>由于智能体系统本质上是非确定性的，您的结果可能与书中展示的略有不同。在需要可重复性的地方，我会固定随机种子、限制模型温度或包含示例记录，以便您比较输出。请将代码仓库视为本书的动态伴侣—运行它、扩展它，并将其作为您自己智能体和应用程序的基础。</p>
 </div>
 <div class="readable-text" id="p25">
 <h2 class="readable-text-h2">liveBook 讨论论坛</h2>
 </div>
 <div class="readable-text" id="p26">
-<p>购买<em>《AI智能体与应用》</em>一书，即可免费访问liveBook——曼宁出版社的在线阅读平台。通过liveBook的讨论功能，您可以为整本书或特定章节和段落添加评论。您可以轻松地记录个人笔记、提问和回答技术问题，并从作者和其他读者那里获得帮助。要访问论坛，请访问<a href="https://livebook.manning.com/book/ai-agents-and-applications/discussion">https://livebook.manning.com/book/ai-agents-and-applications/discussion</a>。</p>
+<p>购买<em>《AI智能体与应用》</em>一书，即可免费访问liveBook—曼宁出版社的在线阅读平台。通过liveBook的讨论功能，您可以为整本书或特定章节和段落添加评论。您可以轻松地记录个人笔记、提问和回答技术问题，并从作者和其他读者那里获得帮助。要访问论坛，请访问<a href="https://livebook.manning.com/book/ai-agents-and-applications/discussion">https://livebook.manning.com/book/ai-agents-and-applications/discussion</a>。</p>
 </div>
 <div class="readable-text intended-text" id="p27">
 <p>曼宁出版社致力于提供一个平台，让读者之间以及读者与作者之间能够进行有意义的对话。然而，这并不意味着作者有特定的参与义务，其参与始终是自愿且无报酬的。我们鼓励您向作者提出具有挑战性的问题，以保持他的参与度。只要本书仍在印刷，论坛及过往讨论的存档都将在出版商的网站上保持可访问状态。</p>
