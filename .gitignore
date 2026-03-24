@@ -43,7 +43,6 @@ htmlcov/
 temp/
 output/
 logs/
-*.epub
 !example.epub
 
 # OS
