@@ -318,7 +318,7 @@
         <content src="Text/chapter-3.html#p7"/>
         <navPoint class="chapter" id="navPoint-52" playOrder="52">
           <navLabel>
-            <text>3.1.1 将文本分块为文档对象</text>
+            <text>3.1.1 将文本切分为文档对象</text>
           </navLabel>
           <content src="Text/chapter-3.html#p19"/>
         </navPoint>

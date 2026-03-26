@@ -27,6 +27,8 @@
     <item href="Text/part-1.html" id="part-1" media-type="application/xhtml+xml"/>
     <item href="Text/chapter-1.html" id="chapter-1" media-type="application/xhtml+xml"/>
     <item href="Text/chapter-2.html" id="chapter-2" media-type="application/xhtml+xml"/>
+    <item href="Text/part-2.html" id="part-2" media-type="application/xhtml+xml"/>
+    <item href="Text/chapter-3.html" id="chapter-3" media-type="application/xhtml+xml"/>
     <item href="Images/APPE_F01_Infante2.png" id="file-1" media-type="image/png"/>
     <item href="Images/APPB_F01_Infante2.png" id="file-2" media-type="image/png"/>
     <item href="Images/APPE_F03_Infante2.png" id="file-3" media-type="image/png"/>
@@ -141,6 +143,8 @@
     <itemref idref="part-1"/>
     <itemref idref="chapter-1"/>
     <itemref idref="chapter-2"/>
+    <itemref idref="part-2"/>
+    <itemref idref="chapter-3"/>
   </spine>
   <guide>
     <reference href="Text/titlepage.xhtml" title="Cover" type="cover"/>
