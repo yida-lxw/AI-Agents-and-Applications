@@ -403,150 +403,150 @@
       <content src="Text/chapter-4.html"/>
       <navPoint class="chapter" id="navPoint-66" playOrder="66">
         <navLabel>
-          <text>4.1 Overview of a research summarization engine</text>
+          <text>4.1 研究摘要引擎概述</text>
         </navLabel>
         <content src="Text/chapter-4.html#p8"/>
       </navPoint>
       <navPoint class="chapter" id="navPoint-67" playOrder="67">
         <navLabel>
-          <text>4.2 Setting up the project</text>
+          <text>4.2 项目设置</text>
         </navLabel>
         <content src="Text/chapter-4.html#p14"/>
       </navPoint>
       <navPoint class="chapter" id="navPoint-68" playOrder="68">
         <navLabel>
-          <text>4.3 Implementing the core functionality</text>
+          <text>4.3 实现核心功能</text>
         </navLabel>
         <content src="Text/chapter-4.html#p36"/>
         <navPoint class="chapter" id="navPoint-69" playOrder="69">
           <navLabel>
-            <text>4.3.1 Implementing web searching</text>
+            <text>4.3.1 实现网络搜索</text>
           </navLabel>
           <content src="Text/chapter-4.html#p38"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-70" playOrder="70">
           <navLabel>
-            <text>4.3.2 Implementing web scraping</text>
+            <text>4.3.2 实现网络爬虫</text>
           </navLabel>
           <content src="Text/chapter-4.html#p47"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-71" playOrder="71">
           <navLabel>
-            <text>4.3.3 Instantiating the LLM client</text>
+            <text>4.3.3 实例化大语言模型客户端</text>
           </navLabel>
           <content src="Text/chapter-4.html#p55"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-72" playOrder="72">
           <navLabel>
-            <text>4.3.4 JSON to Python object converter</text>
+            <text>4.3.4 JSON到Python对象转换器</text>
           </navLabel>
           <content src="Text/chapter-4.html#p61"/>
         </navPoint>
       </navPoint>
       <navPoint class="chapter" id="navPoint-73" playOrder="73">
         <navLabel>
-          <text>4.4 Enhancing the architecture with query rewriting</text>
+          <text>4.4 通过查询重写增强架构</text>
         </navLabel>
         <content src="Text/chapter-4.html#p65"/>
       </navPoint>
       <navPoint class="chapter" id="navPoint-74" playOrder="74">
         <navLabel>
-          <text>4.5 Prompt engineering</text>
+          <text>4.5 提示词工程</text>
         </navLabel>
         <content src="Text/chapter-4.html#p78"/>
         <navPoint class="chapter" id="navPoint-75" playOrder="75">
           <navLabel>
-            <text>4.5.1 Crafting web search prompts</text>
+            <text>4.5.1 构建web搜索提示词</text>
           </navLabel>
           <content src="Text/chapter-4.html#p80"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-76" playOrder="76">
           <navLabel>
-            <text>4.5.2 Crafting summarization prompts</text>
+            <text>4.5.2 构建摘要提示词</text>
           </navLabel>
           <content src="Text/chapter-4.html#p88"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-77" playOrder="77">
           <navLabel>
-            <text>4.5.3 Research report prompt</text>
+            <text>4.5.3 研究报告提示词</text>
           </navLabel>
           <content src="Text/chapter-4.html#p91"/>
         </navPoint>
       </navPoint>
       <navPoint class="chapter" id="navPoint-78" playOrder="78">
         <navLabel>
-          <text>4.6 Initial implementation</text>
+          <text>4.6 初步实现</text>
         </navLabel>
         <content src="Text/chapter-4.html#p94"/>
         <navPoint class="chapter" id="navPoint-79" playOrder="79">
           <navLabel>
-            <text>4.6.1 Importing functions and prompt templates</text>
+            <text>4.6.1 导入函数与提示词模板</text>
           </navLabel>
           <content src="Text/chapter-4.html#p96"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-80" playOrder="80">
           <navLabel>
-            <text>4.6.2 Setting constants and input variables</text>
+            <text>4.6.2 设置常量与输入变量</text>
           </navLabel>
           <content src="Text/chapter-4.html#p99"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-81" playOrder="81">
           <navLabel>
-            <text>4.6.3 Instantiating the LLM client</text>
+            <text>4.6.3 实例化大语言模型客户端</text>
           </navLabel>
           <content src="Text/chapter-4.html#p104"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-82" playOrder="82">
           <navLabel>
-            <text>4.6.4 Generating the web searches and collecting the results</text>
+            <text>4.6.4 生成web搜索并收集结果</text>
           </navLabel>
           <content src="Text/chapter-4.html#p107"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-83" playOrder="83">
           <navLabel>
-            <text>4.6.5 Scraping the web results</text>
+            <text>4.6.5 抓取网页结果</text>
           </navLabel>
           <content src="Text/chapter-4.html#p133"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-84" playOrder="84">
           <navLabel>
-            <text>4.6.6 Summarizing the web results</text>
+            <text>4.6.6 网络结果汇总</text>
           </navLabel>
           <content src="Text/chapter-4.html#p139"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-85" playOrder="85">
           <navLabel>
-            <text>4.6.7 Generating the research report</text>
+            <text>4.6.7 生成研究报告</text>
           </navLabel>
           <content src="Text/chapter-4.html#p145"/>
         </navPoint>
       </navPoint>
       <navPoint class="chapter" id="navPoint-86" playOrder="86">
         <navLabel>
-          <text>4.7 Reimplementing the research summary engine in LCEL</text>
+          <text>4.7 在LCEL中重新实现研究摘要引擎</text>
         </navLabel>
         <content src="Text/chapter-4.html#p163"/>
         <navPoint class="chapter" id="navPoint-87" playOrder="87">
           <navLabel>
-            <text>4.7.1 Assistant Instructions chain</text>
+            <text>4.7.1 助手指令链</text>
           </navLabel>
           <content src="Text/chapter-4.html#p188"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-88" playOrder="88">
           <navLabel>
-            <text>4.7.2 Web Searches chain</text>
+            <text>4.7.2 web搜索链</text>
           </navLabel>
           <content src="Text/chapter-4.html#p205"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-89" playOrder="89">
           <navLabel>
-            <text>4.7.3 Search and Summarization chain</text>
+            <text>4.7.3 搜索与摘要链</text>
           </navLabel>
           <content src="Text/chapter-4.html#p213"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-90" playOrder="90">
           <navLabel>
-            <text>4.7.4 Web Research chain</text>
+            <text>4.7.4 网络研究链</text>
           </navLabel>
           <content src="Text/chapter-4.html#p247"/>
         </navPoint>
@@ -554,107 +554,107 @@
     </navPoint>
     <navPoint class="chapter" id="navPoint-91" playOrder="91">
       <navLabel>
-        <text>5 Agentic workflows with LangGraph</text>
+        <text>5 使用LangGraph构建智能体工作流</text>
       </navLabel>
       <content src="Text/chapter-5.html"/>
       <navPoint class="chapter" id="navPoint-92" playOrder="92">
         <navLabel>
-          <text>5.1 Understanding agentic workflows and agents</text>
+          <text>5.1 理解智能体工作流与智能体</text>
         </navLabel>
         <content src="Text/chapter-5.html#p6"/>
         <navPoint class="chapter" id="navPoint-93" playOrder="93">
           <navLabel>
-            <text>5.1.1 Workflows</text>
+            <text>5.1.1 工作流</text>
           </navLabel>
           <content src="Text/chapter-5.html#p12"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-94" playOrder="94">
           <navLabel>
-            <text>5.1.2 Agents</text>
+            <text>5.1.2 智能体</text>
           </navLabel>
           <content src="Text/chapter-5.html#p16"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-95" playOrder="95">
           <navLabel>
-            <text>5.1.3 When to use agent-based architectures</text>
+            <text>5.1.3 何时使用基于智能体的架构</text>
           </navLabel>
           <content src="Text/chapter-5.html#p18"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-96" playOrder="96">
           <navLabel>
-            <text>5.1.4 Agent development frameworks</text>
+            <text>5.1.4 智能体开发框架</text>
           </navLabel>
           <content src="Text/chapter-5.html#p21"/>
         </navPoint>
       </navPoint>
       <navPoint class="chapter" id="navPoint-97" playOrder="97">
         <navLabel>
-          <text>5.2 LangGraph basics</text>
+          <text>5.2 LangGraph 基础</text>
         </navLabel>
         <content src="Text/chapter-5.html#p31"/>
       </navPoint>
       <navPoint class="chapter" id="navPoint-98" playOrder="98">
         <navLabel>
-          <text>5.3 Moving from LangChain chains to LangGraph</text>
+          <text>5.3 从LangChain链迁移到LangGraph</text>
         </navLabel>
         <content src="Text/chapter-5.html#p35"/>
       </navPoint>
       <navPoint class="chapter" id="navPoint-99" playOrder="99">
         <navLabel>
-          <text>5.4 LangGraph core components</text>
+          <text>5.4 LangGraph核心组件</text>
         </navLabel>
         <content src="Text/chapter-5.html#p42"/>
         <navPoint class="chapter" id="navPoint-100" playOrder="100">
           <navLabel>
-            <text>5.4.1 StateGraph structure</text>
+            <text>5.4.1 状态图结构</text>
           </navLabel>
           <content src="Text/chapter-5.html#p48"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-101" playOrder="101">
           <navLabel>
-            <text>5.4.2 State management and typing</text>
+            <text>5.4.2 状态管理与类型系统</text>
           </navLabel>
           <content src="Text/chapter-5.html#p51"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-102" playOrder="102">
           <navLabel>
-            <text>5.4.3 Node functions and edge definitions</text>
+            <text>5.4.3 节点函数与边定义</text>
           </navLabel>
           <content src="Text/chapter-5.html#p56"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-103" playOrder="103">
           <navLabel>
-            <text>5.4.4 Entry points and end conditions</text>
+            <text>5.4.4 入口点与结束条件</text>
           </navLabel>
           <content src="Text/chapter-5.html#p63"/>
         </navPoint>
       </navPoint>
       <navPoint class="chapter" id="navPoint-104" playOrder="104">
         <navLabel>
-          <text>5.5 Turning the web research assistant into an AI agent</text>
+          <text>5.5 将web研究助手转变为AI智能体</text>
         </navLabel>
         <content src="Text/chapter-5.html#p67"/>
         <navPoint class="chapter" id="navPoint-105" playOrder="105">
           <navLabel>
-            <text>5.5.1 Original LangChain implementation overview</text>
+            <text>5.5.1 原始LangChain实现概述</text>
           </navLabel>
           <content src="Text/chapter-5.html#p69"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-106" playOrder="106">
           <navLabel>
-            <text>5.5.2 Identifying components for conversion</text>
+            <text>5.5.2 识别待转换的组件</text>
           </navLabel>
           <content src="Text/chapter-5.html#p83"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-107" playOrder="107">
           <navLabel>
-            <text>5.5.3 Step-by-step transformation process</text>
+            <text>5.5.3 逐步转换过程</text>
           </navLabel>
           <content src="Text/chapter-5.html#p98"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-108" playOrder="108">
           <navLabel>
-            <text>5.5.4 Code comparison and benefits realized</text>
+            <text>5.5.4 代码对比与实现的收益</text>
           </navLabel>
           <content src="Text/chapter-5.html#p115"/>
         </navPoint>
@@ -662,101 +662,101 @@
     </navPoint>
     <navPoint class="chapter" id="navPoint-109" playOrder="109">
       <navLabel>
-        <text>Part 3 Q&amp;A chatbots</text>
+        <text>第三部分 问答聊天机器人</text>
       </navLabel>
       <content src="Text/part-3.html"/>
     </navPoint>
     <navPoint class="chapter" id="navPoint-110" playOrder="110">
       <navLabel>
-        <text>6 RAG fundamentals with ChromaDB</text>
+        <text>6 RAG基础之使用ChromaDB</text>
       </navLabel>
       <content src="Text/chapter-6.html"/>
       <navPoint class="chapter" id="navPoint-111" playOrder="111">
         <navLabel>
-          <text>6.1 Semantic search</text>
+          <text>6.1 语义搜索</text>
         </navLabel>
         <content src="Text/chapter-6.html#p9"/>
         <navPoint class="chapter" id="navPoint-112" playOrder="112">
           <navLabel>
-            <text>6.1.1 A basic Q&amp;A chatbot over a single document</text>
+            <text>6.1.1 基于单一文档的基础问答聊天机器人</text>
           </navLabel>
           <content src="Text/chapter-6.html#p14"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-113" playOrder="113">
           <navLabel>
-            <text>6.1.2 A more complex Q&amp;A chatbot over a knowledge base</text>
+            <text>6.1.2 基于知识库的复杂问答聊天机器人</text>
           </navLabel>
           <content src="Text/chapter-6.html#p64"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-114" playOrder="114">
           <navLabel>
-            <text>6.1.3 The RAG design pattern</text>
+            <text>6.1.3 RAG设计模式</text>
           </navLabel>
           <content src="Text/chapter-6.html#p74"/>
         </navPoint>
       </navPoint>
       <navPoint class="chapter" id="navPoint-115" playOrder="115">
         <navLabel>
-          <text>6.2 Vector stores</text>
+          <text>6.2 向量存储</text>
         </navLabel>
         <content src="Text/chapter-6.html#p99"/>
         <navPoint class="chapter" id="navPoint-116" playOrder="116">
           <navLabel>
-            <text>6.2.1 What’s a vector store?</text>
+            <text>6.2.1 什么是向量存储？</text>
           </navLabel>
           <content src="Text/chapter-6.html#p101"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-117" playOrder="117">
           <navLabel>
-            <text>6.2.2 How do vector stores work?</text>
+            <text>6.2.2 向量数据库是如何工作的？</text>
           </navLabel>
           <content src="Text/chapter-6.html#p104"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-118" playOrder="118">
           <navLabel>
-            <text>6.2.3 Vector libraries vs. vector databases</text>
+            <text>6.2.3 向量库与向量数据库</text>
           </navLabel>
           <content src="Text/chapter-6.html#p110"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-119" playOrder="119">
           <navLabel>
-            <text>6.2.4 Most popular vector stores</text>
+            <text>6.2.4 最受欢迎的向量数据库</text>
           </navLabel>
           <content src="Text/chapter-6.html#p120"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-120" playOrder="120">
           <navLabel>
-            <text>6.2.5 Storing text and performing a semantic search using Chroma</text>
+            <text>6.2.5 使用 Chroma 存储文本并执行语义搜索</text>
           </navLabel>
           <content src="Text/chapter-6.html#p123"/>
         </navPoint>
       </navPoint>
       <navPoint class="chapter" id="navPoint-121" playOrder="121">
         <navLabel>
-          <text>6.3 Implementing RAG from scratch</text>
+          <text>6.3 从零开始实现RAG</text>
         </navLabel>
         <content src="Text/chapter-6.html#p169"/>
         <navPoint class="chapter" id="navPoint-122" playOrder="122">
           <navLabel>
-            <text>6.3.1 Retrieving content from the vector database</text>
+            <text>6.3.1 从向量数据库中检索内容</text>
           </navLabel>
           <content src="Text/chapter-6.html#p176"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-123" playOrder="123">
           <navLabel>
-            <text>6.3.2 Invoking the LLM</text>
+            <text>6.3.2 调用大语言模型</text>
           </navLabel>
           <content src="Text/chapter-6.html#p184"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-124" playOrder="124">
           <navLabel>
-            <text>6.3.3 Building the chatbot</text>
+            <text>6.3.3 构建聊天机器人</text>
           </navLabel>
           <content src="Text/chapter-6.html#p208"/>
         </navPoint>
         <navPoint class="chapter" id="navPoint-125" playOrder="125">
           <navLabel>
-            <text>6.3.4 Recap of RAG terminology</text>
+            <text>6.3.4 RAG术语回顾</text>
           </navLabel>
           <content src="Text/chapter-6.html#p218"/>
         </navPoint>
@@ -764,7 +764,7 @@
     </navPoint>
     <navPoint class="chapter" id="navPoint-126" playOrder="126">
       <navLabel>
-        <text>7 Q&amp;A chatbots with LangChain and LangSmith</text>
+        <text>7 使用LangChain和LangSmith构建问答聊天机器人</text>
       </navLabel>
       <content src="Text/chapter-7.html"/>
       <navPoint class="chapter" id="navPoint-127" playOrder="127">

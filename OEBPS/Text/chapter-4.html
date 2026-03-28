@@ -1,0 +1,1386 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>chapter-4</title>
+<link href="../Styles/stylesheet.css" rel="stylesheet" type="text/css"/>
+<meta content="urn:uuid:e66b75ad-f8da-46b4-9110-a22f6a805177" name="Adept.expected.resource"/>
+</head>
+<body>
+<div class="readable-text" id="p1">
+<h1 class="readable-text-h1"><span class="chapter-title-numbering"><span class="num-string">4</span> </span> <span class="chapter-title-text">构建研究摘要引擎</span></h1>
+</div>
+<div class="introduction-summary">
+<h3 class="introduction-header">本章涵盖以下内容</h3>
+<ul>
+<li class="readable-text" id="p2">理解研究摘要生成引擎</li>
+<li class="readable-text" id="p3">运用提示词工程进行网络搜索并汇总结果</li>
+<li class="readable-text" id="p4">将流程构建为独立的LangChain链</li>
+<li class="readable-text" id="p5">将子链集成到主链中</li>
+<li class="readable-text" id="p6">用于并行处理的高级LCEL</li>
+</ul>
+</div>
+<div class="readable-text" id="p7">
+<p>基于第三章的内容摘要技术，本章将指导您创建一个研究摘要引擎。这个大语言模型应用程序将处理用户查询、执行网络搜索，并汇总生成一份全面的研究发现摘要。我们将逐步开发这个项目，从基础开始，逐渐增加复杂性。在此过程中，随着我介绍如何使用LangChain表达式语言（LCEL）创建大语言模型链，您将加深对LangChain的了解。</p>
+</div>
+<div class="readable-text" id="p8">
+<h2 class="readable-text-h2"><span class="num-string">4.1</span> 研究摘要引擎概述</h2>
+</div>
+<div class="readable-text" id="p9">
+<p>想象一下，你正在研究各种主题，比如一位特定的NBA球员、一个旅游目的地，或者是否投资某只股票。手动操作时，你会进行网络搜索、筛选结果、阅读相关页面、做笔记并整理摘要。一种现代的方法是让大语言模型来处理这项工作。你可以从每个网页复制文本，粘贴到ChatGPT的提示词中进行总结，并对多个页面重复此操作。然后，将这些摘要合并到一个最终的提示词中，以生成一份整合的摘要（见图4.1）。<span class="aframe-location"></span></p>
+</div>
+<div class="browsable-container figure-container" id="p10">
+<img alt="figure" src="../Images/CH04_F01_Infante2.png"/>
+<h5 class="figure-container-h5"><span class="num-string">图 4.1</span> 使用大语言模型进行半自动摘要。您提示ChatGPT对每个网络搜索结果进行归纳，并将它们汇总生成一份综合摘要。</h5>
+</div>
+<div class="readable-text" id="p11">
+<p>一种更高效的方法是开发一个全自动的研究摘要引擎。该引擎能够执行网络搜索、归纳结果并自动汇总生成最终报告（见图4.2）。它是处理任何研究查询的宝贵工具。</p>
+</div>
+<div class="browsable-container figure-container" id="p12">
+<img alt="figure" src="../Images/CH04_F02_Infante2.png"/>
+<h5 class="figure-container-h5"><span class="num-string">图 4.2</span> 自动化研究摘要引擎。提出一个问题，引擎便会执行网络搜索、返回URL、抓取并归纳网页内容，并为您生成一份研究报告。</h5>
+</div>
+<div class="readable-text" id="p13">
+<p>我们将使用LangChain构建这个引擎。首先，我们会实现网络搜索和抓取功能，然后设置OpenAI 大语言模型进行摘要生成，最后将所有组件集成到一个Python应用程序中。最初，它将作为可执行文件运行，之后，如果您愿意，可以将其作为REST API对外提供。</p>
+</div>
+<div class="readable-text" id="p14">
+<h2 class="readable-text-h2"><span class="num-string">4.2</span> 项目设置</h2>
+</div>
+<div class="readable-text" id="p15">
+<p>我假设您正在使用安装了免费的Python扩展的Visual Studio Code（VS Code）并在Windows上运行。不过，如果您愿意，也可以选择其他Python IDE，比如PyCharm。</p>
+</div>
+<div class="callout-container sidebar-container">
+<div class="readable-text" id="p16">
+<h5 class="callout-container-h5 readable-text-h5">安装VS Code与Python扩展</h5>
+</div>
+<div class="readable-text" id="p17">
+<p>从官方网站（<a href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a>）下载并安装适用于您操作系统的相应版本的 VS Code。安装完成后，打开 VS Code，点击左侧菜单中的扩展图标。然后，搜索 <code>Python</code>，选择 Python 扩展（来自 Microsoft），并点击安装，如下图所示。</p>
+</div>
+<div class="browsable-container figure-container" id="p18">
+<img alt="figure" src="../Images/CH04_F03_Infante2.png"/>
+<h5 class="figure-container-h5">扩展市场面板</h5>
+</div>
+</div>
+<div class="readable-text" id="p19">
+<p>我将简要指导你在VS Code中设置Python项目，创建虚拟环境，激活它并安装必要的包。使用你的文件资源管理器或终端，在你的源代码区域创建一个名为<code>ch04</code>的空文件夹，例如：</p>
+</div>
+<div class="browsable-container listing-container" id="p20">
+<div class="code-area-container">
+<pre class="code-area">C:\Github\building-llm-applications\ch04</pre>
+</div>
+</div>
+<div class="readable-text" id="p21">
+<p>打开 VS Code，选择 文件 &gt; 打开文件夹，切换到 <code>ch04</code> 文件夹，然后点击 选择文件夹。接下来，在 VS Code 中通过选择 终端 &gt; 新建终端 来打开一个终端。终端应该会显示您刚刚创建的文件夹的路径。在 Windows 上，您会看到类似这样的内容：</p>
+</div>
+<div class="browsable-container listing-container" id="p22">
+<div class="code-area-container">
+<pre class="code-area">PS C:\Github\building-llm-applications\ch04&gt;</pre>
+</div>
+</div>
+<div class="readable-text" id="p23">
+<p>如果您刚安装VS Code或者对它还不熟悉，可以通过运行以下命令来启用终端（您只需要执行一次）：</p>
+</div>
+<div class="browsable-container listing-container" id="p24">
+<div class="code-area-container code-area-with-html">
+<pre class="code-area">PS C:\Github\building-llm-applications\ch04&gt; Set-ExecutionPolicy
+<span class="">↪</span>-ExecutionPolicy AllSigned -Scope CurrentUser</pre>
+</div>
+</div>
+<div class="readable-text" id="p25">
+<p>在这个终端中，像往常一样，创建一个虚拟环境并激活它（为了方便起见，我省略了<code>ch04</code>的完整路径）：</p>
+</div>
+<div class="browsable-container listing-container" id="p26">
+<div class="code-area-container">
+<pre class="code-area">... ch04&gt; python -m venv env_ch04
+... ch04&gt; .\env_ch04\Scripts\activate</pre>
+</div>
+</div>
+<div class="readable-text" id="p27">
+<p>如果您在PowerShell中使用<code>activate.ps1</code>激活虚拟环境，可能会弹出提示：“您想要运行来自此不受信任发布者的软件吗？”请输入<code>A</code>（始终运行）以继续。</p>
+</div>
+<div class="readable-text intended-text" id="p28">
+<p>如果您从GitHub克隆了这个代码仓库，您可以使用如下命令安装所需的包（<code>langchain</code>、<code>langchain_openai</code>、<code>langchain_community</code>、<code>requests</code>、<code>bs4</code>、<code>duckduckgo-search</code>、<code>ddgs</code>）：</p>
+</div>
+<div class="browsable-container listing-container" id="p29">
+<div class="code-area-container">
+<pre class="code-area">(env_ch04) ... ch04&gt; pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple</pre>
+</div>
+</div>
+<div class="readable-text" id="p30">
+<p>安装完所需的包后，我建议创建一个自定义的运行配置，以确保你在刚刚设置的<code>env_ch04</code>虚拟环境中运行和调试代码。要创建此配置，请按照以下步骤操作：</p>
+</div>
+<ol>
+<li class="readable-text" id="p31"> 在顶部菜单中，选择运行 &gt; 打开配置，即可在编辑器中打开 <code>launch.json</code> 文件。</li>
+</ol>
+<div class="browsable-container listing-container" id="p33">
+<div class="code-area-container">
+<pre class="code-area">{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",  //Python调试器：当前文件
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/env_ch04/Scripts/python.exe"
+        }
+    ]
+}</pre>
+</div>
+</div>
+<div class="readable-text print-book-callout" id="p34">
+<p><span class="print-book-callout-head">注意</span> 如果您使用的是MacOS或Linux系统，请将<code>"python"</code>字段中的路径替换为<code>"${workspaceFolder}/env_ch04/bin/python"</code>。</p>
+</div>
+<div class="readable-text" id="p35">
+<p>这个自定义的运行配置确保您的代码在正确的解释器和环境中执行。稍后您将使用它进行调试。一切就绪后，您现在就可以开始编码了！</p>
+</div>
+<div class="readable-text" id="p36">
+<h2 class="readable-text-h2"><span class="num-string">4.3</span> 实现核心功能</h2>
+</div>
+<div class="readable-text" id="p37">
+<p>再次查看图4.2，很明显我们的研究摘要引擎依赖于我们必须提供的两个关键能力：一个用于执行网络搜索，另一个用于从相关网页中提取文本。此外，您还需要一个实用函数来初始化您希望使用的大语言模型客户端实例。</p>
+</div>
+<div class="readable-text" id="p38">
+<h3 class="readable-text-h3"><span class="num-string">4.3.1</span> 实现网络搜索功能</h3>
+</div>
+<div class="readable-text" id="p39">
+<p>我们将使用LangChain封装的DuckDuckGo搜索引擎来执行网络搜索。其results方法会返回一个对象列表，每个对象都包含一个名称为<code>"link"</code>的属性，其中存储着结果URL。在项目中新建一个名为<code>web_searching.py</code>的空文件，并输入以下代码：</p>
+</div>
+<div class="browsable-container listing-container" id="p40">
+<div class="code-area-container">
+<pre class="code-area">from langchain_community.utilities import DuckDuckGoSearchAPIWrapper
+from typing import List
+
+def web_search(
+    web_query: str, 
+    num_results: int) -&gt; List[str]:
+    return [r["link"] 
+        for r in DuckDuckGoSearchAPIWrapper().results(
+            web_query, num_results)]</pre>
+</div>
+</div>
+<div class="readable-text" id="p41">
+<p>创建一个单独的Python文件，例如<code>web_searching_try.py</code>，来测试搜索功能：</p>
+</div>
+<div class="browsable-container listing-container" id="p42">
+<div class="code-area-container">
+<pre class="code-area">from web_searching import web_search
+
+result = web_search(
+    web_query = "How many titles did Michael Jordan win?", 
+    num_results=5)
+print(result)</pre>
+</div>
+</div>
+<div class="readable-text print-book-callout" id="p43">
+<p><span class="print-book-callout-head">注意</span>  如果您不熟悉 VS Code，可以通过按 F5 键，然后选择 Python Debugger &gt; Python File 来执行代码。您还可以通过按 F10 键逐行设置断点并逐步运行代码。</p>
+</div>
+<div class="readable-text" id="p44">
+<p>在终端中，您将获得一个类似如下的URL列表，它们就是您的搜索结果：</p>
+</div>
+<div class="browsable-container listing-container" id="p45">
+<div class="code-area-container">
+<pre class="code-area">['https://en.wikipedia.org/wiki/List_of_career_achievements_by_Michael_Jordan', 'https://sportsbrief.com/nba/40447-michael-jordans-achievements-awards-a-list-mjs-accomplishments/', 'https://www.rookieroad.com/basketball/how-many-championships-does-michael-jordan-have-5263621/', 'https://www.hoopsaddict.com/michael-jordan-awards/', 'https://www.wsn.com/nba/michael-jordan-championship-rings/']</pre>
+</div>
+</div>
+<div class="readable-text print-book-callout" id="p46">
+<p><span class="print-book-callout-head">注意</span> LangChain提供的其他网络搜索引擎封装器包括<code>TavilySearchResults</code>和<code>GoogleSearchAPIWrapper</code>。两者都需要API密钥，因此我选择了<code>DuckDuckGoSearchAPIWrapper</code>，因为它不需要。</p>
+</div>
+<div class="readable-text" id="p47">
+<h3 class="readable-text-h3"><span class="num-string">4.3.2</span> 实现网络爬虫</h3>
+</div>
+<div class="readable-text" id="p48">
+<p>我们将使用Beautiful Soup（一个网页抓取库）来抓取结果列表中的网页。请将如下代码清单中的代码放入名称为<code>web_scraping.py</code>的文件中。</p>
+</div>
+<div class="browsable-container listing-container" id="p49">
+<h5 class="listing-container-h5 browsable-container-h5"><span class="num-string">清单 4.1</span> <code>web_scraping.py</code> 文件的代码</h5>
+<div class="code-area-container code-area-with-html">
+<pre class="code-area">import requests
+from bs4 import BeautifulSoup
+
+def web_scrape(url: str) -&gt; str:
+    try:
+    headers = { <span class="aframe-location"></span> #1
+    "User-Agent": ( 
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept-Language": "en-US,en;q=0.9",
+    }
+    response = requests.get(url, <em>headers</em>=headers, <code><em>timeout</em></code>=15)
+
+        if response.status_code == 200:
+            soup = BeautifulSoup(response.text, "html.parser")
+            page_text = soup.get_text(separator=" ", strip=True)
+
+            return page_text
+        else:
+            return f"Could not retrieve the webpage: Status code
+            <span class="">↪</span>{response.status_code}"
+    except Exception as e:
+        print(e)
+        return f"Could not retrieve the webpage: {e}"</pre>
+<div class="code-annotations-overlay-container"> #1 添加请求头；否则，维基百科会阻止调用。
+     <br/>
+</div>
+</div>
+</div>
+<div class="readable-text" id="p50">
+<p>让我们尝试将以下代码放入名为<code>web_ scraping_try.py</code>的文件中来测试这个函数：</p>
+</div>
+<div class="browsable-container listing-container" id="p51">
+<div class="code-area-container code-area-with-html">
+<pre class="code-area">from web_scraping import web_scrape
+result = web_scrape('https://en.wikipedia.org/wiki
+<span class="">↪</span>/List_of_career_achievements_by_Michael_Jordan')
+print(result)</pre>
+</div>
+</div>
+<div class="readable-text" id="p52">
+<p>运行此脚本后，输出将类似于以下摘录：</p>
+</div>
+<div class="browsable-container listing-container" id="p53">
+<div class="code-area-container">
+<pre class="code-area">List of career achievements by Michael Jordan - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Donate Contribute Help Learn to edit Community portal Recent changes Upload file Languages Language links are at the top of the page across from the title. Search web scraping Create account Log in Personal tools [SHORTENED…]</pre>
+<pre class="code-area">迈克尔·乔丹职业生涯成就列表 - 维基百科 跳转到内容 主菜单 主菜单 移至侧边栏隐藏 导航 首页 目录 当前事件 随机文章 关于维基百科 联系我们 捐赠 贡献 帮助 学习编辑 社区门户 最近更改 上传文件 语言 语言链接位于标题对面、页面的顶部，。 搜索 网络抓取 创建账户 登录 个人工具 [已缩写…]</pre>
+</div>
+</div>
+<div class="readable-text" id="p54">
+<p>正如你所见，大部分抓取的内容并不相关，但我们目前无需担心。大语言模型会提取我们感兴趣的相关部分。</p>
+</div>
+<div class="readable-text" id="p55">
+<h3 class="readable-text-h3"><span class="num-string">4.3.3</span> 实例化LLM客户端</h3>
+</div>
+<div class="readable-text" id="p56">
+<p>对于这个使用场景，我们将采用OpenAI GPT-5 nano模型。首先，在<code>ch04</code>文件夹的根目录下创建一个<code>.env</code>文件，内容如下，并将<code>&lt;YOUR_OPENAI_KEY&gt;</code>替换为您实际的OpenAI API密钥：</p>
+</div>
+<div class="browsable-container listing-container" id="p57">
+<div class="code-area-container">
+<pre class="code-area">OPENAI_API_KEY=&lt;YOUR_OPENAI_KEY&gt;</pre>
+</div>
+</div>
+<div class="readable-text" id="p58">
+<p>或者，如果您克隆了GitHub仓库或从曼宁出版社网站下载了代码压缩包，请将<code>.env_example</code>文件重命名为<code>.env</code>，然后将<code>&lt;YOUR_OPENAI_KEY&gt;</code>替换为您实际的OpenAI API密钥。</p>
+</div>
+<div class="readable-text intended-text" id="p59">
+<p>创建一个函数来实例化OpenAI客户端，如下所示，并将其放置在一个名为<code>llm_models.py</code>的文件中（请将<code>YOUR_OPENAI_API_KEY</code>替换为你的OpenAI密钥）：</p>
+</div>
+<div class="browsable-container listing-container" id="p60">
+<div class="code-area-container code-area-with-html">
+<pre class="code-area"><em>from</em> langchain_openai <em>import</em> ChatOpenAI
+<em>from</em> dotenv <em>import</em> load_dotenv
+<em>import</em> os
+
+load_dotenv() <span class="aframe-location"></span> #1
+openai_api_key = os.getenv("OPENAI_API_KEY") <span class="aframe-location"></span> #2
+
+def get_llm(): <span class="aframe-location"></span> #3
+    <em>return</em> ChatOpenAI(<em>openai_api_key</em>=openai_api_key,
+         <em>model_name</em>="gpt-5-nano")</pre>
+<div class="code-annotations-overlay-container"> #1 从.env文件加载环境变量
+     <br/>#2 从环境变量中获取 OpenAI API 密钥
+     <br/>#3 实例化并返回ChatOpenAI模型
+     <br/>
+</div>
+</div>
+</div>
+<div class="readable-text" id="p61">
+<h3 class="readable-text-h3"><span class="num-string">4.3.4</span> JSON到Python对象转换器</h3>
+</div>
+<div class="readable-text" id="p62">
+<p>让我们创建一个实用函数，将来自大语言模型的JSON文本转换为Python对象，这通常是一个字典，有时也可能是一个List列表。如果JSON格式不正确，它将返回一个空字典。将以下代码添加到名为<code>utilities.py</code>的文件中：</p>
+</div>
+<div class="browsable-container listing-container" id="p63">
+<div class="code-area-container">
+<pre class="code-area">import json 
+def to_obj(s):
+    try:
+        return json.loads(s)
+    except Exception:
+        return {}</pre>
+</div>
+</div>
+<div class="readable-text" id="p64">
+<p>回顾一下，我们已经建立了一个VS Code项目并实现了所需的核心功能。在构建引擎来协调网络搜索、网页抓取和向大语言模型发送摘要请求之前，让我们退一步，再次审视一下整体架构。</p>
+</div>
+<div class="readable-text" id="p65">
+<h2 class="readable-text-h2"><span class="num-string">4.4</span> 通过查询重写增强架构</h2>
+</div>
+<div class="readable-text" id="p66">
+<p>让我们重新审视图4.2中的示意图，为了方便起见，我在这里再次将其作为图4.3进行展示。如果你仔细观察这个架构图，可能会发现一个潜在的改进点：与其将原始的研究请求直接发送给网络搜索引擎，你可以使用大语言模型来创建多个搜索查询。这种技术被称为<em>查询重写</em>或<em>多查询生成</em>，它与一种用于增强检索增强生成（RAG）搜索的方法类似，我将在后续章节中介绍。将原始问题重写为多个查询有几个优点。它可以澄清模糊或不明确的查询，修正可能使搜索引擎困惑的语法或句法错误，并为简短的查询添加上下文以改善搜索结果。</p>
+</div>
+<div class="browsable-container figure-container" id="p67">
+<img alt="figure" src="../Images/CH04_F04_Infante2.png"/>
+<h5 class="figure-container-h5"><span class="num-string">图 4.3</span> 自动化研究摘要引擎。提出一个问题，引擎便会执行网络搜索、返回网址、抓取并归纳网页内容，并为您汇总生成一份研究报告。<span class="aframe-location"></span></h5>
+</div>
+<div class="readable-text intended-text" id="p68">
+<p>对于复杂查询，将其拆分为更简单的查询，能为获得更佳答案提供有用的上下文。这是将单一查询重写为多个针对性搜索的关键原因。例如，与其向搜索引擎查询“迈克尔·乔丹赢得了多少个冠军头衔？”，不如您按如下方式提示ChatGPT：</p>
+</div>
+<div class="readable-text prompt prompt-1" id="p69">
+<p>  生成三个网络搜索查询来研究以下主题，旨在撰写一份全面的报告：“迈克尔·乔丹赢得了多少个冠军头衔？”</p>
+</div>
+<div class="readable-text" id="p70">
+<p>您会收到类似这样的查询：</p>
+</div>
+<div class="readable-text response response-1" id="p71">
+<p><span class="response-1q">“</span></p>
+<ol class="response">
+<li class="readable-text" id="p72"> “迈克尔·乔丹NBA总冠军数量” </li>
+<li class="readable-text" id="p73"> “迈克尔·乔丹赢得的NBA冠军列表” </li>
+<li class="readable-text" id="p74"> “迈克尔·乔丹篮球生涯冠军总数” </li>
+</ol>
+</div>
+<div class="readable-text" id="p75">
+<p>因此，引擎将通过执行这三项网络搜索并从每项中收集结果来进行研究。更新后的工作流程如图4.4中的图表所示。</p>
+</div>
+<div class="browsable-container figure-container" id="p76">
+<img alt="figure" src="../Images/CH04_F05_Infante2.png"/>
+<h5 class="figure-container-h5"><span class="num-string">图 4.4</span> 修订后的系统架构图，整合了查询重写功能。该流程首先指示大语言模型根据用户的研究问题生成指定数量的查询。随后，这些查询被提交至搜索引擎。后续处理过程与图4.2中的说明保持一致。<span class="aframe-location"></span></h5>
+</div>
+<div class="readable-text intended-text" id="p77">
+<p>从技术上讲，更新后的架构更为复杂，这可能会因额外的网络搜索而引发对性能的担忧。如果按顺序处理，响应时间将线性增加；例如，运行四次网络搜索将花费四倍的时间。然而，您可以通过并行化来加速处理，我将在后面的章节中介绍这一点。现在，我们将从顺序处理方法开始，稍后再探讨并行化。</p>
+</div>
+<div class="readable-text" id="p78">
+<h2 class="readable-text-h2"><span class="num-string">4.5</span> 提示词工程</h2>
+</div>
+<div class="readable-text" id="p79">
+<p>在组装第4.3节的构建模块之前，我们需要重点关注一些提示词工程。我们将创建用于生成网络搜索查询、归纳单个网页以及生成最终报告的提示词。让我们逐步解决这些任务。</p>
+</div>
+<div class="readable-text" id="p80">
+<h3 class="readable-text-h3"><span class="num-string">4.5.1</span> 构建web搜索提示词</h3>
+</div>
+<div class="readable-text" id="p81">
+<p>想象一下，用户提出了一个与金融相关的问题，例如：“我应该投资苹果公司的股票吗？”在指导大型语言模型基于此问题生成网络搜索查询时，指定构建这些查询的角色设定会很有帮助。例如，你可以这样开始提示：“你是一位经验丰富的金融分析师AI助手。你的目标是根据提供的数据和趋势，创建详细、有见地、公正且结构良好的财务报告。”</p>
+</div>
+<div class="readable-text intended-text" id="p82">
+<p>要根据研究问题动态生成这些指令，您需要使用专门的提示词。首先设计一个提示词，选择合适的科研助手，并根据用户的查询提供定制化的指令。创建一个名为<code>prompts.py</code>的文件，并从如下代码开始。</p>
+</div>
+<div class="browsable-container listing-container" id="p83">
+<h5 class="listing-container-h5 browsable-container-h5"><span class="num-string">清单 4.2</span> <code>prompts.py</code>: 生成助手指令</h5>
+<div class="code-area-container">
+<pre class="code-area">from langchain_core.prompts import PromptTemplate
+
+ASSISTANT_SELECTION_INSTRUCTIONS = """
+你擅长将研究问题分配给正确的研究助理。
+有多种研究助理可供选择，每位都专精于某个专业领域。
+每位助理都由一个特定的类型标识。每位助理都配有具体的指令来执行研究。 <span class="aframe-location"></span> #1
+
+如何选择正确的助理：你必须根据问题的主题来选择相关的助理，该主题应与助理的专业领域相匹配。
+
+------
+以下是一些示例，说明如何根据所提问题返回正确的助理信息。
+
+示例：
+问题："我应该投资苹果股票吗？"
+响应：
+{{
+    "assistant_type": "Financial analyst assistant",
+    "assistant_instructions": "You are a seasoned finance
+analyst AI assistant. Your primary goal is to compose 
+comprehensive, astute, impartial, and methodically arranged
+financial reports based on provided data and trends.",
+    "user_question": {user_question}
+}}
+问题："特拉维夫有哪些最有趣的景点？"
+响应：
+{{
+    "assistant_type": "Tour guide assistant",
+    "assistant_instructions": "You are a world-travelled
+AI tour guide assistant. Your main purpose is to draft
+engaging, insightful, unbiased, and well-structured 
+travel reports on given locations, including history, 
+attractions, 
+and cultural insights.",
+    "user_question": "{user_question}"
+}}
+
+问题："梅西是一位优秀的足球运动员吗？"
+响应：
+{{
+    "assistant_type": "Sport expert assistant",
+    "assistant_instructions": "You are an experienced AI
+sport assistant. Your main purpose is to draft engaging,
+insightful, unbiased, and well-structured sport reports on 
+given sport personalities, or sport events, including 
+factual details, statistics and insights.",
+    "user_question": "{user_question}"
+}}
+
+------
+现在你已经理解了以上所有内容，请为以下问题选择正确的研究助理。
+问题：{user_question}
+响应：
+
+""" 
+
+ASSISTANT_SELECTION_PROMPT_TEMPLATE = PromptTemplate.from_template( 
+    template=ASSISTANT_SELECTION_INSTRUCTIONS
+)</pre>
+<div class="code-annotations-overlay-container">
+     #1 助理选择指令提示
+     <br/>
+</div>
+</div>
+</div>
+<div class="readable-text" id="p84">
+<p>这个提示词模板有几个关键特性。首先，它是一个少样本提示，正如包含的三个示例所展示的那样，这有助于大语言模型理解我们的具体要求。其次，它指示大语言模型以JSON格式返回结果，这使得输出被转换为Python字典，这便于后续可以简单直接的处理它们。</p>
+</div>
+<div class="readable-text intended-text" id="p85">
+<p>在设置好这个提示词来选择适当的助手类型并提供指令后，您现在可以继续创建基于用户问题生成网络搜索的提示词，如下列所示。</p>
+</div>
+<div class="browsable-container listing-container" id="p86">
+<h5 class="listing-container-h5 browsable-container-h5"><span class="num-string">清单 4.3</span> <code>prompts.py</code>：用于重写用户查询的提示词</h5>
+<div class="code-area-container">
+<pre class="code-area">WEB_SEARCH_INSTRUCTIONS = """
+{assistant_instructions}
+请针对以下问题：{user_question}，编写 {num_search_queries} 个网络搜索查询，以尽可能多地收集信息。你的目标是基于你找到的信息撰写一份报告。
+你必须以查询列表的形式进行响应，例如 query1, query2, query3，并遵循如下格式：
+[
+    {{"search_query": "query1", "user_question": "{user_question}" }},
+    {{"search_query": "query2", "user_question": "{user_question}" }},
+    {{"search_query": "query3", "user_question": "{user_question}" }}
+]
+"""
+
+WEB_SEARCH_PROMPT_TEMPLATE = PromptTemplate.from_template(
+    template=WEB_SEARCH_INSTRUCTIONS
+)</pre>
+</div>
+</div>
+<div class="readable-text" id="p87">
+<p><code>{assistant_instructions}</code>占位符将被填充为您之前看到的助理选择提示词中的<code>"assistant_ instructions"</code>输出。此提示词同样以JSON格式返回结果，便于将输出转换为Python字典列表以供进一步处理。在输出中包含用户问题，确保了整个过程的连续性，使我们能够根据需要（尤其是在后续的链式代码中）使用它。网络搜索提示词完成后，让我们继续创建摘要提示词。</p>
+</div>
+<div class="readable-text" id="p88">
+<h3 class="readable-text-h3"><span class="num-string">4.5.2</span> 构建摘要提示词</h3>
+</div>
+<div class="readable-text" id="p89">
+<p>用于汇总结果页面的提示词与前一章关于摘要的提示词非常相似。代码展示在以下列表中。</p>
+</div>
+<div class="browsable-container listing-container" id="p90">
+<h5 class="listing-container-h5 browsable-container-h5"><span class="num-string">清单 4.4</span> <code>prompts.py</code>: 用于汇总结果页面的提示词</h5>
+<div class="code-area-container">
+<pre class="code-area">SUMMARY_INSTRUCTIONS = """
+阅读以下文本：
+文本：{search_result_text} 
+
+-----------
+
+基于以上文本，简短回答以下问题。
+问题：{search_query}
+
+如果根据提供的文本无法回答上述问题，
+则直接归纳该文本。
+如果可用，请包含所有事实信息、数字、统计数据等。
+"""
+
+SUMMARY_PROMPT_TEMPLATE = PromptTemplate.from_template(
+    template=SUMMARY_INSTRUCTIONS
+)</pre>
+</div>
+</div>
+<div class="readable-text" id="p91">
+<h3 class="readable-text-h3"><span class="num-string">4.5.3</span> 研究报告提示词</h3>
+</div>
+<div class="readable-text" id="p92">
+<p>同样地，生成研究报告的提示词也相当直接。在下面的列表中，请注意那些清晰且强调性的指令，它们旨在确保大语言模型能够产出期望的输出。</p>
+</div>
+<div class="browsable-container listing-container" id="p93">
+<h5 class="listing-container-h5 browsable-container-h5"><span class="num-string">清单 4.5</span> <code>prompts.py</code>: 用于生成研究报告的提示词 </h5>
+<div class="code-area-container">
+<pre class="code-area"># Research Report prompts adapted from 
+# https://github.com/assafelovic/gpt-researcher/
+# blob/master/gpt_researcher/master/prompts.py
+RESEARCH_REPORT_INSTRUCTIONS = """
+你是一位具有批判性思维的AI研究助手。你的唯一目的是根据给定的文本撰写文笔优美、广受好评、客观且结构严谨的报告。
+
+信息：
+--------
+{research_summary}
+--------
+
+使用以上信息，就以下问题或主题：“{user_question}”撰写一份详细的报告—报告应聚焦于问题的答案，结构清晰、信息丰富、深入透彻，尽可能包含事实和数据，且字数不少于1200字。
+
+你应努力使用所有相关且必要的信息，尽可能详尽地撰写报告。
+你必须使用Markdown语法撰写报告。
+你必须根据所给信息形成自己具体且有效的观点。切勿推断笼统且无意义的结论。
+在报告末尾列出所有使用的来源网址，并确保不添加重复的来源，每个来源仅引用一次。
+你必须使用APA格式撰写报告。
+请全力以赴，这对我的职业生涯至关重要。"""
+
+RESEARCH_REPORT_PROMPT_TEMPLATE = PromptTemplate.from_template(
+    template=RESEARCH_REPORT_INSTRUCTIONS
+)</pre>
+</div>
+</div>
+<div class="readable-text" id="p94">
+<h2 class="readable-text-h2"><span class="num-string">4.6</span> 初步实现</h2>
+</div>
+<div class="readable-text" id="p95">
+<p>在本节中，我将引导您完成我们研究摘要引擎的初始实现，遵循图4.4中架构图所概述的步骤。这个第一版特意设计得易于理解，以便在我引入更高级的优化之前，您能逐一看到流程的每个部分。当您阅读代码时，您会注意到从提示词模板到网络爬虫工具等不同组件是如何相互作用，形成一个完整的研究工作流的。这里的目标不仅是实现引擎，还要建立起对系统各部分如何协同工作的直观理解。到本节结束时，您将拥有一个功能完整的流水线，能够执行自动化网络研究并生成结构化报告。这个基础将为您迎接下一节我们将探讨的改进做好准备，届时我们将从顺序设计转向更高效的基于LCEL的方法。</p>
+</div>
+<div class="readable-text" id="p96">
+<h3 class="readable-text-h3"><span class="num-string">4.6.1</span> 导入函数与提示词模板</h3>
+</div>
+<div class="readable-text" id="p97">
+<p>首先，创建一个名为<code>research_engine_seq.py</code>的Python文件。然后，开始导入你在前面章节中精心编写的函数和提示词模板：</p>
+</div>
+<div class="browsable-container listing-container" id="p98">
+<div class="code-area-container">
+<pre class="code-area">from web_searching import web_search
+from web_scraping import web_scrape
+from llm_models import get_llm
+from utilities import to_obj
+from prompts import (
+    ASSISTANT_SELECTION_PROMPT_TEMPLATE,
+    WEB_SEARCH_PROMPT_TEMPLATE,
+    SUMMARY_PROMPT_TEMPLATE,
+    RESEARCH_REPORT_PROMPT_TEMPLATE
+)</pre>
+</div>
+</div>
+<div class="readable-text" id="p99">
+<h3 class="readable-text-h3"><span class="num-string">4.6.2</span> 设置常量与输入变量</h3>
+</div>
+<div class="readable-text" id="p100">
+<p>现在让我们设定一些常量来配置应用程序。报告的准确性和多样性将取决于您设置的网络搜索次数和每次搜索的结果数量。然而，在设定这些值时，考虑您的预算非常重要。例如，配置四次网络搜索，每次搜索五个结果，将需要归纳20个网页，这意味着每页大约2000个token，总计20 × 2000 = 40000个token。使用OpenAI GPT-5 mini模型，每1000个输出token的成本约为$0.00005，这将使每个研究请求的成本大约为$0.002。我将设置较低的配置数值，但您可以根据需要自由调整：</p>
+</div>
+<div class="browsable-container listing-container" id="p101">
+<div class="code-area-container">
+<pre class="code-area">NUM_SEARCH_QUERIES = 2
+NUM_SEARCH_RESULTS_PER_QUERY = 3
+RESULT_TEXT_MAX_CHARACTERS = 10000</pre>
+</div>
+</div>
+<div class="readable-text" id="p102">
+<p>应用程序中唯一的输入变量是用于捕获用户研究问题的那个：</p>
+</div>
+<div class="browsable-container listing-container" id="p103">
+<div class="code-area-container">
+<pre class="code-area">question = 'What can I see and do in the Spanish town of Astorga?'</pre>
+</div>
+</div>
+<div class="readable-text" id="p104">
+<h3 class="readable-text-h3"><span class="num-string">4.6.3</span> 实例化大语言模型客户端</h3>
+</div>
+<div class="readable-text" id="p105">
+<p>实例化大语言模型客户端非常简单。您可以按如下方式轻松完成：</p>
+</div>
+<div class="browsable-container listing-container" id="p106">
+<div class="code-area-container">
+<pre class="code-area">llm = get_llm()</pre>
+</div>
+</div>
+<div class="readable-text" id="p107">
+<h3 class="readable-text-h3"><span class="num-string">4.6.4</span> 生成网络搜索并收集结果</h3>
+</div>
+<div class="readable-text" id="p108">
+<p>在生成网络搜索并收集结果的过程中，第一步是执行大语言模型提示词，根据用户的研究问题确定正确的研究助手及相关指令：</p>
+</div>
+<div class="browsable-container listing-container" id="p109">
+<div class="code-area-container code-area-with-html">
+<pre class="code-area">assistant_selection_prompt = ASSISTANT_SELECTION_PROMPT_TEMPLATE
+<span class="">↪</span>.format(user_question=question)
+assistant_instructions = llm.invoke(assistant_selection_prompt)</pre>
+</div>
+</div>
+<div class="readable-text" id="p110">
+<p>要执行此代码，请在 <code>llm = get_llm()</code> 这一行设置一个断点。如果你是 VS Code 新手，可以通过点击希望调试器暂停的行号左侧来设置断点。</p>
+</div>
+<div class="readable-text intended-text" id="p111">
+<p>接下来，通过点击左侧边栏上的“运行与调试(Run &amp; Debug)”图标（或在Windows上使用快捷键Ctrl+Shift+D）来启动调试器。从顶部的下拉菜单中，选择名为“Python调试器(Python Debugger)”：当前文件的运行配置，这是你在4.2节末尾创建的。然后，点击旁边的播放(Play)按钮开始调试。</p>
+</div>
+<div class="readable-text intended-text" id="p112">
+<p>当代码运行并触发断点时，请在屏幕左上角的变量面板中检查<code>assistant_instructions</code>变量的值。或者，你也可以在VS Code屏幕底部的调试控制台面板中手动打印该值：</p>
+</div>
+<div class="browsable-container listing-container" id="p113">
+<div class="code-area-container">
+<pre class="code-area">print(assistant_instructions)</pre>
+</div>
+</div>
+<div class="readable-text" id="p114">
+<p>您将观察到如下输出：</p>
+</div>
+<div class="browsable-container listing-container" id="p115">
+<div class="code-area-container">
+<pre class="code-area">content='{\n    "assistant_type": "Tour guide assistant",\n    "assistant_instructions": "You are a world-travelled AI tour guide assistant. Your main purpose is to draft engaging, insightful, unbiased, and well-structured travel reports on given locations, including history, attractions, and cultural insights.",\n    "user_question": "What can I see and do in the Spanish town of Astorga"\n}' response_metadata={'token_usage': {'completion_tokens': 82, 'prompt_tokens': 432, 'total_tokens': 514}, 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_3bc1b5746c', 'finish_reason': 'stop', 'logprobs': None}</pre>
+</div>
+</div>
+<div class="readable-text" id="p116">
+<p>相关信息位于<code>content</code>属性中。要将其转换为Python对象，您可以按如下步骤操作：</p>
+</div>
+<div class="browsable-container listing-container" id="p117">
+<div class="code-area-container">
+<pre class="code-area">assistant_instructions_dict = to_obj(assistant_instructions.content)</pre>
+</div>
+</div>
+<div class="readable-text" id="p118">
+<p>打印<code>assistant_instructions_dict</code>变量将得到如下输出：</p>
+</div>
+<div class="browsable-container listing-container" id="p119">
+<div class="code-area-container">
+<pre class="code-area">{'assistant_type': 'Tour guide assistant', 'assistant_instructions': 'You are a world-travelled AI tour guide assistant. Your main purpose is to draft engaging, insightful, unbiased, and well-structured travel reports on given locations, including history, attractions, and cultural insights.', 'user_question': 'What can I see and do in the Spanish town of Astorga?'}</pre>
+</div>
+</div>
+<div class="readable-text" id="p120">
+<p>现在，您可以执行提示词，基于原始用户研究问题生成网络搜索：</p>
+</div>
+<div class="browsable-container listing-container" id="p121">
+<div class="code-area-container code-area-with-html">
+<pre class="code-area">web_search_prompt = WEB_SEARCH_PROMPT_TEMPLATE.format(
+    <em>assistant_instructions</em>=assistant_instructions_dict[
+    'assistant_instructions'],
+    <em>num_search_queries</em>=NUM_SEARCH_QUERIES,
+    <em>user_question</em>=assistant_instructions_dict[
+    'user_question'])
+web_search_queries = llm.invoke(web_search_prompt)
+web_search_queries_list = to_obj(
+    web_search_queries.content.replace('\n', ''))</pre>
+</div>
+</div>
+<div class="readable-text" id="p122">
+<p>此提示词的主要输入是上一步的<code>assistant_instructions</code>输出。如果你要执行刚刚编写的代码，在打印<code>web_ search_queries_list</code>时，你会得到一个类似这样的搜索查询列表：</p>
+</div>
+<div class="browsable-container listing-container" id="p123">
+<div class="code-area-container">
+<pre class="code-area">[{'search_query': 'Astorga attractions', 'user_question': 'What can I see and do in the Spanish town of Astorga?'}, {'search_query': 'Astorga history', 'user_question': 'What can I 
+see and do in the Spanish town of Astorga?'}]</pre>
+</div>
+</div>
+<div class="readable-text" id="p124">
+<p>以下是使用<code>web_search()</code>函数获取网络搜索的方法：</p>
+</div>
+<div class="browsable-container listing-container" id="p125">
+<div class="code-area-container code-area-with-html">
+<pre class="code-area">searches_and_result_urls = [{
+    'result_urls': web_search(
+   <em>web_query</em>=wq['search_query'], 
+   <em>num_results</em>=NUM_SEARCH_RESULTS_PER_QUERY), 
+    'search_query': wq['search_query']} 
+   <em>for</em> wq <em>in</em> web_search_queries_list]</pre>
+</div>
+</div>
+<div class="readable-text" id="p126">
+<p>执行到这一步，<code>searches_and_result_urls</code> 变量将保存一个类似这样的Python字典列表：</p>
+</div>
+<div class="browsable-container listing-container" id="p127">
+<div class="code-area-container">
+<pre class="code-area">[{'result_urls': ['https://igotospain.com/one-day-in-astorga-on-the-camino-de-santiago/', 'https://worldfreetours.com/blog/astorga/explore-astorga-for-free/', 'https://budtravelagency.com/things-to-do-in-astorga-spain/'], 'search_query': '阿斯托尔加可做之事'}, {'result_urls': ['https://igotospain.com/one-day-in-astorga-on-the-camino-de-santiago/', 'https://worldfreetours.com/blog/astorga/explore-astorga-for-free/', 'https://www.thingstodoguru.com/things-to-do-in-astorga-es'], 'search_query': '阿斯托尔加顶级景点'}, {'result_urls': ['https://www.worldatlas.com/cities/astorga-spain.html', 'https://citiesandattractions.com/spain/astorga-spain-uncovering-the-jewels-of-a-hidden-spanish-gem/', 'https://ewtn.co.uk/article-spanish-civil-war-martyrs-of-astorga-didnt-let-themselves-be-overcome-by-fear/'], 'search_query': '西班牙阿斯托尔加的历史'}]</pre>
+</div>
+</div>
+<div class="readable-text" id="p128">
+<p>每个字典显示一个搜索查询及其对应的结果URL（此处每个查询有三个结果）。下一步是展平结果，使每个字典只包含一个搜索查询和一个结果URL：</p>
+</div>
+<div class="browsable-container listing-container" id="p129">
+<div class="code-area-container">
+<pre class="code-area">search_query_and_result_url_list = []
+for qr in searches_and_result_urls:
+    search_query_and_result_url_list.extend([{
+        'search_query': qr['search_query'], 
+        'result_url': r} 
+           for r in qr['result_urls']])</pre>
+</div>
+</div>
+<div class="readable-text" id="p130">
+<p>现在 <code>search_query_and_result_url_list</code> 包含了六个字典对象，正如预期的那样：</p>
+</div>
+<div class="browsable-container listing-container" id="p131">
+<div class="code-area-container">
+<pre class="code-area">[{'search_query': 'Astorga attractions', 'result_url': 'https://www.worldatlas.com/cities/astorga-spain.html'}, {'search_query': 'Astorga attractions', 'result_url': 'https://citiesandattractions.com/spain/astorga-spain-uncovering-the-jewels-of-a-hidden-spanish-gem/'}, {'search_query': 'Astorga attractions', 'result_url': 'https://www.caminoadventures.com/blog/two-weeks-on-the-camino-de-santiago/'}, {'search_query': 'Astorga cultural sites', 'result_url': 'https://www.worldatlas.com/cities/astorga-spain.html'}, {'search_query': 'Astorga cultural sites', 'result_url': 'https://interrailero .com/que-ver-en-astorga/'}, {'search_query': 'Astorga cultural sites', 'result_url': 'https://www.atlasobscura.com/places/palacio-episcopal'}]</pre>
+</div>
+</div>
+<div class="readable-text" id="p132">
+<p>准备好网络搜索查询和所有相关结果URL后，下一步就是开始抓取这些URL所链接的网页。</p>
+</div>
+<div class="readable-text" id="p133">
+<h3 class="readable-text-h3"><span class="num-string">4.6.5</span> 抓取网络搜索结果</h3>
+</div>
+<div class="readable-text" id="p134">
+<p>现在，你将使用<code>web_scrape()</code>函数从搜索结果链接的网页中提取文本。以下是实现此功能的代码：</p>
+</div>
+<div class="browsable-container listing-container" id="p135">
+<div class="code-area-container code-area-with-html">
+<pre class="code-area">result_text_list = [{
+    'result_text': web_scrape(
+    <em>url</em>=re['result_url'])[:RESULT_TEXT_MAX_CHARACTERS],
+    'result_url': re['result_url'],
+    'search_query': re['search_query']}
+    <em>for</em> re <em>in</em> search_query_and_result_url_list]</pre>
+</div>
+</div>
+<div class="readable-text" id="p136">
+<p>这段代码向<code>result_text_list</code>填充了六个字典对象，每个字典对象都携带来自一个网页的文本：</p>
+</div>
+<div class="browsable-container listing-container" id="p137">
+<div class="code-area-container">
+<pre class="code-area">[{'result_text': '西班牙阿斯托加 - WorldAtlas 西班牙阿斯托加 阿斯托加是西班牙西北部的一个市镇，居民人数略超11,000人（根据最新的2018年估计数据）。这座前罗马定居点（至今仍部分被古老的、尽管是重建的城墙所环绕）是传统地区马拉加特里亚的首府，… Science Social Science Society Economics Politics About Us Contact Us Privacy Copyright Search WorldAtlas', 'result_url': 'https://www.worldatlas.com/cities/astorga-spain.html', 'search_query': 'Astorga attractions'}, 
+{'result_text': "西班牙阿斯托加：揭开一颗隐藏的西班牙宝石的面纱 跳转到内容 城市与景点 漫游世界：您的探索指南 搜索： 城市与景点 关闭菜单 城市与景点 … 揭开一颗隐藏的西班牙宝石的面纱 2023年3月13日 2023年5月28日 西班牙 探索西班牙阿斯托加的魅力——从令人惊叹的大教堂和博物馆，到巧克力工厂博物馆和高迪宫等隐藏的瑰宝… ", 'result_url': 'https://citiesandattractions.com/spain/astorga-spain-uncovering-the-jewels-of-a-hidden-spanish-gem/'}, … ]</pre>
+</div>
+</div>
+<div class="readable-text" id="p138">
+<p>下一步是归纳从每个网页收集到的信息。</p>
+</div>
+<div class="readable-text" id="p139">
+<h3 class="readable-text-h3"><span class="num-string">4.6.6</span> 网络结果汇总</h3>
+</div>
+<div class="readable-text" id="p140">
+<p>你将要求大语言模型使用之前设置的<code>SUMMARY_PROMPT_TEMPLATE</code>来归纳每个网页的文本。这个摘要也会保留原始的搜索查询和URL，这些信息你稍后会需要：</p>
+</div>
+<div class="browsable-container listing-container" id="p141">
+<div class="code-area-container code-area-with-html">
+<pre class="code-area">result_text_summary_list = []
+<em>for</em> rt <em>in</em> result_text_list: 
+    summary_prompt = SUMMARY_PROMPT_TEMPLATE.format(
+    <em>search_result_text</em>=rt['result_text'], 
+    <em>search_query</em>=rt['search_query'])
+
+    text_summary = llm.invoke(summary_prompt)
+
+    result_text_summary_list.append({
+    'text_summary': text_summary,
+    'result_url': rt['result_url'],
+    'search_query': rt['search_query']})</pre>
+</div>
+</div>
+<div class="readable-text" id="p142">
+<p>这个过程产生了一个包含九个字典对象的列表<code>result_text_summary_list</code>。每个字典对象包含了抓取文本的摘要、找到它的URL以及用于查找它的搜索查询：</p>
+</div>
+<div class="browsable-container listing-container" id="p143">
+<div class="code-area-container">
+<pre class="code-area">[{'text_summary': '\n阿斯托尔加是西班牙西北部的一个市镇，人口超过11,000人。它是莱昂省马拉加特里亚县的首府，位于卡斯蒂利亚-莱昂自治区内……圣地亚哥朝圣之路上的朝圣者。', 'result_url': 'https://www.worldatlas.com/cities/astorga-spain.html', 'search_query': 'Astorga attractions'}, {'text_summary': '\n西班牙阿斯托尔加的一些主要景点包括……文化以及自然美景。', 'result_url': 'https://citiesandattractions.com/spain/astorga-spain-uncovering-the-jewels-of-a-hidden-spanish-gem/', 'search_query': 'Astorga attractions'}, …]</pre>
+</div>
+</div>
+<div class="readable-text" id="p144">
+<p>通过这些摘要，您已经为最终研究报告收集了所有必要的信息。</p>
+</div>
+<div class="readable-text" id="p145">
+<h3 class="readable-text-h3"><span class="num-string">4.6.7</span> 生成研究报告</h3>
+</div>
+<div class="readable-text" id="p146">
+<p>让我们回顾一下用于创建最终报告的提示词。在这个阶段，流水线的所有早期组件汇集在一起，模型最终获得了生成一个连贯、结构化响应所需的全部汇总信息：</p>
+</div>
+<div class="browsable-container listing-container" id="p147">
+<div class="code-area-container">
+<pre class="code-area">RESEARCH_REPORT_INSTRUCTIONS = """
+你是一个具有批判性思维的AI研究助手。
+你的唯一目的是根据给定的文本，
+撰写文笔优美、广受好评、客观且结构严谨的报告。
+
+信息：
+--------
+{research_summary}
+--------
+
+使用以上信息，回答如下问题……
+……
+"""</pre>
+</div>
+</div>
+<div class="readable-text" id="p148">
+<p>让我们通过将摘要和URL合并成提示词模板期望的格式来准备最终报告。首先，将每个字典对象转换为包含摘要及其来源URL的字符串：</p>
+</div>
+<div class="browsable-container listing-container" id="p149">
+<div class="code-area-container">
+<pre class="code-area">stringified_summary_list = [
+    f'Source URL: {sr["result_url"]}\nSummary: {sr["text_summary"]}' 
+        for sr in result_text_summary_list]</pre>
+</div>
+</div>
+<div class="readable-text" id="p150">
+<p>检查 <code>stringified_summary_list</code> 时，你会发现类似这样的条目：</p>
+</div>
+<div class="browsable-container listing-container" id="p151">
+<div class="code-area-container">
+<pre class="code-area">['Source URL：https://www.worldatlas.com/cities/astorga-spain.html\n摘要：\n阿斯托加是西班牙西北部的一个市镇，人口超过11,000人。它是马拉加特里亚地区的首府……圣地亚哥朝圣之路上的朝圣者。', 'Source URL：https://citiesandattractions.com/spain/astorga-spain-uncovering-the-jewels-of-a-hidden-spanish-gem/\n摘要：\n西班牙阿斯托加的一些主要景点包括主教宫、大教堂……和自然美景。', …]</pre>
+</div>
+</div>
+<div class="readable-text" id="p152">
+<p>接下来，将所有摘要字符串合并为一个：</p>
+</div>
+<div class="browsable-container listing-container" id="p153">
+<div class="code-area-container">
+<pre class="code-area">appended_result_summaries = '\n'.join(stringified_summary_list)</pre>
+</div>
+</div>
+<div class="readable-text" id="p154">
+<p>这会给你一个包含所有摘要和URL的单一文本块：</p>
+</div>
+<div class="browsable-container listing-container" id="p155">
+<div class="code-area-container">
+<pre class="code-area">来源网址：https://www.worldatlas.com/cities/astorga-spain.html
+摘要：
+阿斯托加是西班牙西北部的一个市镇，人口超过11,000人。它是马拉加特里亚地区的首府……阿斯托加拥有丰富的历史，曾是罗马人的定居点，并因各种冲突经历了衰落与复兴的时期。它是圣地亚哥朝圣之路上的旅游者和朝圣者热门停留点。
+来源网址：https://citiesandattractions.com/spain/astorga-spain-uncovering-the-jewels-of-a-hidden-spanish-gem/
+摘要：
+西班牙阿斯托加的一些主要景点包括主教宫、阿斯托加圣玛丽亚大教堂、罗马城墙和博物馆、巧克力工厂博物馆、高迪宫……</pre>
+</div>
+</div>
+<div class="readable-text" id="p156">
+<p>现在使用此内容配合<code>RESEARCH_REPORT_INSTRUCTIONS</code>提示词模板来获取最终的研究报告：</p>
+</div>
+<div class="browsable-container listing-container" id="p157">
+<div class="code-area-container">
+<pre class="code-area">research_report_prompt = RESEARCH_REPORT_PROMPT_TEMPLATE.format(
+    research_summary=appended_result_summaries,
+    user_question=question
+)
+research_report = llm.invoke(research_report_prompt)
+
+print(f'strigified_summary_list={stringified_summary_list}')
+print(f'merged_result_summaries={appended_result_summaries}')
+print(f'research_report={research_report}')</pre>
+</div>
+</div>
+<div class="readable-text" id="p158">
+<p>如果你运行整个<code>research_engine_seq.py</code>脚本，大约一分钟后，你将收到一份基于网络摘要的完整研究报告，如下所示：</p>
+</div>
+<div class="browsable-container listing-container" id="p159">
+<div class="code-area-container">
+<pre class="code-area"># 简介
+阿斯托加是一个迷人的小镇，位于西班牙西北部地区，拥有超过11,000名居民。它是卡斯蒂利亚-莱昂自治区莱昂省马拉加特里亚县的首府。阿斯托加以其丰富的历史、文化意义和自然美景而闻名。它是圣地亚哥朝圣之路上的热门目的地，有两条朝圣路线在此交汇。在本报告中，我们将探索在西班牙小镇阿斯托加可以参观和体验的主要景点与活动。
+# 历史与文化意义
+阿斯托加是一个历史悠久、底蕴深厚的小镇，其历史可追溯至罗马帝国时期。它曾是罗马人的定居点，并因各种冲突经历了衰落与复兴。如今，游客仍能看到罗马城墙和遗址的遗迹，这是阿斯托加的主要景点之一。该市还拥有15世纪的阿斯托加大教堂，融合了哥特式、文艺复兴式和巴洛克式风格，以及由著名加泰罗尼亚建筑师安东尼·高迪设计的新哥特式主教宫。
+[… 已缩写]</pre>
+</div>
+</div>
+<div class="readable-text" id="p160">
+<p>恭喜你完成了首次自动化网络调研！我建议你再次仔细查看这个初始实现的代码。如果你之前没有时间输入并运行它，请务必查看GitHub仓库中的代码。你可能一看就懂，但回顾一遍有助于确保所有细节都清晰明了。</p>
+</div>
+<div class="readable-text intended-text" id="p161">
+<p>这个初始版本运行良好，并生成了预期的研究报告。然而，由于它是按顺序处理任务的，所以速度有点慢。如果我们当初设置它来处理10次网络搜索，每次返回10个结果，所需的时间将会显著增加。</p>
+</div>
+<div class="readable-text intended-text" id="p162">
+<p>我们能让它执行得更快点吗？当然可以。在下一节中，我们将探讨如何通过LangChain表达式语言(LCEL)来实现这一点，这在第三章中已经介绍过。</p>
+</div>
+<div class="readable-text" id="p163">
+<h2 class="readable-text-h2"><span class="num-string">4.7</span> 在LCEL中重新实现研究摘要引擎</h2>
+</div>
+<div class="readable-text" id="p164">
+<p>LangChain表达式语言(LCEL)提供了一种结构化方法，用于将大语言模型应用的核心组件—如网络搜索、页面抓取和摘要生成—组织成高效的链或流水线。该框架不仅简化了从简单元素构建复杂工作流的过程，还通过流式处理、并行执行和日志记录等高级功能增强了这些工作流。</p>
+</div>
+<div class="callout-container sidebar-container">
+<div class="readable-text" id="p165">
+<h5 class="callout-container-h5 readable-text-h5">LangChain 表达式语言 (LCEL)</h5>
+</div>
+<div class="readable-text" id="p166">
+<p>对于开发大语言模型应用程序的开发者来说，强烈推荐使用LangChain表达式语言(LCEL)。它允许您通过创建和执行链来高效地与大语言模型和聊天模型交互，并提供以下优势：</p>
+</div>
+<ul>
+<li class="readable-text" id="p167"> <em>回退机制</em>—支持为错误处理添加备用操作</li>
+<li class="readable-text" id="p168"> <em>并行执行</em>—同时执行独立的链组件以提升性能</li>
+<li class="readable-text" id="p169"> <em>执行模式</em>—支持以同步模式开发，然后根据需要切换至流式、批处理或异步执行模式</li>
+<li class="readable-text" id="p170"> <em>LangSmith追踪</em>—升级至LangSmith时自动记录执行步骤，便于调试与监控</li>
+</ul>
+<div class="readable-text" id="p171">
+<p>一个链遵循<code>Runnable</code>协议，这意味着它需要实现特定的方法，例如<code>invoke()</code>、<code>stream()</code>和<code>batch()</code>，包括它们的异步版本。LangChain的框架确保其组件，例如<code>PromptTemplate</code>和<code>JsonOutputFunctionsParser</code>，遵守这些标准。</p>
+</div>
+</div>
+<div class="readable-text" id="p172">
+<p>LangChain表达式语言(LCEL)通过提供统一的接口（<code>Runnable</code>协议）、组合工具以及轻松实现流程并行化的能力，简化了复杂链的创建过程。虽然掌握LangChain表达式语言(LCEL)可能需要一些练习，但这份努力是值得的，因为它能显著提升应用程序的性能和可扩展性。</p>
+</div>
+<div class="readable-text intended-text" id="p173">
+<p>我的链式实现策略，如图4.5所示，涉及为前面展示的每个处理步骤构建一个微型链，并将这些链集成到一个主Web研究链中。</p>
+</div>
+<div class="browsable-container figure-container" id="p174">
+<img alt="figure" src="../Images/CH04_F06_Infante2.png"/>
+<h5 class="figure-container-h5"><span class="num-string">图 4.5</span> 基于链式结构的研究摘要引擎架构。流程中的每个步骤都被重新实现为一个微型链；所有微链被组装成一个主Web研究链。<span class="aframe-location"></span></h5>
+</div>
+<div class="readable-text" id="p175">
+<p>这个主Web研究链处理整个流程，如图4.5所示，该图展示了基于链的研究摘要引擎的架构。每个处理步骤都实现为一个微型链，全部集成到主web研究链中：</p>
+</div>
+<ul>
+<li class="readable-text" id="p176"> <em>助手指令链</em>—该流程负责从可用选项中选取最合适的科研助手，并生成定义其能力与目标的系统提示词。</li>
+<li class="readable-text" id="p177"> <em>网络搜索链</em>—基于用户问题生成多项网络搜索请求，从多角度提供上下文信息，或将复杂查询拆解为若干简单子问题。</li>
+<li class="readable-text" id="p178"> <em>搜索与摘要链</em>—执行网络检索，提取搜索结果中的URL，抓取相关网页内容，并对每篇文档进行精炼摘要。</li>
+<li class="readable-text" id="p179"> <em>研究报告链</em>—最终环节整合原始问题与各摘要内容，合成结构清晰、信息完整的最终回答。</li>
+</ul>
+<div class="readable-text" id="p180">
+<p>搜索与摘要链在一个统一的工作流中协调三个底层链。如图4.6所示。<span class="aframe-location"></span></p>
+</div>
+<div class="browsable-container figure-container" id="p181">
+<img alt="figure" src="../Images/CH04_F07_Infante2.png"/>
+<h5 class="figure-container-h5"><span class="num-string">图 4.6</span> 搜索与摘要链</h5>
+</div>
+<div class="readable-text" id="p182">
+<p>图4.6中的示意图展示了这三个链如何交互：一个生成查询的搜索链，一个处理所得网页的抓取与摘要链，以及一个将所有摘要合并成一个最终文本块的整合链。如图4.7所示，将此过程重新实现为链，可以实现并行执行，与图4.5中的顺序方法相比，效率显著提高。<span class="aframe-location"></span></p>
+</div>
+<div class="browsable-container figure-container" id="p183">
+<img alt="figure" src="../Images/CH04_F08_Infante2.png"/>
+<h5 class="figure-container-h5"><span class="num-string">图 4.7</span> 链式架构图展示了并行化在研究摘要引擎中的应用，突出展示了为提高效率而并行执行独立链实例的过程</h5>
+</div>
+<div class="readable-text" id="p184">
+<p>图4.7突出了两个关键阶段的并行化：</p>
+</div>
+<ul>
+<li class="readable-text" id="p185"> 对于由网络搜索链发起的每一次网络搜索，都会独立创建并同时执行一个搜索与摘要链的实例。</li>
+<li class="readable-text" id="p186"> 对于搜索结果URL链生成的每一个搜索结果，都会启动一个独立的搜索结果文本与摘要链实例，并行运行。</li>
+</ul>
+<div class="readable-text" id="p187">
+<p>在了解了基于链式方法的概述后，我们现在将探讨各个微型链。让我们从助手指令链开始。</p>
+</div>
+<div class="readable-text" id="p188">
+<h3 class="readable-text-h3"><span class="num-string">4.7.1</span> 助手指令链</h3>
+</div>
+<div class="readable-text" id="p189">
+<p>要开始处理一个研究问题，首要任务是确定最相关的研究助手及其提示指令。这由<code>assistant_ instructions_chain</code>处理，如下所示。请将此代码放入名为<code>chain_1_1.py</code>的文件中：</p>
+</div>
+<div class="browsable-container listing-container" id="p190">
+<div class="code-area-container code-area-with-html">
+<pre class="code-area">from llm_models import get_llm
+from prompts import (
+    ASSISTANT_SELECTION_PROMPT_TEMPLATE, 
+)
+<em>from</em> langchain_core.output_parsers <em>import</em> StrOutputParser
+
+assistant_instructions_chain = (
+    ASSISTANT_SELECTION_PROMPT_TEMPLATE | get_llm() 
+)</pre>
+</div>
+</div>
+<div class="readable-text" id="p191">
+<p>对于初次接触LCEL语法的人来说，这里的流程非常直观：选择提示词会输入到大语言模型中，然后大语言模型会根据用户的问题选择一个研究助手。要测试这个设置，请使用以下脚本，保存为<code>chain_try_1_1.py</code>：</p>
+</div>
+<div class="browsable-container listing-container" id="p192">
+<div class="code-area-container">
+<pre class="code-area">from chain_1_1 import assistant_instructions_chain
+
+question = 'What can I see and do in the Spanish town of Astorga?'
+
+assistant_instructions = assistant_instructions_chain.invoke(question)
+print(assistant_instructions)</pre>
+</div>
+</div>
+<div class="readable-text" id="p193">
+<p>运行此代码将产生类似于第4.6.4节中所示的输出，详细说明助手类型、指令和用户问题（输出将在几秒钟后出现，元数据可能与我在此报告的内容略有不同）：</p>
+</div>
+<div class="browsable-container listing-container" id="p194">
+<div class="code-area-container">
+<pre class="code-area">content='{\n    "assistant_type": "Tour guide assistant",\n    "assistant_instructions": "You are a world-travelled AI tour guide assistant. Your main purpose is to draft engaging, insightful, unbiased, and well-structured travel reports on given locations, including history, attractions, and cultural insights.",\n    "user_question": "What can I see and do in the Spanish town of Astorga?"\n}' response_metadata={'token_usage': {'completion_tokens': 82, 'prompt_tokens': 432, 'total_tokens': 514}, 'model_name': 'gpt-4o-mini-2024-07-18', 'system_fingerprint': 'fp_3bc1b5746c', 'finish_reason': 'stop', 'logprobs': None}</pre>
+</div>
+</div>
+<div class="readable-text" id="p195">
+<p>虽然你可以手动从content属性中提取所需的输出，但使用LCEL提供了一种更高效的方法。通过在你的链中添加一个<code>StrOutputParser()</code>块，你可以直接从content属性中自动提取大语言模型的响应。相应地更新链，并将其保存为<code>chain_1_2.py</code>：</p>
+</div>
+<div class="browsable-container listing-container" id="p196">
+<div class="code-area-container">
+<pre class="code-area">from llm_models import get_llm
+from utilities import to_obj
+from prompts import (
+    ASSISTANT_SELECTION_PROMPT_TEMPLATE, 
+)
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.output_parsers import StrOutputParser
+
+assistant_instructions_chain = (
+    {'user_question': RunnablePassthrough()} 
+    | ASSISTANT_SELECTION_PROMPT_TEMPLATE 
+    | get_llm() | StrOutputParser() | to_obj
+)</pre>
+</div>
+</div>
+<div class="readable-text" id="p197">
+<p>这个更新版本引入了多项改进：</p>
+</div>
+<ul>
+<li class="readable-text" id="p198">尽管 <code>ASSISTANT_SELECTION_PROMPT_TEMPLATE</code> 会自动将输入的问题文本匹配至 <code>{user_question}</code> 字段（有关 <code>{user_question}</code> 的详细说明可参见第 4.5.1 节），但为确保安全性，更推荐显式地将输入问题映射到 Python 字典中的 <code>user_question</code> 属性，方法是使用 <code>RunnablePassthrough()</code> 函数，该函数通过无名参数将外部输入绑定至 <code>user_question</code> 变量。此举亦具优势，因为该信息对后续处理步骤至关重要。</li>
+<li class="readable-text" id="p199">StrOutputParser模块从大语言模型的content属性中提取原始文本输出，从而显著简化后续的输出处理流程。</li>
+
+<li class="readable-text" id="p200"> 通过<code>to_obj()</code>将大模型响应转换为一个Python字典对象，便于在链式流程中直接操作与调用。</li>
+</ul>
+<div class="readable-text" id="p201">
+<p>使用此脚本测试修订后的链，保存为 <code>chain_try_1_2.py</code>：</p>
+</div>
+<div class="browsable-container listing-container" id="p202">
+<div class="code-area-container code-area-with-html">
+<pre class="code-area">from chain_1_2 import assistant_instructions_chain
+question = 'What can I see and do in the Spanish town of Astorga?'
+
+assistant_instructions_dict 
+<span class="">↪</span>= assistant_instructions_chain.invoke(question)  <span class="aframe-location"></span> #1
+print(assistant_instructions_dict)</pre>
+<div class="code-annotations-overlay-container">
+     #1 测试链调用
+     <br/>
+</div>
+</div>
+</div>
+<div class="readable-text" id="p203">
+<p>运行此代码应产生预期的输出：</p>
+</div>
+<div class="browsable-container listing-container" id="p204">
+<div class="code-area-container">
+<pre class="code-area">{'assistant_type': 'Tour guide assistant', 'assistant_instructions': 'You are a world-travelled AI tour guide assistant. Your main purpose is to draft engaging, insightful, unbiased, and well-structured travel reports on given locations, including history, attractions, and cultural insights.', 'user_question': 'What can I see and do in the Spanish town of Astorga?'}</pre>
+</div>
+</div>
+<div class="readable-text" id="p205">
+<h3 class="readable-text-h3"><span class="num-string">4.7.2</span> web搜索链</h3>
+</div>
+<div class="readable-text" id="p206">
+<p>在大语言模型选择了合适的研究助手并详细说明其角色后，您可以提示大语言模型生成与用户查询相关的网络搜索。请使用以下代码，保存为<code>chain_2_1.py</code>，来完成此步骤。</p>
+</div>
+<div class="browsable-container listing-container" id="p207">
+<h5 class="listing-container-h5 browsable-container-h5"><span class="num-string">清单 4.6</span> 将用户查询重写为web搜索链</h5>
+<div class="code-area-container">
+<pre class="code-area">from llm_models import get_llm
+from utilities import to_obj
+from prompts import (
+    WEB_SEARCH_PROMPT_TEMPLATE
+)
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnableLambda
+
+NUM_SEARCH_QUERIES = 2
+
+web_searches_chain = (
+    RunnableLambda(lambda x:
+        {
+            'assistant_instructions': x['assistant_instructions'],
+            'num_search_queries': NUM_SEARCH_QUERIES,
+            'user_question': x['user_question']
+        }
+    )
+    | WEB_SEARCH_PROMPT_TEMPLATE 
+    | get_llm() | StrOutputParser() | to_obj 
+)</pre>
+</div>
+</div>
+<div class="readable-text" id="p208">
+<p>此实现使用一个<code>RunnableLambda</code>代码块来处理来自前一个链的输入，将其转换为<code>WEB_SEARCH_PROMPT_TEMPLATE</code>所需的格式。然后，该链的处理方式与之前的示例类似。要测试此链，您可以使用以下脚本，将其保存为<code>chain_try_2_1.py</code>。</p>
+</div>
+<div class="browsable-container listing-container" id="p209">
+<h5 class="listing-container-h5 browsable-container-h5"><span class="num-string">清单 4.7</span> 用于测试web搜索链的脚本</h5>
+<div class="code-area-container code-area-with-html">
+<pre class="code-area">from utilities import to_obj
+from chain_2_1 import web_searches_chain
+
+# 测试链式调用
+assistant_instruction_str = '{"assistant_type": 
+<span class="">↪</span>"Tour guide assistant", 
+<span class="">↪</span>"assistant_instructions": "You are a world-travelled 
+<span class="">↪</span>AI tour guide assistant. Your main purpose is to draft 
+<span class="">↪</span>engaging, insightful, unbiased, and well-structured travel 
+<span class="">↪</span>reports on given locations, including history, attractions, 
+<span class="">↪</span>and cultural insights.", 
+<span class="">↪</span>"user_question": "What can I see and do in the Spanish 
+<span class="">↪</span>town of Astorga?"}'
+assistant_instruction_dict = to_obj(assistant_instruction_str)
+web_searches_list = web_searches_chain.invoke(assistant_instruction_dict)
+print(web_searches_list)</pre>
+</div>
+</div>
+<div class="readable-text" id="p210">
+<p>该脚本使用<code>assistant_instruction_str</code>中的模拟输入来模仿助手指令链的输出，测试链对此输入的响应。预期输出如下所示：</p>
+</div>
+<div class="browsable-container listing-container" id="p211">
+<div class="code-area-container">
+<pre class="code-area">[{'search_query': 'Things to do in Astorga Spain', 'user_question': 'What can I see and do in the Spanish town Astorga'}, {'search_query': 'Attractions in Astorga Spain', 'user_question': 'What can I see and do in the Spanish town Astorga'}, {'search_query': 'Historical sites in Astorga Spain', 'user_question': 'What can I see and do in the Spanish town Astorga'}]</pre>
+</div>
+</div>
+<div class="readable-text" id="p212">
+<p>网页搜索现在已经生成。接下来让我们继续进行搜索与摘要链。</p>
+</div>
+<div class="readable-text" id="p213">
+<h3 class="readable-text-h3"><span class="num-string">4.7.3</span> 搜索与摘要链</h3>
+</div>
+<div class="readable-text" id="p214">
+<p>搜索与摘要链旨在根据前一个链的查询执行网络搜索，从搜索结果中获取URL，抓取相应的网页，然后对每个页面进行摘要。如图4.6所示，此过程被拆分为更小的子链：</p>
+</div>
+<ul>
+<li class="readable-text" id="p215"> 搜索结果URL链 </li>
+<li class="readable-text" id="p216"> 搜索结果文本与摘要链</li>
+<li class="readable-text" id="p217"> 合并摘要链 </li>
+</ul>
+<div class="readable-text" id="p218">
+<p>我们将从构建这些子链开始，首先从搜索结果URL链着手。</p>
+</div>
+<div class="readable-text" id="p219">
+<h4 class="readable-text-h4">搜索结果URL链</h4>
+</div>
+<div class="readable-text" id="p220">
+<p>该子链执行网络搜索，从搜索结果中检索特定数量的URL。将以下代码保存为<code>chain_3_1.py</code>。</p>
+</div>
+<div class="browsable-container listing-container" id="p221">
+<h5 class="listing-container-h5 browsable-container-h5"><span class="num-string">清单 4.8</span> 搜索与摘要链</h5>
+<div class="code-area-container">
+<pre class="code-area">from web_searching import web_search
+from langchain_core.runnables import RunnableLambda
+
+NUM_SEARCH_RESULTS_PER_QUERY = 3
+
+search_result_urls_chain = (
+    RunnableLambda(lambda x: 
+        [
+            {
+                'result_url': url, 
+                'search_query': x['search_query'],
+                'user_question': x['user_question']
+            }
+            for url in web_search(
+                web_query=x['search_query'], 
+                num_results=NUM_SEARCH_RESULTS_PER_QUERY)
+        ]
+    )
+)</pre>
+</div>
+</div>
+<div class="readable-text" id="p222">
+<p>以下是需要注意的几个关键点：</p>
+</div>
+<ul>
+<li class="readable-text" id="p223">使用lambda函数将<code>web_query</code>参数传递给<code>web_search()</code>函数。该函数将输出格式化为一个字典列表，每个字典包含检索返回的URL，以及来自前序链(如网络搜索链)的上下文数据，例如当前搜索查询与原始用户问题。这些字段在后续处理阶段中至关重要。</li>
+<li class="readable-text" id="p224"> Lambda函数的输入源自前序链的输出，尤其是网络搜索链。</li>
+</ul>
+<div class="readable-text" id="p225">
+<p>为了测试这个子链，我们将使用模拟输入来模拟来自网络搜索链的数据。将以下列表所示的测试代码保存到名为<code>chain_try_3_1.py</code>的文件中。</p>
+</div>
+<div class="browsable-container listing-container" id="p226">
+<h5 class="listing-container-h5 browsable-container-h5"><span class="num-string">清单 4.9</span> 用于测试搜索与摘要链的脚本</h5>
+<div class="code-area-container code-area-with-html">
+<pre class="code-area">from utilities import to_obj
+from chain_3_1 import search_result_urls_chain
+
+# 测试链调用
+web_search_str = '{"search_query": 
+<span class="">↪</span>"Astorga Spain attractions",
+<span class="">↪</span>"user_question": "What can I see and do in the 
+<span class="">↪</span>Spanish town of Astorga?"}'
+web_search_dict = to_obj(web_search_str)
+result_urls_list = search_result_urls_chain.invoke(web_search_dict)
+print(result_urls_list)</pre>
+</div>
+</div>
+<div class="readable-text" id="p227">
+<p>执行后，您应该会看到类似这样的输出：</p>
+</div>
+<div class="browsable-container listing-container" id="p228">
+<div class="code-area-container">
+<pre class="code-area">[{'result_url': 'https://loveatfirstadventure.com/astorga-spain/', 'search_query': 'Astorga Spain attractions', 'user_question': 'What can I see and do in the Spanish town Astorga?'}, {'result_url': 'https://igotospain.com/one-day-in-astorga-on-the-camino-de-santiago/', 'search_query': 'Astorga Spain attractions', 'user_question': 'What can I see and do in the Spanish town Astorga'}, {'result_url': 'https://citiesandattractions.com/spain/astorga-spain-uncovering-the-jewels-of-a-hidden-spanish-gem/', 'search_query': 'Astorga Spain attractions', 'user_question': 'What can I see and do in the Spanish town Astorga'}]</pre>
+</div>
+</div>
+<div class="readable-text" id="p229">
+<h4 class="readable-text-h4">搜索结果文本与摘要链</h4>
+</div>
+<div class="readable-text" id="p230">
+<p>搜索结果文本与摘要子链通过执行以下操作来处理来自前一个子链的URL：</p>
+</div>
+<ul>
+<li class="readable-text" id="p231"> 使用提供的URL抓取网页文本 </li>
+<li class="readable-text" id="p232"> 生成抓取文本的摘要 </li>
+<li class="readable-text" id="p233"> 将来源URL纳入摘要 </li>
+</ul>
+<div class="readable-text" id="p234">
+<p>这些步骤在以下代码中得到了有效实现，应将其保存为<code>chain_4_1.py</code>。</p>
+</div>
+<div class="browsable-container listing-container" id="p235">
+<h5 class="listing-container-h5 browsable-container-h5"><span class="num-string">清单 4.10</span> 搜索结果文本与摘要链</h5>
+<div class="code-area-container code-area-with-html">
+<pre class="code-area">from llm_models import get_llm
+from web_scraping import web_scrape
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnableLambda, RunnableParallel
+from prompts import (
+    SUMMARY_PROMPT_TEMPLATE
+)
+
+RESULT_TEXT_MAX_CHARACTERS = 10000
+
+search_result_text_and_summary_chain = (
+    RunnableLambda(lambda x:
+        {
+            'search_result_text': 
+                web_scrape(url=x['result_url'])[
+                    :RESULT_TEXT_MAX_CHARACTERS],
+            'result_url': x['result_url'], 
+            'search_query': x['search_query'],
+            'user_question': x['user_question']
+        }
+    )
+    | RunnableParallel (
+        {
+            'text_summary': SUMMARY_PROMPT_TEMPLATE 
+               | get_llm() | StrOutputParser(),
+            'result_url': lambda x: x['result_url'],
+            'user_question': lambda x: x['user_question']            
+        }
+    )
+    | RunnableLambda(lambda x: 
+        {
+            'summary': 
+               f"Source Url: {x['result_url']}\nSummary:
+               <span class="">↪</span>{x['text_summary']}",
+            'user_question': x['user_question']
+        }
+    ) 
+)</pre>
+</div>
+</div>
+<div class="readable-text" id="p236">
+<p>该代码遵循先前链中建立的惯例，您可能还记得第3章中<code>RunnableParallel</code>的用途。<code>RunnableParallel</code>块允许同时执行一个内部链（位于<code>text_summary</code>旁边）以及其他依赖于相同输入的操作（在本例中，是两个lambda函数），该输入来自初始的<code>RunnableLambda</code>块。要执行此链，请将以下脚本保存为<code>chain_try_4_1.py</code>。</p>
+</div>
+<div class="browsable-container listing-container" id="p237">
+<h5 class="listing-container-h5 browsable-container-h5"><span class="num-string">清单 4.11</span> 测试搜索结果文本与摘要链</h5>
+<div class="code-area-container code-area-with-html">
+<pre class="code-area">from utilities import to_obj
+from chain_4_1 import search_result_text_and_summary_chain
+
+# 测试链调用
+result_url_str = '{"result_url": 
+<span class="">↪</span>"https://citiesandattractions.com/spain/astorga-spain
+<span class="">↪</span>-uncovering-the-jewels-of-a-hidden-spanish-gem/", 
+<span class="">↪</span>"search_query":"Astorga Spain attractions", 
+<span class="">↪</span>"user_question": "What can I see and do in the Spanish 
+<span class="">↪</span>town of Astorga?"}'
+result_url_dict = to_obj(result_url_str)
+
+search_text_summary = 
+<span class="">↪</span>search_result_text_and_summary_chain.invoke(result_url_dict)
+print(search_text_summary)</pre>
+</div>
+</div>
+<div class="readable-text" id="p238">
+<p>您将获得类似如下的输出：</p>
+</div>
+<div class="browsable-container listing-container" id="p239">
+<div class="code-area-container">
+<pre class="code-area">{'summary': 'Source Url: https://citiesandattractions.com/spain/astorga-spain-uncovering-the-jewels-of-a-hidden-spanish-gem/\nSummary: \n西班牙阿斯托加拥有多个景点，包括主教宫、圣玛丽亚德阿斯托加大教堂、罗马城墙与博物馆、巧克力工厂博物馆、高迪宫、安卡雷斯山脉以及众多酒庄。这座城镇以其历史、建筑、美食和自然美景而闻名。它提供独特的烹饪体验，例如传统菜肴“Cocido Maragato”，并且拥有众多等待被发现的隐藏瑰宝。', 'user_question': '在西班牙小镇阿斯托加，我可以看什么和做什么？'}</pre>
+</div>
+</div>
+<div class="readable-text" id="p240">
+<h4 class="readable-text-h4">组装搜索与摘要链</h4>
+</div>
+<div class="readable-text" id="p241">
+<p>我们已经集齐了构建搜索与摘要链的所有关键组件。在深入LCEL实现之前，请花点时间回顾一下图4.8。与之前的图4.6相比，这张图能让你更清晰地理解整个流程。<span class="aframe-location"></span></p>
+</div>
+<div class="browsable-container figure-container" id="p242">
+<img alt="figure" src="../Images/CH04_F09_Infante2.png"/>
+<h5 class="figure-container-h5"><span class="num-string">图 4.8</span> 增强型搜索与摘要链图</h5>
+</div>
+<div class="readable-text" id="p243">
+<p>如图4.8所示，搜索结果URL链会生成多个URL，每个URL都会触发一个结果文本与摘要链的实例。这些实例并行运行，各自为其对应的网页生成摘要。随后，合并摘要链将这些摘要整合成一个单一的文本块。要实现此过程，请将必要的代码放入名为<code>chain_5_1.py</code>的文件中。</p>
+</div>
+<div class="browsable-container listing-container" id="p244">
+<h5 class="listing-container-h5 browsable-container-h5"><span class="num-string">清单 4.12</span> 搜索与摘要链</h5>
+<div class="code-area-container code-area-with-html">
+<pre class="code-area">from llm_models import get_llm
+from prompts import (
+    RESEARCH_REPORT_PROMPT_TEMPLATE
+)
+from chain_1_2 import assistant_instructions_chain
+from chain_2_1 import web_searches_chain
+from chain_3_1 import search_result_urls_chain
+from chain_4_1 import search_result_text_and_summary_chain
+
+<em>from</em> langchain_core.output_parsers <em>import</em> StrOutputParser
+<em>from</em> langchain_core.runnables <em>import</em> RunnableLambda
+
+search_and_summarization_chain = (
+    search_result_urls_chain 
+    | search_result_text_and_summary_chain.map() # 为每个URL并行处理
+    | RunnableLambda(lambda x: 
+        {
+            'summary': '\n'.join([i['summary'] for i in x]), 
+            'user_question': x[0]['user_question'] if len(x) &gt; 0 else ''
+        })
+)</pre>
+</div>
+</div>
+<div class="readable-text" id="p245">
+<p><code>map()</code>运算符会触发多个结果文本和摘要链的实例，每个实例对应搜索结果URL链中包含URL的字典。这使得每个实例能够同时运行。</p>
+</div>
+<div class="readable-text intended-text" id="p246">
+<p>此外，合并摘要子链直接集成在更大的搜索和摘要链中，而非作为一个独立的实体。该子链合并了来自每个结果文本和摘要链实例的摘要，作为整个流程的核心部分发挥作用。有了这些组件，您就可以完成网络研究链了。</p>
+</div>
+<div class="readable-text" id="p247">
+<h3 class="readable-text-h3"><span class="num-string">4.7.4</span> 网络研究链</h3>
+</div>
+<div class="readable-text" id="p248">
+<p>在深入实现之前，让我们先查看图4.9，以详细了解网络研究链。这建立在图4.7所介绍内容的基础上，类似于我们在搜索与摘要链中采用的方法。<span class="aframe-location"></span></p>
+</div>
+<div class="browsable-container figure-container" id="p249">
+<img alt="figure" src="../Images/CH04_F10_Infante2.png"/>
+<h5 class="figure-container-h5"><span class="num-string">图 4.9</span> 网络研究链概览</h5>
+</div>
+<div class="readable-text" id="p250">
+<p>如图4.9所示，来自网络搜索链的网络搜索会触发多个搜索与摘要链实例并行运行。每个链为特定的网络搜索生成摘要，然后这些摘要由研究报告链合并，以创建最终的研究报告。该过程的LCEL实现概述如下。将此代码添加到<code>chain_5_1.py</code>文件中。</p>
+</div>
+<div class="browsable-container listing-container" id="p251">
+<h5 class="listing-container-h5 browsable-container-h5"><span class="num-string">清单 4.13</span> 网络研究链</h5>
+<div class="code-area-container">
+<pre class="code-area">web_research_chain = (
+    assistant_instructions_chain 
+    | web_searches_chain 
+    | search_and_summarization_chain.map() # 为每个网络搜索并行化处理
+    | RunnableLambda(lambda x:
+       {
+           'research_summary': '\n\n'.join([i['summary'] for i in x]),
+           'user_question': x[0]['user_question'] if len(x) &gt; 0 else ''
+        })
+    | RESEARCH_REPORT_PROMPT_TEMPLATE | get_llm() | StrOutputParser()
+)</pre>
+</div>
+</div>
+<div class="readable-text" id="p252">
+<p>此设置遵循与搜索和摘要链相同的逻辑。这里使用<code>map()</code>操作符来启动多个搜索和摘要子链实例，使它们能够并发运行。然后，研究报告链被整合为整个网络研究链的一部分。要测试网络研究链，请使用以下脚本，并将其保存为<code>chain_try_5_1.py</code>。</p>
+</div>
+<div class="browsable-container listing-container" id="p253">
+<h5 class="listing-container-h5 browsable-container-h5"><span class="num-string">清单 4.14</span> 用于测试网络研究链的脚本</h5>
+<div class="code-area-container">
+<pre class="code-area">from chain_5_1 import web_research_chain
+
+question = 'What can I see and do in the Spanish town of Astorga?'
+
+web_research_report = web_research_chain.invoke(question)
+print(web_research_report)</pre>
+</div>
+</div>
+<div class="readable-text" id="p254">
+<p>运行此操作后，你将获得一份按照提示词要求以Markdown格式编排的研究报告。请注意，为简洁起见，此处示例报告已缩写：</p>
+</div>
+<div class="browsable-container listing-container" id="p255">
+<div class="code-area-container">
+<pre class="code-area"># 简介
+阿斯托加是西班牙西北部的一个小镇，或许并非人人都会将其列入旅行清单，但它却是一颗等待被发现的隐藏瑰宝。其历史可追溯至古罗马时代，拥有丰富的历史底蕴、令人惊叹的建筑、美味的当地美食和自然风光，在阿斯托加有许多值得一看和体验的事物。在本报告中，我们将探索阿斯托加的主要景点和活动，
+以及规划前往这个迷人西班牙小镇旅行的实用信息。
+
+
+# 阿斯托加的历史
+阿斯托加的历史可以追溯到公元前14年建立的古罗马定居点阿斯图里卡·奥古斯塔。该镇曾是一个重要的采矿中心，其位于朝圣之路（圣地亚哥之路的一部分）上的战略位置，使其成为朝圣者的重要停靠点。几个世纪以来，阿斯托加曾被西哥特人、摩尔人和基督徒等多个文明征服和统治。这里也曾是许多激烈战役的发生地，包括西班牙内战。尽管过去动荡不安，阿斯托加依然坚韧地存续下来，如今已成为一个拥有丰富文化遗产的宁静而迷人的小镇。
+# 阿斯托加的主要景点
+## 主教宫
+最具标志性的景点之一……</pre>
+</div>
+</div>
+<div class="readable-text" id="p256">
+<p>恭喜！你已经构建了一个基于LCEL的链，它整合了子链、内联链、lambda函数和并行化处理。这次动手实战会让你更容易创建自己的LCEL链。我建议花些时间在这个应用中尝试不同的链。调整提示词，改变生成的查询数量，或者根据你心中特定的网络研究类型来定制这个应用。</p>
+</div>
+<div class="readable-text print-book-callout" id="p257">
+<p><span class="print-book-callout-head">注意</span> 您所构建的研究摘要引擎的灵感来源于一个名为GPT Researcher的开源项目。浏览其GitHub仓库（<a href="https://github.com/assafelovic/gpt-researcher">https://github.com/assafelovic/gpt-researcher</a>，将向您展示一个支持多种搜索引擎和大型语言模型的强大平台，该平台具备记忆和压缩等功能。虽然它并未使用LCEL，但将其核心功能适配到基于LCEL的框架中，旨在为您阐明若干技术细节。如果可能，我建议您探索GPT Researcher的代码仓库，并在您的计算机上运行该项目。这是了解如何构建一个大语言模型应用程序（包括Web UI集成等超越引擎本身的方面）的绝佳方式。</p>
+</div>
+<div class="readable-text" id="p258">
+<h2 class="readable-text-h2">总结</h2>
+</div>
+<ul>
+<li class="readable-text" id="p259"> 研究型摘要引擎通过查询多个网络数据源并整合其发现，自动生成综合性研究报告，从而自动化原本需人工浏览网页与手动记录笔记的多源研究任务。</li>
+<li class="readable-text buletless-item" id="p260"> 典型的研究摘要工作流包括以下步骤： 
+    <ul>
+<li> 接收用户的研究问题 </li>
+<li> 基于大语言模型推理生成多组精准搜索查询 </li>
+<li> 从每份检索到的网页中提取并生成摘要内容 </li>
+<li> 将各独立摘要整合为统一的最终报告 </li>
+</ul> </li>
+<li class="readable-text" id="p261"> 该引擎整合三大核心操作：网页搜索 API（用于提交查询）、HTML 解析库（用于内容提取）和大语言模型调用（用于摘要生成与语义合成），每一项操作均独立处理异常与错误，确保系统整体的鲁棒性与模块化稳定性。</li>
+<li class="readable-text buletless-item" id="p262"> 提示词工程塑造了三个关键阶段： 
+    <ul>
+<li> <em>搜索查询生成</em>—将宽泛的问题转化为具体、有针对性的搜索关键词 </li>
+<li> <em>内容摘要</em>—从原始网页中提取关键事实与核心论点 </li>
+<li> <em>报告生成</em>—将分散的摘要整合为逻辑连贯、附有引用的综合性结论</li>
+</ul> </li>
+<li class="readable-text" id="p263"> LangChain 表达式语言（LCEL）使用管道操作符（<code>|</code>）进行链式操作，以组成顺序转换；每个组件的输出自动成为下一个组件的输入。</li>
+<li class="readable-text" id="p264"><code>RunnableParallel</code> 支持在相同输入上同时执行多个操作，通过将操作封装在 <code>RunnableParallel({"key1": operation1, "key2": operation2})</code> 中，即可实现并发运行。</li>
+<li class="readable-text" id="p265"><code>.map()</code> 操作符会为列表中的每一项触发一个独立的链实例，使用 <code>chain.map()</code> 可对URL或搜索结果进行并行处理，每个实例均同时运行。</li>
+<li class="readable-text" id="p266"><code>RunnableLambda</code> 用于将 Python 函数封装为可在 LCEL 链中使用的可运行对象，通过 <code>from langchain_core.runnables import RunnableLambda</code> 导入，并使用 <code>RunnableLambda(lambda x: your_function(x))</code> 进行实例化。</li>
+<li class="readable-text" id="p267">链实现了 <code>Runnable</code> 协议，包含以下方法：<code>.invoke()</code>（单次执行），<code>.stream()</code> (流式输出)和<code>.batch()</code>（批量处理），每个方法均配有用于并发操作的异步版本。</li>
+<li class="readable-text" id="p268">通过模块化方式构建链：分别为搜索查询生成、URL获取、内容提取和摘要创建独立的链，并使用 LangChain 表达式语言(LCEL)将其组合，以实现清晰、可维护的架构设计。</li>
+<li class="readable-text" id="p269"><code>RunnablePassthrough</code>在保留原始输入的同时，允许附加其他操作，可用于将原始问题贯穿整个链，同时从中生成搜索查询。</li>
+</ul>
+</body>
+</html>
